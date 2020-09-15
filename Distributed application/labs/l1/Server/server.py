@@ -8,39 +8,56 @@ from skimage.restoration import denoise_tv_chambolle, denoise_tv_bregman, denois
 from skimage.io import imread
 import matplotlib.pyplot as plt
 
-path = "C:\\Users\\ahumy\\OneDrive\\Рабочий стол\\Studying\\Protected distributed application protection technology\\labs\\lab1\\params.json"
+#paramsPath = "C:\\Users\\ahumy\\OneDrive\\Рабочий стол\\Studying\\Protected distributed application protection technology\\labs\\lab1\\params.json"
+paramsPath = "D:\\labs\\studying\\Distributed application\\labs\\l1\\params.json"
 
 chunkSize = 4096
 
 
 def parseParameters(serverInformationFilepath):
+    """
+        Функция для получения адреса 
+        и порта сервера из файла
+    """
     with open(serverInformationFilepath) as serverAddress:
         address = json.load(serverAddress)
         return address['HOST'], address['PORT']
 
 def getImageName(sock):
+    """
+        Получение имени файла из сокета
+    """
     imageNameAsBytes = sock.recv(chunkSize)
     return imageNameAsBytes.decode()
 
 def getImageSize(sock):
+    """
+        Получение размера файла из сокета
+    """
     rawData = sock.recv(chunkSize)
     return int(rawData.decode())
 
 def getAndSaveImage2(sock, imageName, imageSize):
+    """
+        Получение файла из сокета
+    """
     f = open(imageName, 'wb')
-    currentImageSize = 0
+    currentImageSize = 0 # количество полученной информации из сокета
+
+    #до тех пор, пока мы не получили всю информацию из сокета
     while currentImageSize < imageSize:
-        l = sock.recv(chunkSize)
-        f.write(l)
-        currentImageSize += chunkSize
+        l = sock.recv(chunkSize) #получаем порцию изображения из сокета
+        f.write(l) #записываем в файл
+        currentImageSize += chunkSize #увеличиваем "счетчик"
     f.close()
     return True
 
-
-def denoise(noisy, weight):
-    return denoise_tv_chambolle(noisy, weight=weight, multichannel=True)
-
 def denoiseAndCompare(noisy, weight=0.1, figsize = (16, 8)):
+    """
+        Функция для убирания шумов и сравнения
+        просто используем библиотечные функции
+        и показываем результат на экране
+    """
     fig, ax = plt.subplots(nrows=1, ncols=4, figsize=figsize,
                        sharex=True, sharey=True)
 
@@ -69,20 +86,20 @@ def denoiseAndCompare(noisy, weight=0.1, figsize = (16, 8)):
 
 
 if __name__ == "__main__":
-    host, port = parseParameters(path)
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
-        ssock = ssl.wrap_socket(sock, 'localhost.key', 'localhost.crt', True) 
+    host, port = parseParameters(paramsPath) #получаем адрес сервера
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock: #создаем сокет
+        ssock = ssl.wrap_socket(sock, 'localhost.key', 'localhost.crt', True) #оборачиваем сокет в SSL
         print('Server started')
-        ssock.bind((host, port))
+        ssock.bind((host, port)) #привязываем сокет к адресу
         print('listening')
-        ssock.listen(1)
-        connection, client_address = ssock.accept()
+        ssock.listen(1) # "слушаем" подключения
+        connection, client_address = ssock.accept() #принимаем подключение
         print('client connected: {}'.format(client_address))
-        imageName = getImageName(connection)
+        imageName = getImageName(connection) #получаем имя зашумленного файла
         print("got image name: {}".format(imageName))
-        imageSize = getImageSize(connection)
+        imageSize = getImageSize(connection) #получаем размера зашумленного файла
         print("got image size: {}".format(imageSize))
-        result = getAndSaveImage2(connection, imageName, imageSize)
-        if result: denoiseAndCompare(imread(imageName))
+        result = getAndSaveImage2(connection, imageName, imageSize) #получаем зашумленный файл
+        if result: denoiseAndCompare(imread(imageName)) #смотрим результат
 
     
