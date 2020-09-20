@@ -43,7 +43,7 @@ def userBehaviourVerification(behaviourModel, userActionSequence,
     N = len(userActionSequence)
     howMany = 0
     
-    result = ""
+    result = ''
     for i in range(N - 1):
         state = getState(userActionSequence, i)
         
@@ -52,9 +52,9 @@ def userBehaviourVerification(behaviourModel, userActionSequence,
             probability = behaviourModel[state]
             if not _in(probability, confidenceInterval):
                 howMany += 1
-                message = 'Аномалия!!! Вероятность перехода: {}, интервал: {}, действия: {}\n'.format(probability, confidenceInterval, state)
+                message = 'Anomaly: probability = {}, interval = {}, state = {}\n'.format(probability, confidenceInterval, state)
         else:
-            message = 'Пользователь раньше никогда не совершал последовательность действий: {}\n'.format(state)
+            message = 'The user has never performed this sequence of actions before: {}\n'.format(state)
             howMany += 1
         
         result += message
@@ -67,33 +67,35 @@ def main():
         _, sequence = getUserNameAndActionSequence(data[index])
         return userBehaviourVerification(model, sequence)
     
-    def buildMessage(source, name, message, counter, template):
-        source += 'Проверяем пользователя {}: {} data\n'.format(name, template)
+    def buildMessage(source, dataType, verificationInformation):
+        dataTypeCounter, message = verificationInformation
+        source += 'data {}\n'.format(dataType)
         source += message
-        source += 'Количество аномалий: {}\n'.format(counter)
+        source += 'Number of anomalies: {}\n'.format(dataTypeCounter)
         return source
     
+    def getMessage(userName, userBehaviourModel, data, index):
+        trueData, fakeData = data
+        resultMessage = ""
+        resultMessage = userName + " behaviour model: " + str(userBehaviourModel) + '\n'
+        resultMessage = buildMessage(resultMessage, 'true', verification(userBehaviourModel, trueData, i))
+        resultMessage += '\n'
+        resultMessage = buildMessage(resultMessage, 'false', verification(userBehaviourModel, fakeData, i))
+        resultMessage += "\n\n\n"
+        return resultMessage
+        
+    
     learningData = getData(dataFilename)
-    trueData = getData(trueDataFilename)
-    fakeData = getData(fakeDataFilename)
+    data = (getData(trueDataFilename), getData(fakeDataFilename))
     
     message = ""
     
     for i in range(len(learningData)):
         userName, userLearningSequence = getUserNameAndActionSequence(learningData[i])
         userBehaviourModel = createBehaviorModel(userLearningSequence)
-        
-        howManyTrue, trueMessages = verification(userBehaviourModel, trueData, i)
-        howManyFake, fakeMessages = verification(userBehaviourModel, fakeData, i)
-        
-        resultMessage = ""
-        resultMessage = buildMessage(resultMessage, userName, trueMessages, howManyTrue, 'true')
-        resultMessage += '\n'
-        resultMessage = buildMessage(resultMessage, userName, fakeMessages, howManyTrue, 'false')
-        resultMessage += "\n\n\n"
-        
-        message += resultMessage
+        message += getMessage(userName, userBehaviourModel, data, i)
     
+
     f = open(outputFilename, 'w')
     f.write(message)
     f.close()
