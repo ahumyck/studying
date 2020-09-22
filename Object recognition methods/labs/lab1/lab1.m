@@ -1,3 +1,4 @@
+clc;
 clear;
 
 %Initialization
@@ -38,9 +39,9 @@ end
 
 %Draw X1 data
 %figure
-%scatter(X1(1, :),X1(2, :), 5, 'red', 'fill');
-%xlim([-1 1])
-%ylim([-1 1])
+scatter(X1(1, :),X1(2, :), 5, 'red', 'fill');
+xlim([-1 1])
+ylim([-1 1])
 
 %Save X1 data to file
 %save('data_1.mat', 'X1');
