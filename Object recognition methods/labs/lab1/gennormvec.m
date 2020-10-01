@@ -2,7 +2,6 @@ function X = gennormvec(M, B, n, N)
 X = zeros(n, N);
 A = zeros(2, 2);
 
-%определение параметров лин преобр
 A(1, 1) = sqrt(B(1, 1));
 A(1, 2) = 0;
 A(2, 1) = B(1, 2) / sqrt(B(1, 1));
