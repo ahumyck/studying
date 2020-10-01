@@ -6,7 +6,7 @@ function [M,B] = estimation(X)
 M = zeros(n, 1);
 
 for i = 1:n
-    M(i) = sum(X(i, :)) / N;
+    M(i) = mean(X(i, :));
 end
 
 B = zeros(n, n);

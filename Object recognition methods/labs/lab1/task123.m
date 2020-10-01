@@ -2,22 +2,29 @@ clc;
 clear;
 
 n = 2;
-N = 2000;
+N = 100000;
 
+%params for normal distribution 1
 M1 = [0; 0];
-B1 = [0.1 0; 0 0.1];
+B1 = [0.4 -0.1; -0.1 0.1];
 
+%params for normal distribution 2
 M2 = [-0.5; 0.5];
 B2 = [0.2 0; 0 0.2];
 
+%params for normal distribution 3
 M3 = [1; -1];
-B3 = [0.5 0; 0 0.5];
+B3 = [0.1 0.5; 0 0.5];
 
+
+%special A matrices from METODA1_v2.pdf
 A1 = recurrentMatrix(B1);
 A2 = recurrentMatrix(B2);
 A3 = recurrentMatrix(B3);
-y = zeros(n, N);
 
+
+%kod iz la1.m, kotoriy nam dali
+y = zeros(n, N);
 
 for i = 1:n
     for j = 1:N
@@ -27,6 +34,8 @@ for i = 1:n
     end
 end
 
+
+%formula to get random distributed vectors
 X1 = A1 * y + M1;
 X2 = A2 * y + M2;
 X3 = A3 * y + M3;
