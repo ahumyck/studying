@@ -3,12 +3,8 @@ function [M,B] = estimation(X)
 %   Detailed explanation goes here
 
 [n, N] = size(X);
-M = zeros(n, 1);
 
-for i = 1:n
-    M(i) = mean(X(i, :));
-end
-
+M = mean(X, n);
 B = zeros(n, n);
 
 for i = 1:n
