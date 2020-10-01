@@ -52,9 +52,9 @@ xlim([-2 2])
 ylim([-2 2])
 
 %Save X1 data to file
-save('data_1.mat', 'X1');
-save('data_2.mat', 'X2');
-save('data_2.mat', 'X3');
+save('X1.mat', 'X1');
+save('X2.mat', 'X1');
+save('X3.mat', 'X1');
 
 %X11 = load('data_1.mat');
 
