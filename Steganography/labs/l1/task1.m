@@ -1,27 +1,29 @@
 clear;
-containerName = "goldhill.tif"; %имя изображения, куда будем встраивать информацию
-informationName = "mickey.tif"; %имя изображения, в котором содержится информация
+clc;
+
+containerName = "goldhill.tif";
+informationName = "mickey.tif";
 p = 3;
 
-container = imread(containerName); % загружаем контейнер
-information = imread(informationName); %загружаем информацию
+C = imread(containerName);
+W = imread(informationName);
 
 % делим каждый элемент матрицы на 255, чтобы она состояла только из 0 и 1
-information = information / 255; 
+W = W / 255; 
 
 % достаём биты из p плоски изображения в контейнере
-bits = bitget(container, p); 
+Cp = bitget(C, p); 
 
 % применяем формулу (3.5)
-secretBits = not(xor(information, bits));
+C = not(xor(W, Cp));
 
 % встраиваем зашифрованные биты обратно в контейнер
-encryptedInformation = bitset(container, p, secretBits); 
+Cw = bitset(C, p, Cwb); 
 
 % применяем формулу (3.5) чтобы из зашифрованного контейнера получить
 % изображение
-decryptedInformation = not(bitxor(encryptedInformation, container));
+d = not(bitxor(Cw, C));
 
-subplot(1, 3, 1); imshow(container); impixelinfo; title('Контейнер');
-subplot(1, 3, 2); imshow(encryptedInformation); impixelinfo; title('Зашифрованный контейнер');
+subplot(1, 3, 1); imshow(C); impixelinfo; title('C');
+subplot(1, 3, 2); imshow(Cw); impixelinfo; title('Cw');
 subplot(1, 3, 3); imshow(decryptedInformation); impixelinfo; title('NOT XOR');
