@@ -2,7 +2,7 @@ clc;
 clear;
 
 n = 2;
-N = 200;
+N = 2000;
 
 M1 = [0; 0];
 B1 = [0.1 0; 0 0.1];
@@ -10,8 +10,8 @@ B1 = [0.1 0; 0 0.1];
 M2 = [-0.5; 0.5];
 B2 = [0.2 0; 0 0.2];
 
-M3 = [0; 0];
-B3 = [0.1 0.1; 0.1 0.1];
+M3 = [1; -1];
+B3 = [0.5 0; 0 0.5];
 
 A1 = recurrentMatrix(B1);
 A2 = recurrentMatrix(B2);
@@ -53,10 +53,7 @@ ylim([-2 2])
 
 %Save X1 data to file
 save('X1.mat', 'X1');
-save('X2.mat', 'X1');
-save('X3.mat', 'X1');
-
-%X11 = load('data_1.mat');
-
+save('X2.mat', 'X2');
+save('X3.mat', 'X3');
 
 
