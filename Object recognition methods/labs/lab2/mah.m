@@ -1,7 +1,7 @@
-function [p] = mah(M0, M1, B)
+function [p] = mah(M2, M1, B)
 %MAH Summary of this function goes here
 %   Detailed explanation goes here
-dM = (M1 - M0);
-p = dM' / B * dM; 
+dM = (M2 - M1);
+p = 0.5 * (dM' / B * dM); 
 end
 
