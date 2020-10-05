@@ -50,13 +50,14 @@ custom_disp(M3, M3o, B3, B3o, 3);
 fprintf("bha12 = %f\n", bha(M1, B1, M2, B2));
 fprintf("bha13 = %f\n", bha(M1, B1, M3, B3));
 fprintf("bha23 = %f\n", bha(M2, B2, M3, B3)); 
-fprintf("mah with B(%d)and M(%d, %d) = %f\n", 1, 1, 2, mah(M1, M2, B1));
+fprintf("mah with B(%d) and M(%d, %d) = %f\n", 2, 1, 3, mah(M1, M3, B2));
+fprintf("bha with B(%d) and M(%d, %d) = %f\n", 2, 1, 3, bha(M1, B2, M3, B2));
 
 %Save X1 data to file
-%save('X1.mat', 'X1');
-%save('X2.mat', 'X2');
-%save('X3.mat', 'X3');
+save('X1.mat', 'X1');
+save('X2.mat', 'X2');
+save('X3.mat', 'X3');
 
-%save('Y1.mat', 'Y1');
-%save('Y2.mat', 'Y2');
+save('Y1.mat', 'Y1');
+save('Y2.mat', 'Y2');
 

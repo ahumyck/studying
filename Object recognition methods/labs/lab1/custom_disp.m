@@ -3,12 +3,13 @@ function [] = custom_disp(M, Mo, B, Bo, ind)
 %   Detailed explanation goes here
 fprintf("M(%d)\n", ind);
 disp(M);
-disp("Mo = ");
-disp(Mo);
-
 fprintf("B(%d)\n", ind);
 disp(B);
-disp("Bo = ");
+
+
+fprintf("~M(%d)\n", ind);
+disp(Mo);
+fprintf("~B(%d)\n", ind);
 disp(Bo);
 fprintf("\n\n");
 end
