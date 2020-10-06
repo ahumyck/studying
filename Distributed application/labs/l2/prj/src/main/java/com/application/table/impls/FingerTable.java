@@ -21,6 +21,10 @@ public class FingerTable {
 		return records.stream();
 	}
 
+	public int size() {
+		return records.size();
+	}
+
 	public List<FingerTableRecord> getRecords() {
 		return records;
 	}

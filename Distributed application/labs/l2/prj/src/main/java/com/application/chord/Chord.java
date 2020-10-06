@@ -13,43 +13,98 @@ public class Chord {
 	private boolean isEmpty = true;
 	private final List<ChordNode> nodes;
 	private final List<ChordNode> activeNodes;
-	private final FingerPositionCalculator calculator = FingerPositionCalculator.getCalculator();
+	private final static FingerPositionCalculator calculator = FingerPositionCalculator.getCalculator();
 
 
 	public Chord(int m) {
 		this.m = m;
-		activeNodes = new ArrayList<>();
+		this.activeNodes = new ArrayList<>();
 
-		nodes = new ArrayList<>();
+		this.nodes = new ArrayList<>();
 		int n = (int) Math.pow(2, m);
 		for (int i = 0; i < n; i++) {
-			nodes.add(new ChordNode(i, m));
+			this.nodes.add(new ChordNode(i, m));
 		}
 
 	}
 
 	public ChordNode findSuccessor(int id) throws Exception {
-		if (activeNodes.size() != 0) {
+		if (!isEmpty) {
 			return findSuccessorForId(activeNodes.get(0).getId(), id);
 		}
 		throw new Exception("No active nodes");
+	}
+
+	public ChordNode findPredecessor(int id) throws Exception {
+		if (!isEmpty) {
+			return findPredecessorForId(activeNodes.get(0).getId(), id);
+		}
+		throw new Exception("no active nodes");
 	}
 
 	public ChordNode findSuccessorForId(int startChordNodeId, int id) throws Exception {
 		return nodes.get(startChordNodeId).findSuccessor(id);
 	}
 
-	public Chord add(int index) {
+	public ChordNode findPredecessorForId(int startChordNodeId, int id) throws Exception {
+		return nodes.get(startChordNodeId).findPredecessor(id);
+	}
+
+	public void add(int index) {
 		ChordNode node = nodes.get(index);
 		if (isEmpty) {
 			initializeFirstChordNode(node);
 			isEmpty = false;
 		} else {
 			initializeAnyChordNode(node);
+			updateActiveChordNodesFingerTable(node);
 		}
 		activeNodes.add(node);
 		activeNodes.sort(Comparator.comparingInt(ChordNode::getId));
-		return this;
+	}
+
+	private void updateActiveChordNodesFingerTable(ChordNode node) {
+		try {
+			for (int i = 0; i < m; i++) {
+				int id = calculator.calculatePredecessorIndex(node.getId(), i, m);
+				ChordNode predecessor;
+				if (nodes.get(id).isActive()) {
+					predecessor = nodes.get(i);
+				} else {
+					predecessor = findPredecessor(id);
+				}
+				updateFingers(node, predecessor, i);
+			}
+		}
+		catch (Exception ignored) {
+		}
+	}
+
+	private void updateFingers(ChordNode joinNode, ChordNode predecessorNode, int fingerIndex) {
+		if (joinNode.getId() == predecessorNode.getId()) {
+			return;
+		}
+		try {
+			FingerTableRecord record = predecessorNode.getFingerTable().getFinger(fingerIndex);
+			if (Interval.leftIn(record.getStart().getId(), record.getNode().getId(), joinNode.getId())) {
+				record.setNode(joinNode);
+				updateFingers(joinNode, predecessorNode.getPredecessor(), fingerIndex);
+			}
+		}
+		catch (Exception ignored) {
+
+		}
+		//		try {
+		//			FingerTableRecord finger = node.getFingerTable().getFinger(recordIndex);
+		//			if (Interval.leftIn(node.getId(), finger.getNode().getId(), replacement.getId())) {
+		//				finger.setNode(replacement);
+		//				ChordNode predecessor = node.getPredecessor();
+		//				updateFingers(joinNode, predecessor, replacement, recordIndex, depth + 1);
+		//			}
+		//		}
+		//		catch (Exception ignored) {
+		//
+		//		}
 	}
 
 	private void initializeAnyChordNode(ChordNode anyNode) {
@@ -57,7 +112,6 @@ public class Chord {
 			anyNode.setActive(true);
 			int anyNodeId = anyNode.getId();
 			List<FingerTableRecord> records = new ArrayList<>();
-			ChordNode activeNode = activeNodes.get(0);
 
 			int startId = calculator.calculateSuccessorIndex(anyNodeId, 0, m);
 			int endId = calculator.calculateSuccessorIndex(anyNodeId, 1, m);

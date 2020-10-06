@@ -6,7 +6,7 @@ public class Interval {
 	}
 
 	public static boolean leftIn(int left, int right, int value) {
-		return action(left, right, value, Operator.LESS_OR_EQUAL, Operator.LESS, true);
+		return action(left, right, value, Operator.LESS_OR_EQUAL, Operator.LESS, false);
 	}
 
 	public static boolean in(int left, int right, int value) {

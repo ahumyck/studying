@@ -1,6 +1,7 @@
 package com.application.chord;
 
 import com.application.comparators.Interval;
+import com.application.table.FingerPositionCalculator;
 import com.application.table.impls.FingerTable;
 import com.application.table.impls.FingerTableRecord;
 
@@ -9,32 +10,22 @@ import java.util.List;
 
 public class ChordNode {
 	private final int id;
+	private final int m;
 	private boolean isActive = false;
+
 	private ChordNode predecessor = null;
 	private ChordNode successor = null;
 	private FingerTable fingerTable = null;
-	private final int m;
+	private final static FingerPositionCalculator calculator = FingerPositionCalculator.getCalculator();
 
-	public ChordNode(int id, int m) {
+	public ChordNode(int id,int m) {
 		this.id = id;
 		this.m = m;
 	}
 
 	public ChordNode findSuccessor(int id) throws Exception {
 		return findPredecessor(id).getSuccessor();
-		//		if (isActive) {
-		//			for (int i = m - 1; i >= 0; i--) {
-		//				FingerTableRecord finger = fingerTable.getFinger(i);
-		//				ChordNode start = finger.getStart();
-		//				ChordNode node = finger.getNode();
-		//				if (Interval.bothIn(start.id, node.id, id)) {
-		//					return node;
-		//				}
-		//			}
-		//			return this;
-		//		} else {
-		//			throw new Exception("ChordNode=" + this.id + " is not active");
-		//		}
+
 	}
 
 	public ChordNode findPredecessor(int id) throws Exception {
@@ -43,12 +34,11 @@ public class ChordNode {
 			node = getClosestPrecedingFinger(id);
 		}
 		return node;
-		//		return this;
 	}
 
 	private ChordNode getClosestPrecedingFinger(int id) throws Exception {
 		if (isActive) {
-			for (int i = m - 1; i >= 0; i--) {
+			for (int i = fingerTable.size() - 1; i >= 0; i--) {
 				ChordNode node = fingerTable.getFinger(i).getNode();
 				if (Interval.in(this.id, id, node.getId())) {
 					return node;
@@ -72,18 +62,16 @@ public class ChordNode {
 		throw new Exception("ChordNode=" + this.id + " is not active");
 	}
 
-	public ChordNode updateFingerTable(FingerTable fingerTable) throws Exception {
+	public void updateFingerTable(FingerTable fingerTable) throws Exception {
 		if (isActive) {
 			this.fingerTable = fingerTable;
-			return this;
 		}
 		throw new Exception("ChordNode=" + this.id + " is not active");
 	}
 
-	public ChordNode updateFingerTable(List<FingerTableRecord> records) throws Exception {
+	public void updateFingerTable(List<FingerTableRecord> records) throws Exception {
 		if (isActive) {
 			this.fingerTable = new FingerTable(records);
-			return this;
 		}
 		throw new Exception("ChordNode=" + this.id + " is not active");
 	}
