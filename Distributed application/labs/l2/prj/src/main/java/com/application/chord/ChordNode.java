@@ -22,6 +22,9 @@ public class ChordNode {
 	}
 
 	public ChordNode findSuccessor(int id) throws ChordNodeIsNotActiveException {
+		if (this.id == id) {
+			return this;
+		}
 		return findPredecessor(id).getSuccessor();
 
 	}

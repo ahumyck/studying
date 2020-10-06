@@ -32,6 +32,9 @@ public class Chord {
 
 	public ChordNode findSuccessor(int id) throws ChordHasNoActiveNodesException, ChordNodeIsNotActiveException {
 		if (!isEmpty) {
+//			if (nodes.get(id).isActive()) {
+//				return nodes.get(id).getSuccessor();
+//			}
 			return findSuccessorForId(activeNodes.get(0).getId(), id);
 		}
 		throw new ChordHasNoActiveNodesException("No active nodes");

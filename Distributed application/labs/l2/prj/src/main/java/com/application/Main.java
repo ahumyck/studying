@@ -12,5 +12,7 @@ public class Main {
 		chord.add(0);
 		chord.add(1);
 		chord.add(3);
+		chord.add(6);
+		System.out.println(chord);
 	}
 }
