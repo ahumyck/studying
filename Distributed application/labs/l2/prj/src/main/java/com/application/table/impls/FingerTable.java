@@ -20,6 +20,10 @@ public class FingerTable {
 		return records.stream();
 	}
 
+	public void setRecord(FingerTableRecord record, int recordIndex){
+		records.set(recordIndex, record);
+	}
+
 	public int size() {
 		return records.size();
 	}
