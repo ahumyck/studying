@@ -1,9 +1,8 @@
 package com.application.chord;
 
-import com.application.Interval;
+import com.application.comparators.Interval;
 import com.application.table.impls.FingerTable;
 import com.application.table.impls.FingerTableRecord;
-import sun.reflect.annotation.ExceptionProxy;
 
 import java.util.List;
 
