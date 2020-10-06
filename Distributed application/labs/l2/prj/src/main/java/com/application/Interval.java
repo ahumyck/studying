@@ -1,30 +1,43 @@
 package com.application;
 
-import java.math.BigInteger;
-
 public class Interval {
-	private int start;
-	private int end;
-	
-	public Interval(int start, int end) {
-		this.start = start;
-		this.end = end;
+	public static boolean rightIn(int left, int right, int value) {
+		if (left < right) {
+			return left < value && value <= right;
+		} else if (left == right) {
+			return true;
+		} else {
+			return left < value || value <= right;
+		}
 	}
-	
-	public int getStart() {
-		return start;
-	}
-	
-	public int getEnd() {
-		return end;
-	}
-	/**
-	 * method returns true if value in [start; end)
-	 * false otherwise
-	 * */
-	public boolean in(int value) {
 
-		return start <= value && value < end;
+	public static boolean leftIn(int left, int right, int value) {
+		if (left < right) {
+			return left <= value && value < right;
+		} else if (left == right) {
+			return true;
+		} else {
+			return left <= value || value < right;
+		}
 	}
-	
+
+	public static boolean in(int left, int right, int value) {
+		if (left < right) {
+			return left < value && value < right;
+		} else if (left == right) {
+			return false;
+		} else {
+			return left < value || value < right;
+		}
+	}
+
+	public static boolean bothIn(int left, int right, int value) {
+		if (left < right) {
+			return left <= value && value <= right;
+		} else if (left == right) {
+			return true;
+		} else {
+			return left <= value || value <= right;
+		}
+	}
 }
