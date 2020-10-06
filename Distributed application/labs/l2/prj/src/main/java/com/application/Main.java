@@ -10,9 +10,15 @@ public class Main {
 		int m = 3;
 		Chord chord = new Chord(m);
 		chord.add(0);
+		System.out.println(0);
 		chord.add(1);
+		System.out.println(1);
 		chord.add(3);
-		chord.add(6);
+		System.out.println(3);
+		chord.add(5);
+		System.out.println(5);
+		chord.add(7);
+		System.out.println(7);
 		System.out.println(chord);
 	}
 }

@@ -32,7 +32,7 @@ public class ChordNode {
 	public ChordNode findPredecessor(int id) throws ChordNodeIsNotActiveException {
 		ChordNode node = this;
 		while (!Interval.rightIn(node.getId(), node.getSuccessor().getId(), id)) {
-			node = getClosestPrecedingFinger(id);
+			node = node.getClosestPrecedingFinger(id);
 		}
 		return node;
 	}

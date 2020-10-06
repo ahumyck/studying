@@ -74,7 +74,7 @@ public class Chord {
 				int id = calculator.calculatePredecessorIndex(node.getId(), i, m);
 				ChordNode predecessor;
 				if (nodes.get(id).isActive()) {
-					predecessor = nodes.get(i);
+					predecessor = nodes.get(id);
 				} else {
 					predecessor = findPredecessor(id);
 				}
