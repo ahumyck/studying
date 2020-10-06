@@ -5,12 +5,6 @@ import com.application.chord.ChordNode;
 public class FingerTableRecord {
 	private ChordNode start;
 	private ChordNode end;
-
-
-	/* either startId or successor(startId)
-	*  nodeId == startId only and only if startId is active node
-	* */
-	//	private ChordNode node;
 	private ChordNode node;
 
 	public FingerTableRecord(ChordNode start, ChordNode end, ChordNode node) {
@@ -45,17 +39,6 @@ public class FingerTableRecord {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder("\n\t\tFingerTableRecord{");
-		builder.append(", start=").append(start.getId());
-		builder.append(", end=").append(end.getId());
-		builder.append(", node=");
-		if(node != null){
-			builder.append(node.getId());
-		}
-		else{
-			builder.append("null");
-		}
-		builder.append('}');
-		return builder.toString();
+		return "\n\t\tFingerTableRecord{" + ", start=" + start.getId() + ", end=" + end.getId() + ", node=" + node.getId() + '}';
 	}
 }

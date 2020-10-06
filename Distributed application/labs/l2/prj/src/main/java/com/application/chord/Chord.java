@@ -1,6 +1,8 @@
 package com.application.chord;
 
 import com.application.comparators.Interval;
+import com.application.exceptions.ChordHasNoActiveNodesException;
+import com.application.exceptions.ChordNodeIsNotActiveException;
 import com.application.table.FingerPositionCalculator;
 import com.application.table.impls.FingerTableRecord;
 
@@ -23,30 +25,30 @@ public class Chord {
 		this.nodes = new ArrayList<>();
 		int n = (int) Math.pow(2, m);
 		for (int i = 0; i < n; i++) {
-			this.nodes.add(new ChordNode(i, m));
+			this.nodes.add(new ChordNode(i));
 		}
 
 	}
 
-	public ChordNode findSuccessor(int id) throws Exception {
+	public ChordNode findSuccessor(int id) throws ChordHasNoActiveNodesException, ChordNodeIsNotActiveException {
 		if (!isEmpty) {
 			return findSuccessorForId(activeNodes.get(0).getId(), id);
 		}
-		throw new Exception("No active nodes");
+		throw new ChordHasNoActiveNodesException("No active nodes");
 	}
 
-	public ChordNode findPredecessor(int id) throws Exception {
+	public ChordNode findPredecessor(int id) throws ChordHasNoActiveNodesException, ChordNodeIsNotActiveException {
 		if (!isEmpty) {
 			return findPredecessorForId(activeNodes.get(0).getId(), id);
 		}
-		throw new Exception("no active nodes");
+		throw new ChordHasNoActiveNodesException("no active nodes");
 	}
 
-	public ChordNode findSuccessorForId(int startChordNodeId, int id) throws Exception {
+	private ChordNode findSuccessorForId(int startChordNodeId, int id) throws ChordNodeIsNotActiveException {
 		return nodes.get(startChordNodeId).findSuccessor(id);
 	}
 
-	public ChordNode findPredecessorForId(int startChordNodeId, int id) throws Exception {
+	private ChordNode findPredecessorForId(int startChordNodeId, int id) throws ChordNodeIsNotActiveException {
 		return nodes.get(startChordNodeId).findPredecessor(id);
 	}
 
@@ -94,17 +96,6 @@ public class Chord {
 		catch (Exception ignored) {
 
 		}
-		//		try {
-		//			FingerTableRecord finger = node.getFingerTable().getFinger(recordIndex);
-		//			if (Interval.leftIn(node.getId(), finger.getNode().getId(), replacement.getId())) {
-		//				finger.setNode(replacement);
-		//				ChordNode predecessor = node.getPredecessor();
-		//				updateFingers(joinNode, predecessor, replacement, recordIndex, depth + 1);
-		//			}
-		//		}
-		//		catch (Exception ignored) {
-		//
-		//		}
 	}
 
 	private void initializeAnyChordNode(ChordNode anyNode) {

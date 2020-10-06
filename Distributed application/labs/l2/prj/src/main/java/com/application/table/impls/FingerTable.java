@@ -8,7 +8,6 @@ import java.util.stream.Stream;
 public class FingerTable {
 	List<FingerTableRecord> records;
 
-
 	public FingerTable(List<FingerTableRecord> records) {
 		this.records = records;
 	}
