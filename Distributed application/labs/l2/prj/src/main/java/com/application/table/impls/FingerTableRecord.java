@@ -2,6 +2,8 @@ package com.application.table.impls;
 
 import com.application.chord.ChordNode;
 
+import java.util.Objects;
+
 public class FingerTableRecord {
 	private ChordNode start;
 	private ChordNode end;
@@ -35,6 +37,11 @@ public class FingerTableRecord {
 
 	public void setEnd(ChordNode end) {
 		this.end = end;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(start, end, node);
 	}
 
 	@Override

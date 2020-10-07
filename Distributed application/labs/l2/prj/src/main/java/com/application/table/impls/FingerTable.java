@@ -3,6 +3,7 @@ package com.application.table.impls;
 import com.application.comparators.Operator;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Stream;
 
 public class FingerTable {

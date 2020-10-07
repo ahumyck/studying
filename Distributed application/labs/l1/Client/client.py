@@ -8,8 +8,7 @@ from skimage.io import imread, imsave
 
 imageName = "img.png"
 noiseImageName = "noise.png"
-#paramsPath = "C:\\Users\\ahumy\\OneDrive\\Рабочий стол\\Studying\\Protected distributed application protection technology\\labs\\lab1\\params.json"
-paramsPath = "D:\\labs\\studying\\Distributed application\\labs\\l1\\params.json"
+paramsPath = "C:\\labs\\\studying\\Distributed application\\labs\\l1\\params.json"
 
 chunkSize = 4096
 

@@ -16,12 +16,10 @@ public class FingerPositionCalculator {
 	 * @return calculates formula (2^i + n) mod m
 	 */
 	public int calculateSuccessorIndex(int n, int i, int m) {
-		int mod = (int) Math.pow(2, m);
-		return (int) ((n + Math.pow(2, i)) % mod);
+		return (int) ((n + Math.pow(2, i)) % m);
 	}
 
 	public int calculatePredecessorIndex(int n, int i, int m) {
-		int mod = (int) Math.pow(2, m);
-		return (int) ((n - Math.pow(2, i) + mod) % mod);
+		return (int) ((n - Math.pow(2, i) + m) % m);
 	}
 }

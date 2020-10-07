@@ -7,6 +7,7 @@ import com.application.table.impls.FingerTable;
 import com.application.table.impls.FingerTableRecord;
 
 import java.util.List;
+import java.util.Objects;
 
 
 public class ChordNode {
@@ -73,6 +74,7 @@ public class ChordNode {
 	public void updateFingerTable(List<FingerTableRecord> records) throws ChordNodeIsNotActiveException {
 		if (isActive) {
 			this.fingerTable = new FingerTable(records);
+			return;
 		}
 		throw new ChordNodeIsNotActiveException(this.id);
 	}
@@ -113,6 +115,23 @@ public class ChordNode {
 
 	public void setActive(boolean active) {
 		isActive = active;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		ChordNode chordNode = (ChordNode) o;
+		return id == chordNode.id;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
 	}
 
 	@Override

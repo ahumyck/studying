@@ -8,8 +8,7 @@ from skimage.restoration import denoise_tv_chambolle, denoise_tv_bregman, denois
 from skimage.io import imread
 import matplotlib.pyplot as plt
 
-#paramsPath = "C:\\Users\\ahumy\\OneDrive\\Рабочий стол\\Studying\\Protected distributed application protection technology\\labs\\lab1\\params.json"
-paramsPath = "D:\\labs\\studying\\Distributed application\\labs\\l1\\params.json"
+paramsPath = "C:\\labs\\\studying\\Distributed application\\labs\\l1\\params.json"
 
 chunkSize = 4096
 

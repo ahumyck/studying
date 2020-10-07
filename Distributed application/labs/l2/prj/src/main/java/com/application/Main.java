@@ -7,15 +7,22 @@ public class Main {
 		//https://www.kth.se/social/upload/51647996f276545db53654c0/3-chord.pdf
 		//http://www.cs.uoi.gr/~pitoura/courses/p2p/chord.pdf
 		//http://www.inf.ed.ac.uk/teaching/courses/ip/chord-desc.html
-		int m = 3;
-		Chord chord = new Chord(m);
+		int n = 8;
+		Chord chord = new Chord(n);
 		chord.add(0);
 		chord.add(1);
 		chord.add(3);
-		chord.add(5);
-		chord.add(7);
 		System.out.println(chord);
-		chord.remove(7);
+		System.out.println("\n\n\n");
+		chord.add(6);
 		System.out.println(chord);
+		System.out.println("\n\n\n");
+		chord.remove(1);
+		chord.remove(3);
+		System.out.println(chord);
+		System.out.println();
+		int id = 3;
+
+		System.out.println("successor(" + id + ")=" + chord.findSuccessor(id).getId());
 	}
 }
