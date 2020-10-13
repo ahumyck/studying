@@ -1,0 +1,35 @@
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened class="sidebar">
+        <h2>Configuration</h2>
+        <p *ngIf="message" class="alert alert-danger">{{message}}</p>
+
+        <textarea cols="50" rows="4" [(ngModel)]="value"></textarea>
+
+        <form class="settings">
+          <button mat-stroked-button color="primary" class="button" (click)="getNewChord()">New Chord System</button>
+        </form>
+
+          <button mat-stroked-button color="primary" class="button" (click)="addChordNode()">Add Active Chord Node</button>
+        <form class="settings">
+        </form>
+
+          <button mat-stroked-button color="primary" class="button" (click)="removeChordNode()">Disable Chord Node</button>
+        <form class="settings">
+        </form>
+
+        <form class="settings">
+          <button mat-stroked-button color="primary" class="button" (click)="getMetaData()">Get Chord Node Metadata</button>
+        </form>
+
+        <textarea rows="25" cols="50" *ngIf="metadata">{{metadata}}</textarea>
+
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <ng2-cytoscape
+                [elements]="graphData"
+                [layout]="layout">
+        </ng2-cytoscape>
+        
+    </mat-drawer-content>
+</mat-drawer-container>
