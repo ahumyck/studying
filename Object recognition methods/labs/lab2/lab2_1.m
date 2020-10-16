@@ -12,13 +12,12 @@ X2 = gennormvec(M2, B1, n, N);
 
 p = mah(M1, M2, B1);
 
-%Байесовская дискриминантная функция
+%Bayesovskaya discriminantnaya function
 d = 0.5*(M2+M1)'*(inv(B1))*(M2-M1);
 v = (M2-M1)'*(inv(B1));
 
-syms y0 y1
-d12(y0, y1) = v(1)*y0 + v(2)*y1 - d;
-
+syms x y
+d12(x, y) = v(1)*x + v(2)*y - d;
 figure
 scatter(X1(1, :),X1(2, :), 5, 'red', 'fill');
 hold on
@@ -31,6 +30,7 @@ ylim([-3 3])
 hold off
 
 %Вероятность Байесовской классификации
+%Veroyatnost Bayesovskoy classifikatsii
 lambda = 0;
 
 %formulas on p.19
@@ -40,7 +40,7 @@ t = (-0.5*p + lambda)/sqrt(p);
 p2 = (1 + erf(t/sqrt(2)))/2;
 pp = (p1 + p2)/2;
 
-fprintf("Вероятность ошибки первого рода = %d \n ",p1);
-fprintf("Вероятность ошибки второго рода = %d \n",p2);
-fprintf("Суммарная вероятность ошибки = %d \n",pp);
+fprintf("Veroyatnost oshibki 1 roda = %d \n ",p1);
+fprintf("Veroyatnost oshibki 2 roda = %d \n",p2);
+fprintf("Summarnaya veroyatnost oshibki = %d \n",pp);
 

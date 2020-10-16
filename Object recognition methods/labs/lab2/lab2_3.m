@@ -1,14 +1,14 @@
 clc;
 clear;
 
-M1 = [0;0];
-M2 = [-1;-1];
-M3 = [1;1];
+M1 = [    0;     0];
+M2 = [-0.66; -0.66];
+M3 = [ 0.66;  0.66];
 
 B1 = [0.0100    0.0200;0.0200    0.1300];
 B2 = [0.0400    0.0600;0.0600    0.1000];
 B3 = [0.0900    0.0300;0.0300    0.0500];
-N = 79600;
+N = 200;
 n = 2;
 
 X1 = gennormvec(M1,B1,n,N);
@@ -35,8 +35,8 @@ set(g13, 'LineColor', 'b');
 set(g23, 'LineColor', 'r');
 title('B1 != B2 != B3');
 hold on
-xlim([-5 5])
-ylim([-5 5])
+xlim([-3 3])
+ylim([-3 3])
 hold off
 
 %%%%%Оценка вероятностей
@@ -46,6 +46,7 @@ for i=1:N
 end
 p1est = p1est / N;
 fprintf('Экспериментальная вероятность ошибки для первого класса =  %.4f \n',p1est);
+%Eksperimentalnaya veroyantnost oshibki dlya 1 klassa
 
 p2est = 0;
 for i=1:N
@@ -61,8 +62,10 @@ pogr2=sqrt((1-p2est)/(N*p2est));
 fprintf('погрешность 2 =  %.4f \n',double(pogr2));
 
 %%%%Теоретический размер выборки
+%Teoriticheskiy razmer viborki
 eps = 0.05;
 Neps = (1-p2est)/(p2est*eps^2);  
 Neps = round(Neps);
 disp('Объем выборки при погрешности не более 0,05 ')
+%Ob'em viborki pri pogreshnosti ne bolee 0.05
 disp(Neps);
