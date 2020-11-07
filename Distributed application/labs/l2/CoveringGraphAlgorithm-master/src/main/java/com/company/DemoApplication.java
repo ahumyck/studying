@@ -11,21 +11,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoApplication {
 
 
-    public static void main(String[] args) {
+	//    public static void main(String[] args) {
+	//
+	//        SpringApplication.run(DemoApplication.class, args);
+	//    }
 
-        SpringApplication.run(DemoApplication.class, args);
-    }
+	public static void main(String[] args) throws ChordNodeIsNotActiveException, ChordHasNoActiveNodesException {
+		Chord chord = Chord.createChord(8);
+		chord.add(0);
+		chord.add(1);
+		chord.add(3);
+		System.out.println(chord);
 
-//    public static void main(String[] args) throws ChordNodeIsNotActiveException, ChordHasNoActiveNodesException {
-//        Chord chord = Chord.createChord(16);
-//        chord.add(0);
-//        chord.add(4);
-//        chord.add(8);
-//        chord.add(12);
-//        chord.add(1);
-//        chord.add(2);
-//
-//        System.out.println(chord);
-//
-//    }
+	}
 }
