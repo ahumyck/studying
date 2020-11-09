@@ -37,10 +37,6 @@
 
 package company.jBittorrentAPI;
 
-import java.lang.ArrayIndexOutOfBoundsException;
-import java.io.InputStream;
-import java.io.IOException;
-
 /**
  * Constants used in Peer Protocol.
  *

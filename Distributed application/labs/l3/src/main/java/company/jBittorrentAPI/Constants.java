@@ -38,7 +38,6 @@
 package company.jBittorrentAPI;
 
 import java.nio.charset.Charset;
-import java.util.StringTokenizer;
 
 /**
  * Some useful (or not...) constants used (or not yet...) throughout the program

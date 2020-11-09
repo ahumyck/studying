@@ -37,10 +37,10 @@
 
 package company.jBittorrentAPI;
 
+import javax.swing.event.EventListenerList;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import javax.swing.event.EventListenerList;
 
 /**
  * Thread that can listen for remote peers connection tries to this client

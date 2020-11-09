@@ -37,9 +37,14 @@
 
 package company.jBittorrentAPI;
 
-import java.net.*;
 import java.io.*;
-import java.util.*;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Provides methods for interaction with remote host, like downloading or uploading

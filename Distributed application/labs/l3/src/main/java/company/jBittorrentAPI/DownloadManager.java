@@ -37,10 +37,12 @@
 
 package company.jBittorrentAPI;
 
-import java.util.*;
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.net.Socket;
-import java.net.InetAddress;
+import java.util.*;
 
 /**
  * Object that manages all concurrent downloads. It chooses which piece to request

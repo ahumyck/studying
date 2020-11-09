@@ -37,8 +37,8 @@
 
 package company.jBittorrentAPI;
 
-import java.util.EventListener;
 import java.util.BitSet;
+import java.util.EventListener;
 
 /**
  * Interface for managing events launched by the DownloadTask class

@@ -37,10 +37,14 @@
 
 package company.jBittorrentAPI;
 
-import java.io.*;
-import java.util.*;
-import java.net.*;
 import javax.swing.event.EventListenerList;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.util.BitSet;
+import java.util.LinkedList;
 
 /**
  * Class representing a task that downloads pieces from a remote peer

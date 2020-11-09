@@ -37,12 +37,11 @@
 
 package company.jBittorrentAPI;
 
-import java.security.NoSuchAlgorithmException;
+import java.nio.ByteBuffer;
 import java.security.MessageDigest;
-import java.util.*;
-import java.lang.*;
-import java.io.*;
-import java.nio.*;
+import java.security.NoSuchAlgorithmException;
+import java.util.BitSet;
+import java.util.Random;
 
 /**
  * A set of utility methods used by the program

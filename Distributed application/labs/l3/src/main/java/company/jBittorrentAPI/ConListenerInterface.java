@@ -37,8 +37,8 @@
 
 package company.jBittorrentAPI;
 
-import java.util.EventListener;
 import java.net.Socket;
+import java.util.EventListener;
 
 public interface ConListenerInterface extends EventListener{
     /**

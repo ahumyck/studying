@@ -37,8 +37,9 @@
 
 package company.jBittorrentAPI;
 
-import java.io.*;
-import java.util.*;
+import java.io.FileWriter;
+import java.io.OutputStream;
+import java.util.Date;
 
 /**
  * Utility class to output information to a file

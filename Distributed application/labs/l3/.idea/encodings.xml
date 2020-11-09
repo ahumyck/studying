@@ -3,9 +3,13 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/main/java/Main.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/java/company" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/java/company/bencode/python/xubuntu-20.10-desktop-amd64.iso.torrent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/company/bencode" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/java/company/files/BufferWriter.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/java/company/files/ContentReader.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/java/company/jBittorrentAPI" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/company/torrentAPI/bencode/BDecoder.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/company/torrentAPI/bencode/BEncoder.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/response.tmp" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/xubuntu-20.10-desktop-amd64.iso.torrent" charset="UTF-8" />
   </component>
 </project>

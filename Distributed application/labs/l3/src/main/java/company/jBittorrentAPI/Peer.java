@@ -37,7 +37,7 @@
 
 package company.jBittorrentAPI;
 
-import java.util.*;
+import java.util.BitSet;
 
 /**
  * Class representing a bittorrent peer

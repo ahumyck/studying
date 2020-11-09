@@ -37,8 +37,10 @@
 
 package company.jBittorrentAPI;
 
-import java.io.*;
 import javax.swing.event.EventListenerList;
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Thread created to listen for incoming message from remote peers. When data is read,

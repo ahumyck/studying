@@ -1,16 +1,12 @@
 package company;
 
-import company.bencode.coders.Decoder;
-import company.bencode.objects.BElement;
-import company.bencode.objects.BMap;
-import company.bencode.objects.BString;
-import company.files.BufferWriter;
-import company.files.ContentReader;
-import company.hash.PythonHash;
-import company.http.url.PeerIdBuilder;
+import company.torrentAPI.http.url.PeerIdGenerator;
+import company.torrentAPI.bencode.BDecoder;
+import company.torrentAPI.bencode.BEncoder;
+import company.jBittorrentAPI.Utils;
 import lombok.SneakyThrows;
 
-import java.math.BigInteger;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -18,36 +14,76 @@ import java.util.Map;
 
 public class Torrent {
 	private final String torrentFile;
-	private Map<BElement, BElement> map;
-	private String hash;
-	private String peerId;
+	private String announce;
 
+	private String outputFile;
+	private long outputFileSize;
+	private byte[] hash;
+	private String peerId;
+	private long creationDate;
+
+	private final List<byte[]> pieceHashValuesAsBinary = new ArrayList<>();
 
 	protected Torrent(String torrentFile) {
 		this.torrentFile = torrentFile;
 	}
 
-	protected void loadTorrent(Map<BElement, BElement> map) {
-		this.map = map;
+
+	protected void loadAnnounce(String announce) {
+		this.announce = announce;
 	}
 
-	protected void loadHash(String hash) {
-		this.hash = hash;
+	protected void loadCreationDate(long creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	protected void loadPieces(Map info) {
+		if (info.containsKey("pieces")) {
+			byte[] piecesHash2 = (byte[]) info.get("pieces");
+			if (piecesHash2.length % 20 == 0) {
+
+				for (int i = 0; i < piecesHash2.length / 20; i++) {
+					this.pieceHashValuesAsBinary.add(Utils.subArray(piecesHash2, i * 20, 20));
+				}
+			}
+		}
+	}
+
+	@SneakyThrows
+	protected void loadHash(Map info) {
+		this.hash = Utils.hash(BEncoder.encode(info));
 	}
 
 	protected void loadPeerId() {
-		this.peerId = new PeerIdBuilder().getPeerId();
+		this.peerId = new PeerIdGenerator().getPeerId();
+	}
+
+	protected void loadOutputFilename(String outputFile) {
+		this.outputFile = outputFile;
 	}
 
 	@SneakyThrows
 	public static Torrent readTorrentFile(String torrentFile) {
-		new BufferWriter().write(torrentFile);
+		Map m = BDecoder.decode(new File(torrentFile));
 		Torrent torrent = new Torrent(torrentFile);
-		String content = new ContentReader(torrentFile).getContent();
-		torrent.loadTorrent(new Decoder(content).decode().getValue());
-		torrent.loadHash(new PythonHash().getHash());
+		torrent.loadAnnounce(new String((byte[]) m.get("announce")));
+		torrent.loadCreationDate((Long) m.get("creation date"));
+		torrent.loadHash(((Map) m.get("info")));
+		torrent.loadPieces((Map) m.get("info"));
 		torrent.loadPeerId();
 		return torrent;
+	}
+
+	public byte[] getHash() {
+		return hash;
+	}
+
+	public long getCreationDate() {
+		return creationDate;
+	}
+
+	public List<byte[]> getPieceHashValuesAsBinary() {
+		return pieceHashValuesAsBinary;
 	}
 
 	public String getPeerId() {
@@ -58,31 +94,28 @@ public class Torrent {
 		return torrentFile;
 	}
 
-	public String getInfoHash() {
+	public byte[] getInfoHash() {
 		return hash;
 	}
 
+	public String getInfoHashHex() {
+		return Utils.bytesToHex(getInfoHash());
+	}
+
 	public String getAnnounce() {
-		return (String) map.get(new BString("announce")).getValue();
+		return announce;
 	}
 
 	public String getOutputFile() {
-		return (String) ((BMap) map.get(new BString("info"))).get(new BString("name")).getValue();
+		return outputFile;
 	}
 
-	public BigInteger getOutputFileSize() {
-		return (BigInteger) ((BMap) map.get(new BString("info"))).get(new BString("length")).getValue();
+	public long getOutputFileSize() {
+		return outputFileSize;
 	}
 
-	public BigInteger getPieceLength() {
-		return (BigInteger) ((BMap) map.get(new BString("info"))).get(new BString("piece length")).getValue();
-	}
-
-	public List<String> getPieces() {
-		List<String> pieces = new ArrayList<>();
-		String chunk = (String) ((BMap) map.get(new BString("info"))).get(new BString("piece length")).getValue();
-		int length = chunk.length();
-		return pieces;
+	public List<byte[]> getPieces() {
+		return pieceHashValuesAsBinary;
 	}
 
 

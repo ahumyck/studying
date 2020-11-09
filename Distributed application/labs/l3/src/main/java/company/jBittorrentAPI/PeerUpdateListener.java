@@ -37,8 +37,8 @@
 
 package company.jBittorrentAPI;
 
-import java.util.LinkedHashMap;
 import java.util.EventListener;
+import java.util.LinkedHashMap;
 
 public interface PeerUpdateListener extends EventListener{
     public void updatePeerList(LinkedHashMap list);

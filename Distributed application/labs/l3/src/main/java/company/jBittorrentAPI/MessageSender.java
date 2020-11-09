@@ -37,12 +37,11 @@
 
 package company.jBittorrentAPI;
 
-import java.io.*;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.PriorityBlockingQueue;
-import java.io.OutputStream;
 import javax.swing.event.EventListenerList;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Thread created to send message to the remote peer. Hold a queue for outgoing

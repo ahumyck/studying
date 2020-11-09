@@ -37,7 +37,8 @@
 
 package company.jBittorrentAPI;
 
-import java.util.*;
+import java.util.Iterator;
+import java.util.TreeMap;
 
 /**
  * Class representing a piece according to bittorrent definition.

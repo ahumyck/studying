@@ -36,7 +36,6 @@
  */
 
 package company.jBittorrentAPI;
-import java.util.BitSet;
 
 public class Bits {
     private boolean[] bits;
