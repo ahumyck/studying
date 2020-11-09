@@ -1,10 +1,10 @@
-package com.application.table;
+package com.application;
 
-public class FingerPositionCalculator {
+public class Calculator {
 
-	private static FingerPositionCalculator calculator = new FingerPositionCalculator();
+	private static final Calculator calculator = new Calculator();
 
-	public static FingerPositionCalculator getCalculator() {
+	public static Calculator getCalculator() {
 		return calculator;
 	}
 

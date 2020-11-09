@@ -13,7 +13,7 @@ public class ParameterStringBuilder {
 		this.params = params;
 	}
 
-	public String getParamsString() throws UnsupportedEncodingException {
+	public String getParamsString() {
 		StringBuilder result = new StringBuilder();
 
 		for (String key : params.keySet()) {

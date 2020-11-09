@@ -8,14 +8,18 @@ import java.util.List;
 
 public class URLHashBuilder implements URLHash {
 
-	private final Hash hash;
+	private final String hash;
 
 	public URLHashBuilder(Hash hash) {
+		this.hash = hash.getHash();
+	}
+
+	public URLHashBuilder(String hash) {
 		this.hash = hash;
 	}
 
 	public String getURLParameter() {
-		return insert(this.hash.getHash().toUpperCase());
+		return insert(this.hash.toUpperCase());
 	}
 
 	private String insert(String original) {

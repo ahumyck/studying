@@ -11,7 +11,7 @@ X2 = gennormvec(M2, R1, n, N);
 syms x y;
 baes = (M1-M2).'*R1^(-1)*[x; y] - (1/2* (M1-M2).'*R1^(-1)*(M1+M2));
 
-u= zeros (3, 2*N);
+u = zeros (3, 2*N);
 g = zeros (2*N, 1);
 for i=1:N
     u(1, i) = X1(1, i);

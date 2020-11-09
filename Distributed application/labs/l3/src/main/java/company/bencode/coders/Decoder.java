@@ -8,12 +8,12 @@ import company.bencode.objects.BString;
 
 import java.math.BigInteger;
 
-public class BDecoder {
+public class Decoder {
 
 	private final String content;
 	private int currentIndex = -1;
 
-	public BDecoder(String content) {
+	public Decoder(String content) {
 		this.content = content;
 	}
 

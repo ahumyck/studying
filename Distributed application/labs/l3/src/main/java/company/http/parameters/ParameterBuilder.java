@@ -1,7 +1,9 @@
 package company.http.parameters;
 
+import company.Torrent;
 import company.http.url.PeerIdBuilder;
 import company.http.url.URLHash;
+import company.http.url.impl.URLHashBuilder;
 
 import java.math.BigInteger;
 import java.util.LinkedHashMap;
@@ -10,17 +12,17 @@ import java.util.Map;
 public class ParameterBuilder {
 
 	private final Map<String, String> map = new LinkedHashMap<>();
-	private final URLHash urlHashBuilder;
-	private final PeerIdBuilder idBuilder;
+	private final String hash;
+	private final String peerId;
 	private final BigInteger uploaded;
 	private final BigInteger downloaded;
 	private final BigInteger left;
 	private int port = 6969;
 	private int compact = 1;
 
-	public ParameterBuilder(URLHash urlHashBuilder, PeerIdBuilder idBuilder, BigInteger uploaded, BigInteger downloaded, BigInteger left, int port, int compact) {
-		this.urlHashBuilder = urlHashBuilder;
-		this.idBuilder = idBuilder;
+	public ParameterBuilder(Torrent torrent, BigInteger uploaded, BigInteger downloaded, BigInteger left, int port, int compact) {
+		this.hash = torrent.getInfoHash();
+		this.peerId = torrent.getPeerId();
 		this.uploaded = uploaded;
 		this.downloaded = downloaded;
 		this.left = left;
@@ -28,17 +30,19 @@ public class ParameterBuilder {
 		this.compact = compact;
 	}
 
-	public ParameterBuilder(URLHash urlHashBuilder, PeerIdBuilder idBuilder) {
-		this.urlHashBuilder = urlHashBuilder;
-		this.idBuilder = idBuilder;
+	public ParameterBuilder(Torrent torrent, int port) {
+		this.hash = torrent.getInfoHash();
+		this.peerId = torrent.getPeerId();
 		this.uploaded = BigInteger.ZERO;
 		this.downloaded = BigInteger.ZERO;
 		this.left = BigInteger.ZERO;
+		this.port = port;
+		this.compact = 1;
 	}
 
 	public Map<String, String> build() {
-		map.put("info_hash", urlHashBuilder.getURLParameter());
-		map.put("peer_id", idBuilder.getPeerId());
+		map.put("info_hash", new URLHashBuilder(this.hash).getURLParameter());
+		map.put("peer_id", this.peerId);
 		map.put("uploaded", uploaded.toString());
 //		map.put("numwant", String.valueOf(10));
 		map.put("downloaded", downloaded.toString());

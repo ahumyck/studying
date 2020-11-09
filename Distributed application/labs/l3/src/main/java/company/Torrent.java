@@ -1,12 +1,13 @@
 package company;
 
-import company.bencode.coders.BDecoder;
+import company.bencode.coders.Decoder;
 import company.bencode.objects.BElement;
 import company.bencode.objects.BMap;
 import company.bencode.objects.BString;
 import company.files.BufferWriter;
 import company.files.ContentReader;
 import company.hash.PythonHash;
+import company.http.url.PeerIdBuilder;
 import lombok.SneakyThrows;
 
 import java.math.BigInteger;
@@ -19,6 +20,7 @@ public class Torrent {
 	private final String torrentFile;
 	private Map<BElement, BElement> map;
 	private String hash;
+	private String peerId;
 
 
 	protected Torrent(String torrentFile) {
@@ -33,15 +35,23 @@ public class Torrent {
 		this.hash = hash;
 	}
 
+	protected void loadPeerId() {
+		this.peerId = new PeerIdBuilder().getPeerId();
+	}
+
 	@SneakyThrows
 	public static Torrent readTorrentFile(String torrentFile) {
 		new BufferWriter().write(torrentFile);
 		Torrent torrent = new Torrent(torrentFile);
 		String content = new ContentReader(torrentFile).getContent();
-		torrent.loadTorrent(new BDecoder(content).decode().getValue());
+		torrent.loadTorrent(new Decoder(content).decode().getValue());
 		torrent.loadHash(new PythonHash().getHash());
-		System.out.println(torrent.map);
+		torrent.loadPeerId();
 		return torrent;
+	}
+
+	public String getPeerId() {
+		return peerId;
 	}
 
 	public String getTorrentFile() {

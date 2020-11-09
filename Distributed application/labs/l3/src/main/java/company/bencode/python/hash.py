@@ -193,8 +193,6 @@ class Encoder:
 with open(base_path + buffer, 'r') as bf:
     filename = bf.read()
 
-print(filename)
-
 with open(filename, 'rb') as f:
     info = Encoder(Decoder(f.read()).decode()[b'info']).encode()
     print(sha1(info).hexdigest())

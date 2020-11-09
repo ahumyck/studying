@@ -1,23 +1,25 @@
 import pandas as pd
 import numpy as np
 
+
 fakeDataFilename = "data_fake.txt"
 trueDataFilename = "data_true.txt"
 dataFilename = "data.txt"
-outputFilename = "output.txt"
+outputTrueFilename = "outputTrue.txt"
+outputFakeFilename = "outputFake.txt"
 
 
-def getData(filename):
+def getData(filename) -> np.array:
     return pd.read_csv(filename, header = None)[0].values
 
-def getUserNameAndActionSequence(user):
+def getUserNameAndActionSequence(user) -> (str, np.array):
     userName, array = user.split(':')
     return userName, np.array(array.split(';'), dtype = np.uintc)
 
-def getState(sequence, index):
+def getState(sequence, index) -> tuple:
     return sequence[index], sequence[index + 1]
 
-def createBehaviorModel(actionSequence):
+def createBehaviorModel(actionSequence) -> dict:
     behaviorModel = dict()
     N = len(actionSequence)
     
@@ -34,73 +36,88 @@ def createBehaviorModel(actionSequence):
     
     return behaviorModel
 
-def userBehaviourVerification(behaviourModel, userActionSequence, 
-                              confidenceInterval = (0.18, 0.5)):
-    def _in(value, confidenceInterval):
-        a, b = confidenceInterval
-        return a <= value and value <= b
+def compareBehaviorModels(trainingModel: dict, actualModel: dict) -> str:
     
-    N = len(userActionSequence)
-    howMany = 0
+    def completeActualModel(trainingModel: dict, actualModel: dict):
+        for key in trainingModel:
+            if key not in actualModel:
+                actualModel[key] = 0
+        return actualModel
     
-    result = ''
-    for i in range(N - 1):
-        state = getState(userActionSequence, i)
+    def remapTrainingModel(trainingModel: dict, actualModel: dict) -> dict:
+        summ = 0
+        for key in actualModel:
+            if key in trainingModel:
+                summ += trainingModel[key]
+                
+        remappedModel = dict()
+        for key in actualModel:
+            if key in trainingModel:
+                remappedModel[key] = trainingModel[key] / summ
+        return remappedModel
         
-        message = ''
-        if state in behaviourModel:
-            probability = behaviourModel[state]
-            if not _in(probability, confidenceInterval):
-                howMany += 1
-                message = 'Anomaly: probability = {}, interval = {}, state = {}\n'.format(probability, confidenceInterval, state)
-        else:
-            message = 'The user has never performed this sequence of actions before: {}\n'.format(state)
-            howMany += 1
-        
-        result += message
-    
-    return howMany, result
             
-            
-def main():   
-    def verification(model, data, index):
-        _, sequence = getUserNameAndActionSequence(data[index])
-        return userBehaviourVerification(model, sequence)
     
-    def buildMessage(source, dataType, verificationInformation):
-        dataTypeCounter, message = verificationInformation
-        source += 'data {}\n'.format(dataType)
-        source += message
-        source += 'Number of anomalies: {}\n'.format(dataTypeCounter)
-        return source
-    
-    def getMessage(userName, userBehaviourModel, data, index):
-        trueData, fakeData = data
-        resultMessage = ""
-        resultMessage = userName + " behaviour model: " + str(userBehaviourModel) + '\n'
-        resultMessage = buildMessage(resultMessage, 'true', verification(userBehaviourModel, trueData, i))
-        resultMessage += '\n'
-        resultMessage = buildMessage(resultMessage, 'false', verification(userBehaviourModel, fakeData, i))
-        resultMessage += "\n\n\n"
-        return resultMessage
-        
-    
-    learningData = getData(dataFilename)
-    data = (getData(trueDataFilename), getData(fakeDataFilename))
+    def _in(value_a, value_b, delta = 0.1) -> bool:
+        return abs(value_a - value_b) < delta
     
     message = ""
+    template = "{}: action: {}, training {} vs actual {} vs remap {}\n"
+    #actualModel = completeActualModel(trainingModel, actualModel)
+    remappedModel = remapTrainingModel(trainingModel, actualModel)
+    for key in actualModel:
+        if key not in trainingModel:
+            message += "The user has never performed this sequence of actions before {}\n".format(key)
+        else:
+            trainingValue = trainingModel[key]
+            actualValue = actualModel[key]
+            remappedValue = remappedModel[key]
+            
+            if _in(trainingValue, actualValue):
+                message += template.format("True", key, trainingValue, actualValue, remappedValue)
+            else:
+                message += template.format("False", key, trainingValue, actualValue, remappedValue)
+    
+    return message + "\n\n"
+            
+            
+def main():
+    learningData = getData(dataFilename)
+    trueData = getData(trueDataFilename)
+    fakeData = getData(fakeDataFilename)
+    
+    output = dict()
+    output["fake"] = ""
+    output["true"] = ""
     
     for i in range(len(learningData)):
         userName, userLearningSequence = getUserNameAndActionSequence(learningData[i])
-        userBehaviourModel = createBehaviorModel(userLearningSequence)
-        message += getMessage(userName, userBehaviourModel, data, i)
-    
+        _, trueLearningSequence = getUserNameAndActionSequence(trueData[i])
+        _, fakeLearningSequence = getUserNameAndActionSequence(fakeData[i])
+        
+        trainingUserBehaviourModel = createBehaviorModel(userLearningSequence)
+        trueUserBehaviourModel = createBehaviorModel(trueLearningSequence)
+        fakeUserBehaivourModel = createBehaviorModel(fakeLearningSequence)
+        
+        output["true"] += "Analyzing user = {}\n".format(userName)
+        output["fake"] += "Analyzing user = {}\n".format(userName)
+        output["true"] += compareBehaviorModels(trainingUserBehaviourModel, trueUserBehaviourModel)
+        output["fake"] += compareBehaviorModels(trainingUserBehaviourModel, fakeUserBehaivourModel)
 
-    f = open(outputFilename, 'w')
-    f.write(message)
-    f.close()
+
+    f = open(outputTrueFilename, 'w')
+    f.write(output["true"])
+    f.close()  
+      
+    f = open(outputFakeFilename, 'w')
+    f.write(output["fake"])
+    f.close()  
+    
+main()
+        
         
     
+    
+    
 
-main()
 

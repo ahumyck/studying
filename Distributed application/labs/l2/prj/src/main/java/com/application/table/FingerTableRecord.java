@@ -1,4 +1,4 @@
-package com.application.table.impls;
+package com.application.table;
 
 import com.application.chord.ChordNode;
 

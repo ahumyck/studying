@@ -1,9 +1,6 @@
-package com.application.table.impls;
-
-import com.application.comparators.Operator;
+package com.application.table;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Stream;
 
 public class FingerTable {
