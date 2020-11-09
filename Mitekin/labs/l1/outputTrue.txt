@@ -1,0 +1,1271 @@
+Analyzing user = user1
+True: action: (41, 41), training 0.9797639123102867 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user2
+False: action: (28, 28), training 0.3484251968503937 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user3
+True: action: (41, 41), training 1.0 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user4
+False: action: (15, 15), training 0.7777777777777778 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user5
+True: action: (35, 35), training 0.9501187648456056 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user6
+False: action: (39, 39), training 0.8574585635359117 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user7
+True: action: (15, 15), training 1.0 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user8
+True: action: (22, 22), training 0.9291139240506329 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user9
+True: action: (0, 0), training 0.14830119375573922 vs actual 0.1111111111111111 vs remap 0.8177215189873418
+False: action: (0, 3), training 0.007805325987144169 vs actual 0.2222222222222222 vs remap 0.0430379746835443
+False: action: (3, 3), training 0.01790633608815427 vs actual 0.5555555555555556 vs remap 0.09873417721518987
+False: action: (3, 0), training 0.0073461891643709825 vs actual 0.1111111111111111 vs remap 0.04050632911392405
+
+
+Analyzing user = user10
+False: action: (41, 41), training 0.47804878048780486 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user11
+False: action: (61, 61), training 0.8764705882352941 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user12
+False: action: (46, 43), training 0.012692050768203072 vs actual 0.2222222222222222 vs remap 0.15322580645161288
+False: action: (43, 46), training 0.014028056112224449 vs actual 0.2222222222222222 vs remap 0.1693548387096774
+False: action: (46, 46), training 0.01736806947227789 vs actual 0.2222222222222222 vs remap 0.2096774193548387
+False: action: (43, 43), training 0.038744154976619906 vs actual 0.3333333333333333 vs remap 0.4677419354838709
+
+
+Analyzing user = user13
+True: action: (1, 0), training 0.022073578595317726 vs actual 0.1111111111111111 vs remap 0.0850515463917526
+False: action: (0, 0), training 0.12508361204013377 vs actual 0.3333333333333333 vs remap 0.481958762886598
+True: action: (0, 1), training 0.024080267558528427 vs actual 0.1111111111111111 vs remap 0.09278350515463919
+True: action: (1, 1), training 0.02608695652173913 vs actual 0.1111111111111111 vs remap 0.10051546391752579
+False: action: (1, 61), training 0.004013377926421404 vs actual 0.1111111111111111 vs remap 0.015463917525773196
+False: action: (61, 61), training 0.05819397993311037 vs actual 0.2222222222222222 vs remap 0.22422680412371138
+
+
+Analyzing user = user14
+False: action: (27, 25), training 0.010392609699769052 vs actual 0.2222222222222222 vs remap 0.05625
+False: action: (25, 27), training 0.006928406466512702 vs actual 0.1111111111111111 vs remap 0.037500000000000006
+True: action: (27, 27), training 0.1264434180138568 vs actual 0.2222222222222222 vs remap 0.6843750000000001
+False: action: (25, 24), training 0.0040415704387990765 vs actual 0.1111111111111111 vs remap 0.021875000000000006
+False: action: (24, 24), training 0.002886836027713626 vs actual 0.1111111111111111 vs remap 0.015625000000000003
+True: action: (24, 27), training 0.021362586605080832 vs actual 0.1111111111111111 vs remap 0.11562500000000002
+True: action: (27, 65), training 0.012702078521939953 vs actual 0.1111111111111111 vs remap 0.06875
+
+
+Analyzing user = user15
+The user has never performed this sequence of actions before (26, 61)
+False: action: (61, 61), training 0.03235294117647059 vs actual 0.7777777777777778 vs remap 1.0
+The user has never performed this sequence of actions before (61, 27)
+
+
+Analyzing user = user16
+False: action: (65, 41), training 0.23893805309734514 vs actual 0.4444444444444444 vs remap 0.29347826086956524
+False: action: (41, 65), training 0.23008849557522124 vs actual 0.3333333333333333 vs remap 0.28260869565217395
+False: action: (41, 41), training 0.34513274336283184 vs actual 0.2222222222222222 vs remap 0.42391304347826086
+
+
+Analyzing user = user17
+False: action: (56, 56), training 0.8305084745762712 vs actual 0.4444444444444444 vs remap 1.0
+The user has never performed this sequence of actions before (56, 12)
+The user has never performed this sequence of actions before (12, 12)
+
+
+Analyzing user = user18
+True: action: (22, 22), training 0.9065420560747663 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user19
+False: action: (3, 3), training 0.10285714285714286 vs actual 0.7777777777777778 vs remap 0.466321243523316
+True: action: (3, 0), training 0.05828571428571429 vs actual 0.1111111111111111 vs remap 0.26424870466321243
+True: action: (0, 3), training 0.05942857142857143 vs actual 0.1111111111111111 vs remap 0.26943005181347146
+
+
+Analyzing user = user20
+False: action: (39, 39), training 0.8252032520325203 vs actual 0.4444444444444444 vs remap 0.8319672131147541
+False: action: (39, 32), training 0.07723577235772358 vs actual 0.2222222222222222 vs remap 0.0778688524590164
+True: action: (32, 32), training 0.016260162601626018 vs actual 0.1111111111111111 vs remap 0.01639344262295082
+False: action: (32, 39), training 0.07317073170731707 vs actual 0.2222222222222222 vs remap 0.07377049180327869
+
+
+Analyzing user = user21
+False: action: (56, 56), training 0.8174603174603174 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user22
+False: action: (12, 12), training 0.05714285714285714 vs actual 0.3333333333333333 vs remap 0.0664451827242525
+True: action: (12, 56), training 0.03142857142857143 vs actual 0.1111111111111111 vs remap 0.036544850498338874
+False: action: (56, 56), training 0.5285714285714286 vs actual 0.2222222222222222 vs remap 0.6146179401993356
+True: action: (56, 28), training 0.014285714285714285 vs actual 0.1111111111111111 vs remap 0.016611295681063124
+True: action: (28, 28), training 0.22857142857142856 vs actual 0.2222222222222222 vs remap 0.26578073089701
+
+
+Analyzing user = user23
+False: action: (0, 1), training 0.15472779369627507 vs actual 0.3333333333333333 vs remap 0.15472779369627507
+False: action: (1, 1), training 0.2979942693409742 vs actual 0.1111111111111111 vs remap 0.2979942693409742
+True: action: (1, 0), training 0.15472779369627507 vs actual 0.2222222222222222 vs remap 0.15472779369627507
+True: action: (0, 0), training 0.39255014326647564 vs actual 0.3333333333333333 vs remap 0.39255014326647564
+
+
+Analyzing user = user24
+False: action: (15, 15), training 0.7379912663755459 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user25
+False: action: (22, 22), training 0.35352112676056335 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user26
+False: action: (42, 42), training 0.13247863247863248 vs actual 0.7777777777777778 vs remap 0.6078431372549019
+True: action: (42, 28), training 0.038461538461538464 vs actual 0.1111111111111111 vs remap 0.17647058823529413
+True: action: (28, 42), training 0.04700854700854701 vs actual 0.1111111111111111 vs remap 0.2156862745098039
+
+
+Analyzing user = user27
+True: action: (15, 15), training 0.9763779527559056 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user28
+False: action: (0, 0), training 0.35523613963039014 vs actual 0.2222222222222222 vs remap 0.5527156549520768
+True: action: (0, 7), training 0.014373716632443531 vs actual 0.1111111111111111 vs remap 0.02236421725239617
+True: action: (7, 1), training 0.012320328542094456 vs actual 0.1111111111111111 vs remap 0.01916932907348243
+True: action: (1, 1), training 0.11293634496919917 vs actual 0.1111111111111111 vs remap 0.1757188498402556
+False: action: (1, 61), training 0.008213552361396304 vs actual 0.1111111111111111 vs remap 0.012779552715654953
+False: action: (61, 61), training 0.13963039014373715 vs actual 0.3333333333333333 vs remap 0.2172523961661342
+
+
+Analyzing user = user29
+True: action: (23, 23), training 0.03902439024390244 vs actual 0.1111111111111111 vs remap 0.22222222222222224
+False: action: (23, 61), training 0.004878048780487805 vs actual 0.1111111111111111 vs remap 0.02777777777777778
+False: action: (61, 61), training 0.13170731707317074 vs actual 0.7777777777777778 vs remap 0.7500000000000001
+
+
+Analyzing user = user30
+False: action: (0, 1), training 0.05406633348477965 vs actual 0.2222222222222222 vs remap 0.12306101344364012
+True: action: (1, 0), training 0.05315765561108587 vs actual 0.1111111111111111 vs remap 0.12099276111685625
+False: action: (0, 0), training 0.2344388914129941 vs actual 0.4444444444444444 vs remap 0.5336091003102378
+False: action: (1, 1), training 0.09768287142208087 vs actual 0.2222222222222222 vs remap 0.22233712512926576
+
+
+Analyzing user = user31
+False: action: (1, 1), training 0.1423611111111111 vs actual 0.4444444444444444 vs remap 0.24624624624624625
+True: action: (1, 0), training 0.0954861111111111 vs actual 0.1111111111111111 vs remap 0.16516516516516516
+True: action: (0, 0), training 0.23958333333333334 vs actual 0.3333333333333333 vs remap 0.41441441441441446
+True: action: (0, 1), training 0.10069444444444445 vs actual 0.1111111111111111 vs remap 0.1741741741741742
+
+
+Analyzing user = user32
+False: action: (61, 61), training 0.8592592592592593 vs actual 0.6666666666666666 vs remap 1.0
+The user has never performed this sequence of actions before (61, 65)
+The user has never performed this sequence of actions before (65, 65)
+
+
+Analyzing user = user33
+True: action: (15, 15), training 1.0 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user34
+False: action: (65, 15), training 0.0035211267605633804 vs actual 0.1111111111111111 vs remap 0.012658227848101267
+True: action: (15, 15), training 0.23943661971830985 vs actual 0.3333333333333333 vs remap 0.8607594936708861
+The user has never performed this sequence of actions before (15, 33)
+False: action: (33, 34), training 0.007042253521126761 vs actual 0.1111111111111111 vs remap 0.025316455696202535
+False: action: (34, 33), training 0.007042253521126761 vs actual 0.1111111111111111 vs remap 0.025316455696202535
+False: action: (33, 33), training 0.02112676056338028 vs actual 0.2222222222222222 vs remap 0.0759493670886076
+
+
+Analyzing user = user35
+False: action: (0, 0), training 0.2755905511811024 vs actual 0.4444444444444444 vs remap 0.33980582524271846
+True: action: (0, 1), training 0.1732283464566929 vs actual 0.2222222222222222 vs remap 0.21359223300970873
+True: action: (1, 0), training 0.15748031496062992 vs actual 0.1111111111111111 vs remap 0.1941747572815534
+True: action: (1, 1), training 0.2047244094488189 vs actual 0.2222222222222222 vs remap 0.2524271844660194
+
+
+Analyzing user = user36
+False: action: (1, 0), training 0.010080645161290322 vs actual 0.1111111111111111 vs remap 0.0505050505050505
+True: action: (0, 0), training 0.11995967741935484 vs actual 0.1111111111111111 vs remap 0.601010101010101
+True: action: (0, 1), training 0.011592741935483871 vs actual 0.1111111111111111 vs remap 0.05808080808080807
+True: action: (1, 1), training 0.029737903225806453 vs actual 0.1111111111111111 vs remap 0.14898989898989898
+The user has never performed this sequence of actions before (1, 61)
+False: action: (61, 61), training 0.028225806451612902 vs actual 0.4444444444444444 vs remap 0.1414141414141414
+
+
+Analyzing user = user37
+True: action: (1, 1), training 0.28 vs actual 0.3333333333333333 vs remap 0.28
+True: action: (1, 0), training 0.152 vs actual 0.1111111111111111 vs remap 0.152
+True: action: (0, 0), training 0.416 vs actual 0.4444444444444444 vs remap 0.416
+True: action: (0, 1), training 0.152 vs actual 0.1111111111111111 vs remap 0.152
+
+
+Analyzing user = user38
+True: action: (43, 43), training 0.3137254901960784 vs actual 0.3333333333333333 vs remap 0.380952380952381
+False: action: (43, 45), training 0.1895424836601307 vs actual 0.3333333333333333 vs remap 0.23015873015873017
+True: action: (45, 45), training 0.13725490196078433 vs actual 0.1111111111111111 vs remap 0.16666666666666669
+True: action: (45, 43), training 0.1830065359477124 vs actual 0.2222222222222222 vs remap 0.2222222222222222
+
+
+Analyzing user = user39
+False: action: (43, 45), training 0.0990990990990991 vs actual 0.3333333333333333 vs remap 0.16176470588235295
+True: action: (45, 45), training 0.05405405405405406 vs actual 0.1111111111111111 vs remap 0.08823529411764706
+False: action: (45, 43), training 0.0990990990990991 vs actual 0.2222222222222222 vs remap 0.16176470588235295
+True: action: (43, 43), training 0.36036036036036034 vs actual 0.3333333333333333 vs remap 0.5882352941176471
+
+
+Analyzing user = user40
+False: action: (0, 9), training 0.012084592145015106 vs actual 0.3333333333333333 vs remap 0.03418803418803419
+False: action: (9, 9), training 0.027190332326283987 vs actual 0.3333333333333333 vs remap 0.07692307692307693
+False: action: (9, 0), training 0.01812688821752266 vs actual 0.2222222222222222 vs remap 0.05128205128205129
+False: action: (0, 0), training 0.29607250755287007 vs actual 0.1111111111111111 vs remap 0.8376068376068375
+
+
+Analyzing user = user41
+The user has never performed this sequence of actions before (65, 41)
+True: action: (41, 41), training 0.012232415902140673 vs actual 0.1111111111111111 vs remap 0.13333333333333333
+False: action: (41, 65), training 0.0061162079510703364 vs actual 0.1111111111111111 vs remap 0.06666666666666667
+False: action: (65, 65), training 0.05504587155963303 vs actual 0.4444444444444444 vs remap 0.6
+False: action: (65, 61), training 0.0061162079510703364 vs actual 0.1111111111111111 vs remap 0.06666666666666667
+True: action: (61, 61), training 0.012232415902140673 vs actual 0.1111111111111111 vs remap 0.13333333333333333
+
+
+Analyzing user = user42
+True: action: (0, 1), training 0.043721973094170405 vs actual 0.1111111111111111 vs remap 0.13043478260869565
+False: action: (1, 1), training 0.052690582959641255 vs actual 0.2222222222222222 vs remap 0.157190635451505
+True: action: (1, 0), training 0.043721973094170405 vs actual 0.1111111111111111 vs remap 0.13043478260869565
+False: action: (0, 0), training 0.1860986547085202 vs actual 0.4444444444444444 vs remap 0.5551839464882943
+False: action: (0, 9), training 0.008968609865470852 vs actual 0.1111111111111111 vs remap 0.02675585284280936
+
+
+Analyzing user = user43
+True: action: (0, 1), training 0.14935064935064934 vs actual 0.1111111111111111 vs remap 0.20597014925373136
+False: action: (1, 1), training 0.21861471861471862 vs actual 0.3333333333333333 vs remap 0.3014925373134329
+True: action: (1, 0), training 0.14502164502164502 vs actual 0.1111111111111111 vs remap 0.2
+False: action: (0, 9), training 0.01948051948051948 vs actual 0.2222222222222222 vs remap 0.026865671641791048
+True: action: (9, 0), training 0.015151515151515152 vs actual 0.1111111111111111 vs remap 0.020895522388059706
+True: action: (0, 0), training 0.1774891774891775 vs actual 0.1111111111111111 vs remap 0.2447761194029851
+
+
+Analyzing user = user44
+True: action: (56, 56), training 0.8552803129074316 vs actual 0.7777777777777778 vs remap 1.0
+The user has never performed this sequence of actions before (56, 55)
+The user has never performed this sequence of actions before (55, 55)
+
+
+Analyzing user = user45
+False: action: (43, 45), training 0.1111111111111111 vs actual 0.3333333333333333 vs remap 0.19821826280623606
+True: action: (45, 45), training 0.13607990012484394 vs actual 0.2222222222222222 vs remap 0.24276169265033407
+False: action: (45, 43), training 0.10362047440699126 vs actual 0.3333333333333333 vs remap 0.18485523385300667
+True: action: (43, 43), training 0.20973782771535582 vs actual 0.1111111111111111 vs remap 0.3741648106904232
+
+
+Analyzing user = user46
+False: action: (26, 27), training 0.20967741935483872 vs actual 0.4444444444444444 vs remap 0.32911392405063294
+True: action: (27, 27), training 0.20967741935483872 vs actual 0.1111111111111111 vs remap 0.32911392405063294
+False: action: (27, 26), training 0.21774193548387097 vs actual 0.4444444444444444 vs remap 0.34177215189873417
+
+
+Analyzing user = user47
+False: action: (2, 0), training 0.12138728323699421 vs actual 0.2222222222222222 vs remap 0.19534883720930232
+False: action: (0, 0), training 0.24277456647398843 vs actual 0.1111111111111111 vs remap 0.39069767441860465
+True: action: (0, 2), training 0.12716763005780346 vs actual 0.2222222222222222 vs remap 0.20465116279069767
+False: action: (2, 2), training 0.13005780346820808 vs actual 0.4444444444444444 vs remap 0.20930232558139533
+
+
+Analyzing user = user48
+False: action: (3, 3), training 0.31563421828908556 vs actual 0.4444444444444444 vs remap 0.3602693602693603
+True: action: (3, 0), training 0.09144542772861357 vs actual 0.1111111111111111 vs remap 0.10437710437710437
+True: action: (0, 0), training 0.3746312684365782 vs actual 0.3333333333333333 vs remap 0.4276094276094276
+True: action: (0, 3), training 0.0943952802359882 vs actual 0.1111111111111111 vs remap 0.10774410774410774
+
+
+Analyzing user = user49
+True: action: (3, 0), training 0.1168032786885246 vs actual 0.1111111111111111 vs remap 0.11825726141078839
+True: action: (0, 0), training 0.4733606557377049 vs actual 0.5555555555555556 vs remap 0.47925311203319504
+True: action: (0, 3), training 0.11885245901639344 vs actual 0.1111111111111111 vs remap 0.12033195020746888
+True: action: (3, 3), training 0.2786885245901639 vs actual 0.2222222222222222 vs remap 0.2821576763485477
+
+
+Analyzing user = user50
+False: action: (43, 43), training 0.26053639846743293 vs actual 0.6666666666666666 vs remap 0.4096385542168674
+True: action: (43, 45), training 0.19157088122605365 vs actual 0.2222222222222222 vs remap 0.3012048192771084
+True: action: (45, 43), training 0.1839080459770115 vs actual 0.1111111111111111 vs remap 0.2891566265060241
+
+
+Analyzing user = user51
+True: action: (41, 41), training 1.0 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user52
+True: action: (0, 0), training 0.27058823529411763 vs actual 0.2222222222222222 vs remap 0.6106194690265486
+True: action: (0, 3), training 0.047058823529411764 vs actual 0.1111111111111111 vs remap 0.10619469026548672
+False: action: (3, 3), training 0.12549019607843137 vs actual 0.6666666666666666 vs remap 0.2831858407079646
+
+
+Analyzing user = user53
+True: action: (3, 0), training 0.030120481927710843 vs actual 0.1111111111111111 vs remap 0.09433962264150943
+False: action: (0, 0), training 0.2469879518072289 vs actual 0.4444444444444444 vs remap 0.7735849056603773
+True: action: (0, 3), training 0.03614457831325301 vs actual 0.1111111111111111 vs remap 0.11320754716981131
+False: action: (3, 3), training 0.006024096385542169 vs actual 0.3333333333333333 vs remap 0.018867924528301886
+
+
+Analyzing user = user54
+False: action: (0, 0), training 0.38768115942028986 vs actual 0.6666666666666666 vs remap 0.8492063492063492
+False: action: (0, 7), training 0.010869565217391304 vs actual 0.1111111111111111 vs remap 0.023809523809523808
+True: action: (7, 0), training 0.014492753623188406 vs actual 0.1111111111111111 vs remap 0.031746031746031744
+True: action: (0, 1), training 0.043478260869565216 vs actual 0.1111111111111111 vs remap 0.09523809523809523
+
+
+Analyzing user = user55
+False: action: (5, 5), training 0.4379405455102666 vs actual 0.2222222222222222 vs remap 0.8386150234741785
+False: action: (5, 1), training 0.002451731535396874 vs actual 0.1111111111111111 vs remap 0.004694835680751174
+False: action: (1, 1), training 0.03800183879865155 vs actual 0.2222222222222222 vs remap 0.0727699530516432
+False: action: (1, 0), training 0.022065583818571866 vs actual 0.2222222222222222 vs remap 0.04225352112676057
+False: action: (0, 1), training 0.021759117376647256 vs actual 0.2222222222222222 vs remap 0.04166666666666667
+
+
+Analyzing user = user56
+The user has never performed this sequence of actions before (43, 44)
+The user has never performed this sequence of actions before (44, 43)
+False: action: (43, 43), training 0.2857142857142857 vs actual 0.1111111111111111 vs remap 0.4761904761904761
+The user has never performed this sequence of actions before (43, 1)
+True: action: (1, 0), training 0.05714285714285714 vs actual 0.1111111111111111 vs remap 0.09523809523809522
+True: action: (0, 1), training 0.05714285714285714 vs actual 0.1111111111111111 vs remap 0.09523809523809522
+False: action: (1, 1), training 0.2 vs actual 0.3333333333333333 vs remap 0.3333333333333333
+
+
+Analyzing user = user57
+False: action: (5, 5), training 0.2797427652733119 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user58
+True: action: (5, 5), training 0.43847874720357943 vs actual 0.4444444444444444 vs remap 0.4454545454545455
+False: action: (5, 0), training 0.1029082774049217 vs actual 0.2222222222222222 vs remap 0.10454545454545455
+False: action: (0, 5), training 0.1029082774049217 vs actual 0.2222222222222222 vs remap 0.10454545454545455
+False: action: (0, 0), training 0.3400447427293065 vs actual 0.1111111111111111 vs remap 0.3454545454545455
+
+
+Analyzing user = user59
+False: action: (5, 5), training 0.30191610564474364 vs actual 0.1111111111111111 vs remap 0.903875968992248
+The user has never performed this sequence of actions before (5, 43)
+False: action: (43, 43), training 0.013982392542723977 vs actual 0.4444444444444444 vs remap 0.04186046511627907
+False: action: (43, 45), training 0.009321595028482652 vs actual 0.2222222222222222 vs remap 0.02790697674418605
+False: action: (45, 43), training 0.008803728638011392 vs actual 0.1111111111111111 vs remap 0.026356589147286818
+
+
+Analyzing user = user60
+False: action: (3, 3), training 0.03053053053053053 vs actual 0.5555555555555556 vs remap 0.1383219954648526
+True: action: (3, 0), training 0.014514514514514515 vs actual 0.1111111111111111 vs remap 0.06575963718820863
+True: action: (0, 0), training 0.16216216216216217 vs actual 0.2222222222222222 vs remap 0.7346938775510204
+True: action: (0, 3), training 0.013513513513513514 vs actual 0.1111111111111111 vs remap 0.06122448979591837
+
+
+Analyzing user = user61
+False: action: (60, 17), training 0.08411214953271028 vs actual 0.2222222222222222 vs remap 0.13432835820895522
+True: action: (17, 59), training 0.04672897196261682 vs actual 0.1111111111111111 vs remap 0.0746268656716418
+True: action: (59, 59), training 0.205607476635514 vs actual 0.2222222222222222 vs remap 0.3283582089552239
+True: action: (59, 60), training 0.14018691588785046 vs actual 0.2222222222222222 vs remap 0.22388059701492538
+True: action: (60, 59), training 0.09345794392523364 vs actual 0.1111111111111111 vs remap 0.1492537313432836
+True: action: (17, 17), training 0.056074766355140186 vs actual 0.1111111111111111 vs remap 0.08955223880597016
+
+
+Analyzing user = user62
+True: action: (61, 61), training 1.0 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user63
+False: action: (0, 0), training 0.10606762389995368 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user64
+True: action: (65, 65), training 0.2540983606557377 vs actual 0.3333333333333333 vs remap 0.96875
+The user has never performed this sequence of actions before (65, 29)
+The user has never performed this sequence of actions before (29, 12)
+The user has never performed this sequence of actions before (12, 29)
+The user has never performed this sequence of actions before (29, 65)
+False: action: (65, 37), training 0.00819672131147541 vs actual 0.1111111111111111 vs remap 0.03125
+The user has never performed this sequence of actions before (37, 36)
+
+
+Analyzing user = user65
+True: action: (39, 39), training 0.9661538461538461 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user66
+False: action: (43, 43), training 0.308300395256917 vs actual 0.4444444444444444 vs remap 0.46987951807228917
+False: action: (43, 45), training 0.17391304347826086 vs actual 0.3333333333333333 vs remap 0.26506024096385544
+True: action: (45, 43), training 0.17391304347826086 vs actual 0.2222222222222222 vs remap 0.26506024096385544
+
+
+Analyzing user = user67
+True: action: (1, 1), training 0.02313624678663239 vs actual 0.1111111111111111 vs remap 0.10588235294117648
+True: action: (1, 0), training 0.02056555269922879 vs actual 0.1111111111111111 vs remap 0.09411764705882354
+False: action: (0, 0), training 0.16195372750642673 vs actual 0.3333333333333333 vs remap 0.7411764705882353
+False: action: (0, 8), training 0.005141388174807198 vs actual 0.2222222222222222 vs remap 0.023529411764705885
+False: action: (8, 0), training 0.005141388174807198 vs actual 0.1111111111111111 vs remap 0.023529411764705885
+False: action: (8, 8), training 0.002570694087403599 vs actual 0.1111111111111111 vs remap 0.011764705882352943
+
+
+Analyzing user = user68
+False: action: (0, 3), training 0.0754017305315204 vs actual 0.3333333333333333 vs remap 0.12551440329218105
+False: action: (3, 0), training 0.07787391841779975 vs actual 0.2222222222222222 vs remap 0.12962962962962962
+False: action: (3, 3), training 0.2126081582200247 vs actual 0.3333333333333333 vs remap 0.3539094650205761
+False: action: (0, 0), training 0.23485784919653893 vs actual 0.1111111111111111 vs remap 0.39094650205761317
+
+
+Analyzing user = user69
+True: action: (0, 0), training 0.30068337129840544 vs actual 0.2222222222222222 vs remap 0.4653349001175088
+True: action: (0, 5), training 0.09946848899012908 vs actual 0.1111111111111111 vs remap 0.15393654524089306
+False: action: (5, 5), training 0.2460136674259681 vs actual 0.6666666666666666 vs remap 0.38072855464159816
+
+
+Analyzing user = user70
+False: action: (0, 0), training 0.4335154826958106 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user71
+False: action: (1, 0), training 0.005801305293691081 vs actual 0.1111111111111111 vs remap 0.046783625730994156
+False: action: (0, 0), training 0.10442349528643945 vs actual 0.5555555555555556 vs remap 0.8421052631578948
+False: action: (0, 1), training 0.006526468455402465 vs actual 0.1111111111111111 vs remap 0.052631578947368425
+False: action: (1, 1), training 0.007251631617113851 vs actual 0.2222222222222222 vs remap 0.058479532163742694
+
+
+Analyzing user = user72
+False: action: (43, 43), training 0.31419939577039274 vs actual 0.6666666666666666 vs remap 0.5073170731707317
+True: action: (43, 45), training 0.15709969788519637 vs actual 0.2222222222222222 vs remap 0.25365853658536586
+True: action: (45, 43), training 0.14803625377643503 vs actual 0.1111111111111111 vs remap 0.23902439024390243
+
+
+Analyzing user = user73
+False: action: (43, 43), training 0.19642857142857142 vs actual 0.6666666666666666 vs remap 0.4385382059800665
+True: action: (43, 45), training 0.1324404761904762 vs actual 0.2222222222222222 vs remap 0.29568106312292364
+True: action: (45, 43), training 0.11904761904761904 vs actual 0.1111111111111111 vs remap 0.26578073089701
+
+
+Analyzing user = user74
+False: action: (39, 39), training 0.1810344827586207 vs actual 0.7777777777777778 vs remap 0.19090909090909092
+True: action: (39, 15), training 0.04310344827586207 vs actual 0.1111111111111111 vs remap 0.045454545454545456
+False: action: (15, 15), training 0.7241379310344828 vs actual 0.1111111111111111 vs remap 0.7636363636363637
+
+
+Analyzing user = user75
+False: action: (60, 60), training 0.3231707317073171 vs actual 0.8888888888888888 vs remap 0.7464788732394366
+True: action: (60, 59), training 0.10975609756097561 vs actual 0.1111111111111111 vs remap 0.2535211267605634
+
+
+Analyzing user = user76
+False: action: (45, 43), training 0.03868797308662742 vs actual 0.3333333333333333 vs remap 0.21904761904761907
+False: action: (43, 45), training 0.04121110176619008 vs actual 0.2222222222222222 vs remap 0.23333333333333334
+False: action: (45, 45), training 0.054667788057190914 vs actual 0.2222222222222222 vs remap 0.30952380952380953
+False: action: (43, 43), training 0.04205214465937763 vs actual 0.2222222222222222 vs remap 0.2380952380952381
+
+
+Analyzing user = user77
+False: action: (5, 5), training 0.323943661971831 vs actual 0.4444444444444444 vs remap 0.381993006993007
+True: action: (5, 0), training 0.15048183839881393 vs actual 0.1111111111111111 vs remap 0.17744755244755245
+False: action: (0, 0), training 0.22016308376575242 vs actual 0.3333333333333333 vs remap 0.25961538461538464
+True: action: (0, 5), training 0.15344699777613047 vs actual 0.1111111111111111 vs remap 0.18094405594405594
+
+
+Analyzing user = user78
+False: action: (1, 1), training 0.09424083769633508 vs actual 0.2222222222222222 vs remap 0.13846153846153847
+True: action: (1, 0), training 0.09424083769633508 vs actual 0.1111111111111111 vs remap 0.13846153846153847
+True: action: (0, 0), training 0.3717277486910995 vs actual 0.4444444444444444 vs remap 0.5461538461538462
+True: action: (0, 1), training 0.10471204188481675 vs actual 0.1111111111111111 vs remap 0.15384615384615385
+True: action: (1, 7), training 0.015706806282722512 vs actual 0.1111111111111111 vs remap 0.023076923076923078
+
+
+Analyzing user = user79
+False: action: (0, 0), training 0.422680412371134 vs actual 0.6666666666666666 vs remap 0.6340206185567011
+True: action: (0, 5), training 0.08934707903780069 vs actual 0.1111111111111111 vs remap 0.13402061855670105
+True: action: (5, 5), training 0.15463917525773196 vs actual 0.2222222222222222 vs remap 0.23195876288659795
+
+
+Analyzing user = user80
+False: action: (9, 9), training 0.03773584905660377 vs actual 0.3333333333333333 vs remap 0.08163265306122448
+False: action: (9, 0), training 0.018867924528301886 vs actual 0.2222222222222222 vs remap 0.04081632653061224
+False: action: (0, 9), training 0.018867924528301886 vs actual 0.2222222222222222 vs remap 0.04081632653061224
+False: action: (0, 0), training 0.3867924528301887 vs actual 0.2222222222222222 vs remap 0.8367346938775511
+
+
+Analyzing user = user81
+False: action: (0, 1), training 0.018329938900203666 vs actual 0.2222222222222222 vs remap 0.20930232558139533
+False: action: (1, 1), training 0.024439918533604887 vs actual 0.2222222222222222 vs remap 0.27906976744186046
+True: action: (1, 0), training 0.020366598778004074 vs actual 0.1111111111111111 vs remap 0.23255813953488372
+The user has never performed this sequence of actions before (1, 8)
+False: action: (8, 0), training 0.006109979633401222 vs actual 0.1111111111111111 vs remap 0.06976744186046512
+False: action: (0, 8), training 0.006109979633401222 vs actual 0.1111111111111111 vs remap 0.06976744186046512
+True: action: (8, 8), training 0.012219959266802444 vs actual 0.1111111111111111 vs remap 0.13953488372093023
+
+
+Analyzing user = user82
+False: action: (5, 5), training 0.23076923076923078 vs actual 0.3333333333333333 vs remap 0.3062283737024221
+True: action: (5, 0), training 0.0847457627118644 vs actual 0.1111111111111111 vs remap 0.11245674740484428
+True: action: (0, 0), training 0.35071707953063885 vs actual 0.4444444444444444 vs remap 0.4653979238754325
+True: action: (0, 5), training 0.08735332464146023 vs actual 0.1111111111111111 vs remap 0.11591695501730102
+
+
+Analyzing user = user83
+True: action: (0, 0), training 0.43015521064301554 vs actual 0.4444444444444444 vs remap 0.43015521064301554
+True: action: (0, 3), training 0.13303769401330376 vs actual 0.1111111111111111 vs remap 0.13303769401330376
+True: action: (3, 3), training 0.30376940133037694 vs actual 0.3333333333333333 vs remap 0.30376940133037694
+True: action: (3, 0), training 0.13303769401330376 vs actual 0.1111111111111111 vs remap 0.13303769401330376
+
+
+Analyzing user = user84
+False: action: (3, 3), training 0.6370967741935484 vs actual 0.7777777777777778 vs remap 0.7899999999999999
+True: action: (3, 0), training 0.08064516129032258 vs actual 0.1111111111111111 vs remap 0.09999999999999999
+True: action: (0, 3), training 0.08870967741935484 vs actual 0.1111111111111111 vs remap 0.11
+
+
+Analyzing user = user85
+False: action: (43, 45), training 0.1348122866894198 vs actual 0.3333333333333333 vs remap 0.19799498746867167
+False: action: (45, 45), training 0.23720136518771331 vs actual 0.1111111111111111 vs remap 0.3483709273182957
+False: action: (45, 43), training 0.13225255972696245 vs actual 0.3333333333333333 vs remap 0.19423558897243107
+True: action: (43, 43), training 0.1766211604095563 vs actual 0.2222222222222222 vs remap 0.25939849624060146
+
+
+Analyzing user = user86
+True: action: (43, 43), training 0.14655172413793102 vs actual 0.2222222222222222 vs remap 0.3609341825902336
+False: action: (43, 45), training 0.08448275862068966 vs actual 0.3333333333333333 vs remap 0.20806794055201702
+False: action: (45, 45), training 0.0939655172413793 vs actual 0.2222222222222222 vs remap 0.23142250530785563
+False: action: (45, 43), training 0.08103448275862069 vs actual 0.2222222222222222 vs remap 0.19957537154989385
+
+
+Analyzing user = user87
+False: action: (3, 3), training 0.28212290502793297 vs actual 0.4444444444444444 vs remap 0.34948096885813146
+True: action: (3, 0), training 0.08100558659217877 vs actual 0.1111111111111111 vs remap 0.10034602076124566
+False: action: (0, 2), training 0.027932960893854747 vs actual 0.2222222222222222 vs remap 0.03460207612456747
+True: action: (2, 0), training 0.025139664804469275 vs actual 0.1111111111111111 vs remap 0.031141868512110725
+False: action: (0, 0), training 0.39106145251396646 vs actual 0.1111111111111111 vs remap 0.48442906574394456
+
+
+Analyzing user = user88
+False: action: (45, 43), training 0.056194989844278946 vs actual 0.2222222222222222 vs remap 0.2634920634920635
+False: action: (43, 43), training 0.0995260663507109 vs actual 0.6666666666666666 vs remap 0.4666666666666667
+True: action: (43, 45), training 0.05754908598510494 vs actual 0.1111111111111111 vs remap 0.2698412698412698
+
+
+Analyzing user = user89
+True: action: (0, 0), training 0.22163120567375885 vs actual 0.2222222222222222 vs remap 0.9689922480620154
+False: action: (0, 5), training 0.0017730496453900709 vs actual 0.1111111111111111 vs remap 0.007751937984496124
+False: action: (5, 5), training 0.005319148936170213 vs actual 0.6666666666666666 vs remap 0.023255813953488372
+
+
+Analyzing user = user90
+False: action: (43, 44), training 0.0036496350364963502 vs actual 0.2222222222222222 vs remap 0.013513513513513513
+False: action: (44, 43), training 0.0036496350364963502 vs actual 0.1111111111111111 vs remap 0.013513513513513513
+False: action: (44, 44), training 0.0036496350364963502 vs actual 0.1111111111111111 vs remap 0.013513513513513513
+The user has never performed this sequence of actions before (44, 1)
+False: action: (1, 0), training 0.009124087591240875 vs actual 0.1111111111111111 vs remap 0.03378378378378378
+True: action: (0, 0), training 0.2427007299270073 vs actual 0.2222222222222222 vs remap 0.8986486486486487
+False: action: (0, 1), training 0.0072992700729927005 vs actual 0.1111111111111111 vs remap 0.027027027027027025
+
+
+Analyzing user = user91
+False: action: (1, 0), training 0.08536585365853659 vs actual 0.2222222222222222 vs remap 0.11764705882352942
+False: action: (0, 1), training 0.09146341463414634 vs actual 0.2222222222222222 vs remap 0.12605042016806722
+True: action: (0, 0), training 0.4634146341463415 vs actual 0.4444444444444444 vs remap 0.638655462184874
+True: action: (1, 1), training 0.08536585365853659 vs actual 0.1111111111111111 vs remap 0.11764705882352942
+
+
+Analyzing user = user92
+True: action: (0, 1), training 0.17985611510791366 vs actual 0.2222222222222222 vs remap 0.1923076923076923
+True: action: (1, 0), training 0.17985611510791366 vs actual 0.2222222222222222 vs remap 0.1923076923076923
+True: action: (0, 0), training 0.381294964028777 vs actual 0.4444444444444444 vs remap 0.4076923076923077
+True: action: (1, 1), training 0.19424460431654678 vs actual 0.1111111111111111 vs remap 0.2076923076923077
+
+
+Analyzing user = user93
+False: action: (0, 0), training 0.3125 vs actual 0.6666666666666666 vs remap 0.3614457831325302
+True: action: (0, 3), training 0.12760416666666666 vs actual 0.1111111111111111 vs remap 0.14759036144578314
+False: action: (3, 3), training 0.4244791666666667 vs actual 0.2222222222222222 vs remap 0.4909638554216868
+
+
+Analyzing user = user94
+False: action: (5, 5), training 0.1527777777777778 vs actual 0.7777777777777778 vs remap 0.5569620253164557
+True: action: (5, 0), training 0.0625 vs actual 0.1111111111111111 vs remap 0.22784810126582278
+True: action: (0, 5), training 0.059027777777777776 vs actual 0.1111111111111111 vs remap 0.2151898734177215
+
+
+Analyzing user = user95
+True: action: (0, 0), training 0.48412698412698413 vs actual 0.4444444444444444 vs remap 0.5126050420168067
+True: action: (0, 5), training 0.12698412698412698 vs actual 0.2222222222222222 vs remap 0.134453781512605
+True: action: (5, 0), training 0.11904761904761904 vs actual 0.1111111111111111 vs remap 0.1260504201680672
+True: action: (5, 5), training 0.21428571428571427 vs actual 0.2222222222222222 vs remap 0.22689075630252098
+
+
+Analyzing user = user96
+False: action: (43, 43), training 0.4536082474226804 vs actual 0.5555555555555556 vs remap 0.5301204819277108
+True: action: (43, 45), training 0.20103092783505155 vs actual 0.2222222222222222 vs remap 0.23493975903614456
+True: action: (45, 43), training 0.20103092783505155 vs actual 0.2222222222222222 vs remap 0.23493975903614456
+
+
+Analyzing user = user97
+True: action: (0, 1), training 0.15 vs actual 0.2222222222222222 vs remap 0.17045454545454541
+True: action: (1, 1), training 0.265 vs actual 0.3333333333333333 vs remap 0.3011363636363636
+True: action: (1, 0), training 0.145 vs actual 0.1111111111111111 vs remap 0.16477272727272724
+True: action: (0, 0), training 0.32 vs actual 0.3333333333333333 vs remap 0.3636363636363636
+
+
+Analyzing user = user98
+False: action: (5, 5), training 0.5076754385964912 vs actual 0.7777777777777778 vs remap 0.6206434316353887
+True: action: (5, 0), training 0.15679824561403508 vs actual 0.1111111111111111 vs remap 0.1916890080428954
+True: action: (0, 5), training 0.15350877192982457 vs actual 0.1111111111111111 vs remap 0.1876675603217158
+
+
+Analyzing user = user99
+True: action: (39, 39), training 0.9693251533742331 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user100
+False: action: (43, 43), training 0.15644171779141106 vs actual 0.6666666666666666 vs remap 0.49514563106796117
+False: action: (43, 45), training 0.09202453987730061 vs actual 0.2222222222222222 vs remap 0.2912621359223301
+True: action: (45, 43), training 0.06748466257668712 vs actual 0.1111111111111111 vs remap 0.21359223300970873
+
+
+Analyzing user = user101
+True: action: (39, 39), training 0.9490740740740741 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user102
+False: action: (39, 39), training 0.1984126984126984 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user103
+True: action: (15, 15), training 1.0 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user104
+False: action: (45, 43), training 0.0018105009052504525 vs actual 0.3333333333333333 vs remap 0.3333333333333333
+False: action: (43, 43), training 0.0012070006035003018 vs actual 0.3333333333333333 vs remap 0.22222222222222224
+False: action: (43, 45), training 0.0024140012070006035 vs actual 0.3333333333333333 vs remap 0.4444444444444445
+
+
+Analyzing user = user105
+True: action: (0, 0), training 0.21499013806706113 vs actual 0.2222222222222222 vs remap 0.24061810154525387
+True: action: (0, 5), training 0.0992767915844839 vs actual 0.1111111111111111 vs remap 0.11111111111111113
+True: action: (5, 5), training 0.4806048652202498 vs actual 0.5555555555555556 vs remap 0.5378955114054452
+True: action: (5, 0), training 0.09861932938856016 vs actual 0.1111111111111111 vs remap 0.11037527593818987
+
+
+Analyzing user = user106
+True: action: (0, 0), training 0.5033333333333333 vs actual 0.4444444444444444 vs remap 0.5551470588235294
+False: action: (0, 5), training 0.12 vs actual 0.2222222222222222 vs remap 0.1323529411764706
+True: action: (5, 0), training 0.11333333333333333 vs actual 0.1111111111111111 vs remap 0.125
+True: action: (5, 5), training 0.17 vs actual 0.2222222222222222 vs remap 0.18750000000000003
+
+
+Analyzing user = user107
+False: action: (44, 44), training 0.12727272727272726 vs actual 0.3333333333333333 vs remap 0.20740740740740737
+True: action: (44, 43), training 0.16363636363636364 vs actual 0.1111111111111111 vs remap 0.26666666666666666
+True: action: (43, 44), training 0.1590909090909091 vs actual 0.1111111111111111 vs remap 0.25925925925925924
+False: action: (44, 1), training 0.004545454545454545 vs actual 0.1111111111111111 vs remap 0.007407407407407407
+True: action: (1, 0), training 0.045454545454545456 vs actual 0.1111111111111111 vs remap 0.07407407407407407
+True: action: (0, 1), training 0.04090909090909091 vs actual 0.1111111111111111 vs remap 0.06666666666666667
+True: action: (1, 1), training 0.07272727272727272 vs actual 0.1111111111111111 vs remap 0.11851851851851851
+
+
+Analyzing user = user108
+True: action: (60, 60), training 0.44396551724137934 vs actual 0.4444444444444444 vs remap 0.4904761904761905
+True: action: (60, 59), training 0.15517241379310345 vs actual 0.2222222222222222 vs remap 0.17142857142857143
+True: action: (59, 59), training 0.14051724137931035 vs actual 0.1111111111111111 vs remap 0.15523809523809526
+True: action: (59, 60), training 0.16551724137931034 vs actual 0.2222222222222222 vs remap 0.18285714285714286
+
+
+Analyzing user = user109
+True: action: (5, 5), training 0.5232862375719518 vs actual 0.4444444444444444 vs remap 0.5425935973955507
+True: action: (5, 0), training 0.15907901622187337 vs actual 0.1111111111111111 vs remap 0.16494845360824745
+False: action: (0, 0), training 0.12297226582940869 vs actual 0.3333333333333333 vs remap 0.12750949538795445
+True: action: (0, 5), training 0.15907901622187337 vs actual 0.1111111111111111 vs remap 0.16494845360824745
+
+
+Analyzing user = user110
+True: action: (5, 0), training 0.12967914438502673 vs actual 0.1111111111111111 vs remap 0.15027110766847404
+True: action: (0, 0), training 0.11831550802139038 vs actual 0.1111111111111111 vs remap 0.13710302091402016
+True: action: (0, 5), training 0.13168449197860962 vs actual 0.1111111111111111 vs remap 0.15259488768396592
+False: action: (5, 5), training 0.4832887700534759 vs actual 0.6666666666666666 vs remap 0.5600309837335399
+
+
+Analyzing user = user111
+False: action: (43, 43), training 0.0392156862745098 vs actual 0.2222222222222222 vs remap 0.4
+False: action: (43, 45), training 0.026143790849673203 vs actual 0.2222222222222222 vs remap 0.26666666666666666
+False: action: (45, 45), training 0.013071895424836602 vs actual 0.4444444444444444 vs remap 0.13333333333333333
+True: action: (45, 43), training 0.0196078431372549 vs actual 0.1111111111111111 vs remap 0.2
+
+
+Analyzing user = user112
+False: action: (0, 0), training 0.3255208333333333 vs actual 0.2222222222222222 vs remap 0.377643504531722
+True: action: (0, 3), training 0.13541666666666666 vs actual 0.1111111111111111 vs remap 0.15709969788519634
+False: action: (3, 3), training 0.4010416666666667 vs actual 0.6666666666666666 vs remap 0.4652567975830815
+
+
+Analyzing user = user113
+True: action: (13, 13), training 1.0 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user114
+True: action: (22, 22), training 0.9913419913419913 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user115
+False: action: (59, 59), training 0.1188118811881188 vs actual 0.3333333333333333 vs remap 0.13793103448275862
+True: action: (59, 60), training 0.08250825082508251 vs actual 0.1111111111111111 vs remap 0.09578544061302682
+False: action: (60, 60), training 0.5676567656765676 vs actual 0.2222222222222222 vs remap 0.6590038314176245
+True: action: (60, 17), training 0.04950495049504951 vs actual 0.1111111111111111 vs remap 0.0574712643678161
+True: action: (17, 17), training 0.026402640264026403 vs actual 0.1111111111111111 vs remap 0.030651340996168584
+True: action: (17, 59), training 0.0165016501650165 vs actual 0.1111111111111111 vs remap 0.019157088122605363
+
+
+Analyzing user = user116
+True: action: (22, 22), training 0.9387096774193548 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user117
+True: action: (44, 43), training 0.15254237288135594 vs actual 0.1111111111111111 vs remap 0.25000000000000006
+False: action: (43, 43), training 0.3135593220338983 vs actual 0.4444444444444444 vs remap 0.513888888888889
+True: action: (43, 65), training 0.059322033898305086 vs actual 0.1111111111111111 vs remap 0.09722222222222224
+False: action: (65, 65), training 0.025423728813559324 vs actual 0.2222222222222222 vs remap 0.04166666666666667
+True: action: (65, 43), training 0.059322033898305086 vs actual 0.1111111111111111 vs remap 0.09722222222222224
+
+
+Analyzing user = user118
+False: action: (3, 3), training 0.21707317073170732 vs actual 0.5555555555555556 vs remap 0.6267605633802816
+False: action: (3, 0), training 0.06341463414634146 vs actual 0.2222222222222222 vs remap 0.18309859154929575
+False: action: (0, 3), training 0.06585365853658537 vs actual 0.2222222222222222 vs remap 0.19014084507042253
+
+
+Analyzing user = user119
+False: action: (30, 29), training 0.15384615384615385 vs actual 0.3333333333333333 vs remap 0.28742514970059885
+False: action: (29, 30), training 0.16666666666666666 vs actual 0.3333333333333333 vs remap 0.31137724550898205
+False: action: (30, 30), training 0.21474358974358973 vs actual 0.3333333333333333 vs remap 0.40119760479041916
+
+
+Analyzing user = user120
+False: action: (43, 43), training 0.058823529411764705 vs actual 0.4444444444444444 vs remap 0.3791469194312796
+False: action: (43, 45), training 0.039705882352941174 vs actual 0.2222222222222222 vs remap 0.2559241706161137
+False: action: (45, 45), training 0.01911764705882353 vs actual 0.2222222222222222 vs remap 0.12322274881516589
+True: action: (45, 43), training 0.0375 vs actual 0.1111111111111111 vs remap 0.24170616113744076
+
+
+Analyzing user = user121
+True: action: (41, 41), training 1.0 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user122
+True: action: (43, 43), training 0.20408163265306123 vs actual 0.2222222222222222 vs remap 0.2803738317757009
+True: action: (43, 44), training 0.1292517006802721 vs actual 0.2222222222222222 vs remap 0.17757009345794392
+True: action: (44, 44), training 0.19727891156462585 vs actual 0.1111111111111111 vs remap 0.27102803738317754
+True: action: (44, 43), training 0.1292517006802721 vs actual 0.2222222222222222 vs remap 0.17757009345794392
+The user has never performed this sequence of actions before (43, 1)
+True: action: (1, 1), training 0.06802721088435375 vs actual 0.1111111111111111 vs remap 0.09345794392523366
+
+
+Analyzing user = user123
+True: action: (28, 28), training 0.06818181818181818 vs actual 0.1111111111111111 vs remap 0.6
+The user has never performed this sequence of actions before (28, 42)
+The user has never performed this sequence of actions before (42, 56)
+False: action: (56, 56), training 0.045454545454545456 vs actual 0.6666666666666666 vs remap 0.4
+
+
+Analyzing user = user124
+True: action: (13, 13), training 1.0 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user125
+False: action: (15, 15), training 0.8738738738738738 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user126
+True: action: (39, 39), training 1.0 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user127
+False: action: (0, 0), training 0.5283018867924528 vs actual 0.3333333333333333 vs remap 0.7272727272727273
+True: action: (0, 3), training 0.10377358490566038 vs actual 0.1111111111111111 vs remap 0.14285714285714288
+False: action: (3, 3), training 0.09433962264150944 vs actual 0.5555555555555556 vs remap 0.12987012987012989
+
+
+Analyzing user = user128
+True: action: (15, 15), training 1.0 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user129
+The user has never performed this sequence of actions before (42, 28)
+The user has never performed this sequence of actions before (28, 42)
+False: action: (42, 42), training 0.006134969325153374 vs actual 0.2222222222222222 vs remap 0.015151515151515152
+The user has never performed this sequence of actions before (42, 56)
+True: action: (56, 56), training 0.3987730061349693 vs actual 0.4444444444444444 vs remap 0.9848484848484848
+
+
+Analyzing user = user130
+False: action: (41, 41), training 0.28125 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user131
+True: action: (0, 0), training 0.027210884353741496 vs actual 0.1111111111111111 vs remap 0.24999999999999997
+False: action: (0, 6), training 0.027210884353741496 vs actual 0.3333333333333333 vs remap 0.24999999999999997
+False: action: (6, 0), training 0.02040816326530612 vs actual 0.2222222222222222 vs remap 0.18749999999999997
+False: action: (6, 6), training 0.034013605442176874 vs actual 0.3333333333333333 vs remap 0.3125
+
+
+Analyzing user = user132
+False: action: (11, 11), training 0.0632688927943761 vs actual 0.7777777777777778 vs remap 0.7659574468085105
+False: action: (11, 65), training 0.008787346221441126 vs actual 0.1111111111111111 vs remap 0.10638297872340424
+False: action: (65, 11), training 0.01054481546572935 vs actual 0.1111111111111111 vs remap 0.1276595744680851
+
+
+Analyzing user = user133
+True: action: (22, 22), training 0.9523809523809523 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user134
+False: action: (44, 43), training 0.02030456852791878 vs actual 0.2222222222222222 vs remap 0.04938271604938271
+False: action: (43, 44), training 0.02030456852791878 vs actual 0.2222222222222222 vs remap 0.04938271604938271
+False: action: (44, 44), training 0.01015228426395939 vs actual 0.4444444444444444 vs remap 0.024691358024691357
+False: action: (43, 43), training 0.3604060913705584 vs actual 0.1111111111111111 vs remap 0.8765432098765432
+
+
+Analyzing user = user135
+True: action: (61, 61), training 1.0 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user136
+True: action: (44, 44), training 0.501779359430605 vs actual 0.5555555555555556 vs remap 0.6
+True: action: (44, 43), training 0.16725978647686832 vs actual 0.2222222222222222 vs remap 0.19999999999999996
+True: action: (43, 44), training 0.16725978647686832 vs actual 0.2222222222222222 vs remap 0.19999999999999996
+
+
+Analyzing user = user137
+The user has never performed this sequence of actions before (8, 1)
+False: action: (1, 0), training 0.03682946357085669 vs actual 0.2222222222222222 vs remap 0.13897280966767372
+True: action: (0, 0), training 0.1489191353082466 vs actual 0.2222222222222222 vs remap 0.5619335347432024
+True: action: (0, 1), training 0.04243394715772618 vs actual 0.1111111111111111 vs remap 0.16012084592145012
+False: action: (1, 1), training 0.03682946357085669 vs actual 0.3333333333333333 vs remap 0.13897280966767372
+
+
+Analyzing user = user138
+False: action: (3, 43), training 0.007849293563579277 vs actual 0.1111111111111111 vs remap 0.021834061135371178
+False: action: (43, 45), training 0.0847723704866562 vs actual 0.2222222222222222 vs remap 0.23580786026200876
+False: action: (45, 43), training 0.0706436420722135 vs actual 0.2222222222222222 vs remap 0.19650655021834065
+False: action: (43, 43), training 0.10518053375196232 vs actual 0.2222222222222222 vs remap 0.2925764192139738
+False: action: (45, 45), training 0.09105180533751962 vs actual 0.2222222222222222 vs remap 0.2532751091703057
+
+
+Analyzing user = user139
+False: action: (65, 65), training 0.01593625498007968 vs actual 0.7777777777777778 vs remap 0.6666666666666666
+False: action: (65, 28), training 0.00398406374501992 vs actual 0.1111111111111111 vs remap 0.16666666666666666
+False: action: (28, 65), training 0.00398406374501992 vs actual 0.1111111111111111 vs remap 0.16666666666666666
+
+
+Analyzing user = user140
+False: action: (65, 18), training 0.009174311926605505 vs actual 0.2222222222222222 vs remap 0.06451612903225806
+False: action: (18, 65), training 0.009174311926605505 vs actual 0.2222222222222222 vs remap 0.06451612903225806
+True: action: (18, 18), training 0.013761467889908258 vs actual 0.1111111111111111 vs remap 0.0967741935483871
+False: action: (65, 65), training 0.11009174311926606 vs actual 0.4444444444444444 vs remap 0.7741935483870968
+
+
+Analyzing user = user141
+False: action: (15, 15), training 0.9442508710801394 vs actual 0.6666666666666666 vs remap 0.9908592321755026
+False: action: (15, 62), training 0.0017421602787456446 vs actual 0.1111111111111111 vs remap 0.0018281535648994515
+False: action: (62, 62), training 0.006968641114982578 vs actual 0.2222222222222222 vs remap 0.007312614259597806
+
+
+Analyzing user = user142
+False: action: (45, 43), training 0.0498812351543943 vs actual 0.3333333333333333 vs remap 0.2485207100591716
+True: action: (43, 43), training 0.06413301662707839 vs actual 0.1111111111111111 vs remap 0.31952662721893493
+False: action: (43, 45), training 0.05344418052256532 vs actual 0.3333333333333333 vs remap 0.2662721893491124
+False: action: (45, 45), training 0.0332541567695962 vs actual 0.2222222222222222 vs remap 0.16568047337278105
+
+
+Analyzing user = user143
+True: action: (18, 18), training 0.1969111969111969 vs actual 0.1111111111111111 vs remap 0.2698412698412698
+False: action: (18, 20), training 0.003861003861003861 vs actual 0.1111111111111111 vs remap 0.005291005291005291
+The user has never performed this sequence of actions before (20, 65)
+False: action: (65, 21), training 0.007722007722007722 vs actual 0.1111111111111111 vs remap 0.010582010582010581
+True: action: (21, 21), training 0.1274131274131274 vs actual 0.1111111111111111 vs remap 0.17460317460317457
+False: action: (21, 65), training 0.003861003861003861 vs actual 0.1111111111111111 vs remap 0.005291005291005291
+True: action: (65, 18), training 0.04633204633204633 vs actual 0.1111111111111111 vs remap 0.06349206349206347
+True: action: (18, 65), training 0.05019305019305019 vs actual 0.1111111111111111 vs remap 0.06878306878306877
+False: action: (65, 65), training 0.29343629343629346 vs actual 0.1111111111111111 vs remap 0.4021164021164021
+
+
+Analyzing user = user144
+False: action: (41, 41), training 0.07142857142857142 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user145
+True: action: (18, 21), training 0.017006802721088437 vs actual 0.1111111111111111 vs remap 0.06493506493506494
+True: action: (21, 18), training 0.023809523809523808 vs actual 0.1111111111111111 vs remap 0.0909090909090909
+False: action: (18, 19), training 0.06802721088435375 vs actual 0.3333333333333333 vs remap 0.25974025974025977
+False: action: (19, 18), training 0.047619047619047616 vs actual 0.2222222222222222 vs remap 0.1818181818181818
+True: action: (18, 18), training 0.09863945578231292 vs actual 0.1111111111111111 vs remap 0.3766233766233766
+False: action: (19, 19), training 0.006802721088435374 vs actual 0.1111111111111111 vs remap 0.025974025974025972
+
+
+Analyzing user = user146
+False: action: (65, 58), training 0.01092896174863388 vs actual 0.2222222222222222 vs remap 0.05128205128205127
+True: action: (58, 58), training 0.1366120218579235 vs actual 0.2222222222222222 vs remap 0.641025641025641
+False: action: (58, 65), training 0.01092896174863388 vs actual 0.2222222222222222 vs remap 0.05128205128205127
+False: action: (65, 65), training 0.0546448087431694 vs actual 0.3333333333333333 vs remap 0.25641025641025633
+
+
+Analyzing user = user147
+True: action: (58, 65), training 0.15025906735751296 vs actual 0.2222222222222222 vs remap 0.17791411042944785
+True: action: (65, 65), training 0.20725388601036268 vs actual 0.2222222222222222 vs remap 0.24539877300613494
+True: action: (65, 58), training 0.14507772020725387 vs actual 0.2222222222222222 vs remap 0.17177914110429446
+True: action: (58, 58), training 0.34196891191709844 vs actual 0.3333333333333333 vs remap 0.4049079754601227
+
+
+Analyzing user = user148
+False: action: (18, 18), training 0.2080536912751678 vs actual 0.5555555555555556 vs remap 0.7045454545454545
+True: action: (18, 19), training 0.04697986577181208 vs actual 0.1111111111111111 vs remap 0.1590909090909091
+False: action: (19, 19), training 0.040268456375838924 vs actual 0.3333333333333333 vs remap 0.13636363636363635
+
+
+Analyzing user = user149
+False: action: (58, 58), training 0.2159090909090909 vs actual 0.4444444444444444 vs remap 0.5588235294117647
+False: action: (58, 65), training 0.03977272727272727 vs actual 0.2222222222222222 vs remap 0.10294117647058823
+False: action: (65, 65), training 0.09090909090909091 vs actual 0.2222222222222222 vs remap 0.23529411764705885
+True: action: (65, 58), training 0.03977272727272727 vs actual 0.1111111111111111 vs remap 0.10294117647058823
+
+
+Analyzing user = user150
+False: action: (1, 1), training 0.07692307692307693 vs actual 0.2222222222222222 vs remap 0.2037037037037037
+False: action: (1, 0), training 0.0979020979020979 vs actual 0.3333333333333333 vs remap 0.25925925925925924
+False: action: (0, 1), training 0.1048951048951049 vs actual 0.3333333333333333 vs remap 0.27777777777777773
+True: action: (0, 0), training 0.0979020979020979 vs actual 0.1111111111111111 vs remap 0.25925925925925924
+
+
+Analyzing user = user151
+False: action: (58, 58), training 0.22119815668202766 vs actual 0.8888888888888888 vs remap 0.8727272727272727
+True: action: (58, 65), training 0.03225806451612903 vs actual 0.1111111111111111 vs remap 0.12727272727272726
+
+
+Analyzing user = user152
+False: action: (55, 55), training 0.7287234042553191 vs actual 0.4444444444444444 vs remap 1.0
+The user has never performed this sequence of actions before (55, 12)
+The user has never performed this sequence of actions before (12, 28)
+The user has never performed this sequence of actions before (28, 28)
+
+
+Analyzing user = user153
+False: action: (50, 50), training 0.08936170212765958 vs actual 0.3333333333333333 vs remap 0.28301886792452835
+False: action: (50, 51), training 0.001702127659574468 vs actual 0.1111111111111111 vs remap 0.005390835579514826
+True: action: (51, 51), training 0.029787234042553193 vs actual 0.1111111111111111 vs remap 0.09433962264150945
+True: action: (51, 47), training 0.01446808510638298 vs actual 0.1111111111111111 vs remap 0.04582210242587602
+True: action: (47, 47), training 0.16851063829787233 vs actual 0.2222222222222222 vs remap 0.5336927223719677
+True: action: (47, 51), training 0.011914893617021277 vs actual 0.1111111111111111 vs remap 0.03773584905660378
+
+
+Analyzing user = user154
+True: action: (0, 0), training 0.16118769883351008 vs actual 0.2222222222222222 vs remap 0.17612977983777522
+True: action: (0, 5), training 0.12301166489925769 vs actual 0.1111111111111111 vs remap 0.13441483198146004
+True: action: (5, 5), training 0.5111346765641569 vs actual 0.5555555555555556 vs remap 0.5585168018539977
+True: action: (5, 0), training 0.11983032873807 vs actual 0.1111111111111111 vs remap 0.1309385863267671
+
+
+Analyzing user = user155
+False: action: (34, 34), training 0.39473684210526316 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user156
+True: action: (22, 65), training 0.032 vs actual 0.1111111111111111 vs remap 0.032
+True: action: (65, 22), training 0.024 vs actual 0.1111111111111111 vs remap 0.024
+False: action: (22, 22), training 0.944 vs actual 0.7777777777777778 vs remap 0.944
+
+
+Analyzing user = user157
+True: action: (3, 0), training 0.13636363636363635 vs actual 0.2222222222222222 vs remap 0.13636363636363635
+True: action: (0, 3), training 0.13636363636363635 vs actual 0.2222222222222222 vs remap 0.13636363636363635
+True: action: (0, 0), training 0.3977272727272727 vs actual 0.3333333333333333 vs remap 0.3977272727272727
+False: action: (3, 3), training 0.32954545454545453 vs actual 0.2222222222222222 vs remap 0.32954545454545453
+
+
+Analyzing user = user158
+True: action: (58, 58), training 0.28211586901763225 vs actual 0.2222222222222222 vs remap 0.43579766536964987
+False: action: (58, 65), training 0.09571788413098237 vs actual 0.3333333333333333 vs remap 0.14785992217898833
+True: action: (65, 65), training 0.17380352644836272 vs actual 0.2222222222222222 vs remap 0.2684824902723736
+False: action: (65, 58), training 0.09571788413098237 vs actual 0.2222222222222222 vs remap 0.14785992217898833
+
+
+Analyzing user = user159
+False: action: (0, 0), training 0.26903553299492383 vs actual 0.5555555555555556 vs remap 0.30547550432276654
+True: action: (0, 5), training 0.10152284263959391 vs actual 0.1111111111111111 vs remap 0.11527377521613832
+False: action: (5, 5), training 0.5101522842639594 vs actual 0.3333333333333333 vs remap 0.5792507204610952
+
+
+Analyzing user = user160
+True: action: (43, 43), training 0.1323529411764706 vs actual 0.2222222222222222 vs remap 0.7875000000000001
+False: action: (43, 44), training 0.018907563025210083 vs actual 0.4444444444444444 vs remap 0.1125
+False: action: (44, 43), training 0.01680672268907563 vs actual 0.3333333333333333 vs remap 0.1
+
+
+Analyzing user = user161
+True: action: (10, 10), training 1.0 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user162
+True: action: (10, 10), training 1.0 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user163
+True: action: (15, 15), training 0.9935897435897436 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user164
+False: action: (39, 39), training 0.8625592417061612 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user165
+True: action: (39, 39), training 1.0 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user166
+True: action: (45, 43), training 0.22110552763819097 vs actual 0.2222222222222222 vs remap 0.22564102564102564
+True: action: (43, 45), training 0.22110552763819097 vs actual 0.2222222222222222 vs remap 0.22564102564102564
+True: action: (45, 45), training 0.09547738693467336 vs actual 0.1111111111111111 vs remap 0.09743589743589744
+True: action: (43, 43), training 0.44221105527638194 vs actual 0.4444444444444444 vs remap 0.4512820512820513
+
+
+Analyzing user = user167
+False: action: (45, 45), training 0.00631578947368421 vs actual 0.3333333333333333 vs remap 0.15
+False: action: (45, 43), training 0.008421052631578947 vs actual 0.2222222222222222 vs remap 0.2
+False: action: (43, 45), training 0.01263157894736842 vs actual 0.2222222222222222 vs remap 0.3
+False: action: (43, 43), training 0.014736842105263158 vs actual 0.2222222222222222 vs remap 0.35
+
+
+Analyzing user = user168
+True: action: (0, 0), training 0.22525107604017217 vs actual 0.2222222222222222 vs remap 0.8395721925133689
+False: action: (0, 1), training 0.01482544237207078 vs actual 0.2222222222222222 vs remap 0.05525846702317291
+False: action: (1, 1), training 0.014347202295552367 vs actual 0.4444444444444444 vs remap 0.053475935828877004
+True: action: (1, 0), training 0.013868962219033954 vs actual 0.1111111111111111 vs remap 0.0516934046345811
+
+
+Analyzing user = user169
+True: action: (10, 10), training 1.0 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user170
+True: action: (41, 41), training 0.9859649122807017 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user171
+True: action: (0, 7), training 0.039735099337748346 vs actual 0.1111111111111111 vs remap 0.05321507760532152
+True: action: (7, 0), training 0.048013245033112585 vs actual 0.1111111111111111 vs remap 0.06430155210643017
+True: action: (0, 0), training 0.5877483443708609 vs actual 0.6666666666666666 vs remap 0.787139689578714
+True: action: (0, 1), training 0.07119205298013245 vs actual 0.1111111111111111 vs remap 0.09534368070953439
+
+
+Analyzing user = user172
+False: action: (43, 43), training 0.25547445255474455 vs actual 0.6666666666666666 vs remap 0.25547445255474455
+False: action: (43, 45), training 0.2773722627737226 vs actual 0.1111111111111111 vs remap 0.2773722627737226
+True: action: (45, 45), training 0.1897810218978102 vs actual 0.1111111111111111 vs remap 0.1897810218978102
+False: action: (45, 43), training 0.2773722627737226 vs actual 0.1111111111111111 vs remap 0.2773722627737226
+
+
+Analyzing user = user173
+False: action: (33, 33), training 0.21476510067114093 vs actual 0.5555555555555556 vs remap 0.21476510067114093
+False: action: (33, 34), training 0.09395973154362416 vs actual 0.2222222222222222 vs remap 0.09395973154362416
+False: action: (34, 34), training 0.6006711409395973 vs actual 0.1111111111111111 vs remap 0.6006711409395973
+True: action: (34, 33), training 0.09060402684563758 vs actual 0.1111111111111111 vs remap 0.09060402684563758
+
+
+Analyzing user = user174
+False: action: (18, 18), training 0.2982456140350877 vs actual 0.4444444444444444 vs remap 0.2982456140350877
+True: action: (18, 65), training 0.14035087719298245 vs actual 0.2222222222222222 vs remap 0.14035087719298245
+True: action: (65, 18), training 0.14912280701754385 vs actual 0.2222222222222222 vs remap 0.14912280701754385
+False: action: (65, 65), training 0.41228070175438597 vs actual 0.1111111111111111 vs remap 0.41228070175438597
+
+
+Analyzing user = user175
+False: action: (47, 47), training 0.3411764705882353 vs actual 0.1111111111111111 vs remap 0.5506329113924051
+False: action: (47, 50), training 0.0784313725490196 vs actual 0.3333333333333333 vs remap 0.12658227848101264
+False: action: (50, 50), training 0.13333333333333333 vs actual 0.3333333333333333 vs remap 0.2151898734177215
+False: action: (50, 47), training 0.06666666666666667 vs actual 0.2222222222222222 vs remap 0.10759493670886075
+
+
+Analyzing user = user176
+False: action: (45, 45), training 0.0506485484867202 vs actual 0.2222222222222222 vs remap 0.5734265734265734
+False: action: (45, 43), training 0.01173563928350834 vs actual 0.2222222222222222 vs remap 0.13286713286713286
+False: action: (43, 45), training 0.012353304508956145 vs actual 0.2222222222222222 vs remap 0.13986013986013984
+False: action: (43, 43), training 0.013588634959851761 vs actual 0.3333333333333333 vs remap 0.15384615384615385
+
+
+Analyzing user = user177
+False: action: (45, 45), training 0.09595959595959595 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user178
+False: action: (45, 45), training 0.08060109289617487 vs actual 0.6666666666666666 vs remap 0.5728155339805825
+True: action: (45, 43), training 0.03415300546448088 vs actual 0.1111111111111111 vs remap 0.24271844660194175
+False: action: (43, 43), training 0.025956284153005466 vs actual 0.2222222222222222 vs remap 0.1844660194174757
+
+
+Analyzing user = user179
+True: action: (0, 5), training 0.18681318681318682 vs actual 0.2222222222222222 vs remap 0.20481927710843376
+True: action: (5, 5), training 0.5366300366300366 vs actual 0.5555555555555556 vs remap 0.5883534136546185
+True: action: (5, 0), training 0.18864468864468864 vs actual 0.2222222222222222 vs remap 0.20682730923694778
+
+
+Analyzing user = user180
+False: action: (45, 45), training 0.018008474576271187 vs actual 1.0 vs remap 1.0
+
+
+Analyzing user = user181
+False: action: (43, 45), training 0.05854126679462572 vs actual 0.2222222222222222 vs remap 0.22344322344322345
+True: action: (45, 43), training 0.05662188099808062 vs actual 0.1111111111111111 vs remap 0.21611721611721613
+False: action: (45, 45), training 0.14683301343570057 vs actual 0.6666666666666666 vs remap 0.5604395604395604
+
+
+Analyzing user = user182
+False: action: (0, 0), training 0.0585544373284538 vs actual 0.2222222222222222 vs remap 0.0585544373284538
+False: action: (0, 5), training 0.222323879231473 vs actual 0.1111111111111111 vs remap 0.222323879231473
+True: action: (5, 5), training 0.4967978042086002 vs actual 0.5555555555555556 vs remap 0.4967978042086002
+False: action: (5, 0), training 0.222323879231473 vs actual 0.1111111111111111 vs remap 0.222323879231473
+
+
+Analyzing user = user183
+False: action: (5, 5), training 0.4395782643957826 vs actual 0.6666666666666666 vs remap 0.5251937984496124
+True: action: (5, 0), training 0.14193025141930252 vs actual 0.1111111111111111 vs remap 0.1695736434108527
+True: action: (0, 0), training 0.1151662611516626 vs actual 0.1111111111111111 vs remap 0.1375968992248062
+True: action: (0, 5), training 0.14030819140308193 vs actual 0.1111111111111111 vs remap 0.1676356589147287
+
+
+Analyzing user = user184
+False: action: (43, 45), training 0.01049317943336831 vs actual 0.3333333333333333 vs remap 0.23255813953488372
+False: action: (45, 43), training 0.00944386149003148 vs actual 0.2222222222222222 vs remap 0.2093023255813954
+False: action: (43, 43), training 0.0062959076600209865 vs actual 0.1111111111111111 vs remap 0.13953488372093026
+False: action: (45, 45), training 0.01888772298006296 vs actual 0.3333333333333333 vs remap 0.4186046511627908
+
+
+Analyzing user = user185
+False: action: (0, 0), training 0.2 vs actual 0.3333333333333333 vs remap 0.8787878787878788
+False: action: (0, 5), training 0.006896551724137931 vs actual 0.1111111111111111 vs remap 0.0303030303030303
+False: action: (5, 5), training 0.020689655172413793 vs actual 0.5555555555555556 vs remap 0.0909090909090909
+
+
+Analyzing user = user186
+False: action: (44, 45), training 0.002857142857142857 vs actual 0.1111111111111111 vs remap 0.005
+False: action: (45, 43), training 0.06 vs actual 0.2222222222222222 vs remap 0.105
+True: action: (43, 43), training 0.12571428571428572 vs actual 0.1111111111111111 vs remap 0.22000000000000003
+False: action: (43, 45), training 0.05142857142857143 vs actual 0.2222222222222222 vs remap 0.09
+True: action: (45, 45), training 0.3314285714285714 vs actual 0.3333333333333333 vs remap 0.58
+
+
+Analyzing user = user187
+True: action: (4, 4), training 0.01652892561983471 vs actual 0.1111111111111111 vs remap 0.020833333333333332
+The user has never performed this sequence of actions before (4, 5)
+The user has never performed this sequence of actions before (5, 5)
+The user has never performed this sequence of actions before (5, 43)
+True: action: (43, 45), training 0.19834710743801653 vs actual 0.2222222222222222 vs remap 0.25
+True: action: (45, 43), training 0.19834710743801653 vs actual 0.1111111111111111 vs remap 0.25
+False: action: (43, 43), training 0.2396694214876033 vs actual 0.1111111111111111 vs remap 0.3020833333333333
+True: action: (45, 45), training 0.14049586776859505 vs actual 0.1111111111111111 vs remap 0.17708333333333334
+
+
+Analyzing user = user188
+True: action: (45, 45), training 0.2927927927927928 vs actual 0.2222222222222222 vs remap 0.2927927927927928
+True: action: (45, 43), training 0.24324324324324326 vs actual 0.2222222222222222 vs remap 0.24324324324324326
+True: action: (43, 45), training 0.24774774774774774 vs actual 0.2222222222222222 vs remap 0.24774774774774774
+False: action: (43, 43), training 0.21621621621621623 vs actual 0.3333333333333333 vs remap 0.21621621621621623
+
+
+Analyzing user = user189
+False: action: (45, 45), training 0.21978021978021978 vs actual 0.7777777777777778 vs remap 0.37383177570093457
+True: action: (45, 43), training 0.1813186813186813 vs actual 0.1111111111111111 vs remap 0.308411214953271
+True: action: (43, 45), training 0.18681318681318682 vs actual 0.1111111111111111 vs remap 0.3177570093457944
+
+
+Analyzing user = user190
+False: action: (45, 45), training 0.32967032967032966 vs actual 0.2222222222222222 vs remap 0.33519553072625696
+False: action: (45, 43), training 0.23076923076923078 vs actual 0.3333333333333333 vs remap 0.2346368715083799
+True: action: (43, 43), training 0.1813186813186813 vs actual 0.1111111111111111 vs remap 0.1843575418994413
+True: action: (43, 45), training 0.24175824175824176 vs actual 0.3333333333333333 vs remap 0.24581005586592178
+
+
+Analyzing user = user191
+True: action: (43, 45), training 0.1293634496919918 vs actual 0.2222222222222222 vs remap 0.1329113924050633
+True: action: (45, 43), training 0.13347022587268995 vs actual 0.1111111111111111 vs remap 0.13713080168776373
+False: action: (43, 43), training 0.16632443531827515 vs actual 0.3333333333333333 vs remap 0.17088607594936708
+False: action: (45, 45), training 0.5441478439425051 vs actual 0.3333333333333333 vs remap 0.559071729957806
+
+
+Analyzing user = user192
+True: action: (43, 43), training 0.19597989949748743 vs actual 0.2222222222222222 vs remap 0.21787709497206703
+True: action: (43, 45), training 0.18592964824120603 vs actual 0.2222222222222222 vs remap 0.20670391061452514
+False: action: (45, 45), training 0.33668341708542715 vs actual 0.4444444444444444 vs remap 0.3743016759776536
+True: action: (45, 43), training 0.18090452261306533 vs actual 0.1111111111111111 vs remap 0.2011173184357542
+
+
+Analyzing user = user193
+True: action: (48, 48), training 0.21641791044776118 vs actual 0.2222222222222222 vs remap 0.3295454545454546
+True: action: (48, 51), training 0.014925373134328358 vs actual 0.1111111111111111 vs remap 0.02272727272727273
+False: action: (51, 51), training 0.022388059701492536 vs actual 0.2222222222222222 vs remap 0.034090909090909095
+True: action: (51, 47), training 0.029850746268656716 vs actual 0.1111111111111111 vs remap 0.04545454545454546
+False: action: (47, 47), training 0.34328358208955223 vs actual 0.2222222222222222 vs remap 0.5227272727272728
+True: action: (47, 51), training 0.029850746268656716 vs actual 0.1111111111111111 vs remap 0.04545454545454546
+
+
+Analyzing user = user194
+False: action: (48, 48), training 0.10317460317460317 vs actual 0.4444444444444444 vs remap 0.12745098039215685
+True: action: (48, 47), training 0.07142857142857142 vs actual 0.1111111111111111 vs remap 0.08823529411764705
+False: action: (47, 47), training 0.5634920634920635 vs actual 0.3333333333333333 vs remap 0.696078431372549
+True: action: (47, 48), training 0.07142857142857142 vs actual 0.1111111111111111 vs remap 0.08823529411764705
+
+
+Analyzing user = user195
+True: action: (45, 45), training 0.49230769230769234 vs actual 0.5555555555555556 vs remap 0.49230769230769234
+True: action: (45, 43), training 0.13333333333333333 vs actual 0.1111111111111111 vs remap 0.13333333333333333
+True: action: (43, 43), training 0.2358974358974359 vs actual 0.2222222222222222 vs remap 0.2358974358974359
+True: action: (43, 45), training 0.13846153846153847 vs actual 0.1111111111111111 vs remap 0.13846153846153847
+
+
+Analyzing user = user196
+True: action: (45, 43), training 0.16810344827586207 vs actual 0.2222222222222222 vs remap 0.16956521739130434
+True: action: (43, 43), training 0.14224137931034483 vs actual 0.2222222222222222 vs remap 0.14347826086956522
+True: action: (43, 45), training 0.16379310344827586 vs actual 0.2222222222222222 vs remap 0.16521739130434782
+False: action: (45, 45), training 0.5172413793103449 vs actual 0.3333333333333333 vs remap 0.5217391304347826
+
+
+Analyzing user = user197
+False: action: (43, 45), training 0.22023809523809523 vs actual 0.3333333333333333 vs remap 0.22289156626506024
+True: action: (45, 43), training 0.22023809523809523 vs actual 0.2222222222222222 vs remap 0.22289156626506024
+False: action: (43, 43), training 0.16071428571428573 vs actual 0.3333333333333333 vs remap 0.16265060240963855
+False: action: (45, 45), training 0.3869047619047619 vs actual 0.1111111111111111 vs remap 0.39156626506024095
+
+
+Analyzing user = user198
+False: action: (0, 0), training 0.07692307692307693 vs actual 0.5555555555555556 vs remap 1.0
+The user has never performed this sequence of actions before (0, 5)
+The user has never performed this sequence of actions before (5, 5)
+
+
+Analyzing user = user199
+False: action: (0, 5), training 0.06666666666666667 vs actual 0.2222222222222222 vs remap 0.125
+False: action: (5, 5), training 0.19047619047619047 vs actual 0.5555555555555556 vs remap 0.35714285714285715
+True: action: (5, 0), training 0.05714285714285714 vs actual 0.1111111111111111 vs remap 0.10714285714285714
+False: action: (0, 0), training 0.21904761904761905 vs actual 0.1111111111111111 vs remap 0.4107142857142857
+
+
+Analyzing user = user200
+False: action: (17, 17), training 0.027624309392265192 vs actual 0.2222222222222222 vs remap 0.0819672131147541
+True: action: (17, 65), training 0.022099447513812154 vs actual 0.1111111111111111 vs remap 0.06557377049180328
+False: action: (65, 65), training 0.287292817679558 vs actual 0.6666666666666666 vs remap 0.8524590163934427
+
+
