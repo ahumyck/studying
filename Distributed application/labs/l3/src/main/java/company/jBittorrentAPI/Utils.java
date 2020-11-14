@@ -58,10 +58,7 @@ public class Utils {
      * @return String the converted byte
      */
     public static String byteToHex(byte data) {
-        StringBuffer buf = new StringBuffer();
-        buf.append(toHexChar((data >>> 4) & 0x0F));
-        buf.append(toHexChar(data & 0x0F));
-        return buf.toString();
+        return String.valueOf(toHexChar((data >>> 4) & 0x0F)) + toHexChar(data & 0x0F);
     }
 
     /**
@@ -71,9 +68,9 @@ public class Utils {
      * @return String the converted byte[]
      */
     public static String bytesToHex(byte[] data) {
-        StringBuffer buf = new StringBuffer();
-        for (int i = 0; i < data.length; i++) {
-            buf.append(byteToHex(data[i]));
+        StringBuilder buf = new StringBuilder();
+        for (byte datum : data) {
+            buf.append(byteToHex(datum));
         }
         return buf.toString();
     }
@@ -93,6 +90,7 @@ public class Utils {
 
     /**
      * Convert a byte array to a URL encoded string
+     *
      * @param in byte[]
      * @return String
      */
@@ -102,17 +100,17 @@ public class Utils {
         if (in == null || in.length <= 0)
             return null;
 
-        String pseudo[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
-                          "A", "B", "C", "D", "E", "F"};
+        String[] pseudo = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+                "A", "B", "C", "D", "E", "F"};
         StringBuffer out = new StringBuffer(in.length * 2);
 
         while (i < in.length) {
             // First check to see if we need ASCII or HEX
             if ((in[i] >= '0' && in[i] <= '9')
-                || (in[i] >= 'a' && in[i] <= 'z')
-                || (in[i] >= 'A' && in[i] <= 'Z') || in[i] == '$'
-                || in[i] == '-' || in[i] == '_' || in[i] == '.'
-                || in[i] == '!') {
+                    || (in[i] >= 'a' && in[i] <= 'z')
+                    || (in[i] >= 'A' && in[i] <= 'Z') || in[i] == '$'
+                    || in[i] == '-' || in[i] == '_' || in[i] == '.'
+                    || in[i] == '!') {
                 out.append((char) in[i]);
                 i++;
             } else {
@@ -121,10 +119,10 @@ public class Utils {
                 ch = (byte) (ch >>> 4); // shift the bits down
                 ch = (byte) (ch & 0x0F); // must do this is high order bit is
                 // on!
-                out.append(pseudo[(int) ch]); // convert the nibble to a
+                out.append(pseudo[ch]); // convert the nibble to a
                 // String Character
                 ch = (byte) (in[i] & 0x0F); // Strip off low nibble
-                out.append(pseudo[(int) ch]); // convert the nibble to a
+                out.append(pseudo[ch]); // convert the nibble to a
                 // String Character
                 i++;
             }
@@ -137,17 +135,12 @@ public class Utils {
     }
 
     /**
-     *
      * Convert a byte[] array to readable string format. This makes the "hex"
      * readable!
      *
-     * @author Jeff Boyle
-     *
+     * @param in byte[] buffer to convert to string format
      * @return result String buffer in String format
-     *
-     * @param in
-     *            byte[] buffer to convert to string format
-     *
+     * @author Jeff Boyle
      */
     // Taken from http://www.devx.com/tips/Tip/13540
     public static String byteArrayToByteString(byte in[]) {
@@ -157,7 +150,7 @@ public class Utils {
             return null;
 
         String pseudo[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
-                          "A", "B", "C", "D", "E", "F"};
+                "A", "B", "C", "D", "E", "F"};
         StringBuffer out = new StringBuffer(in.length * 2);
 
         while (i < in.length) {
@@ -179,6 +172,7 @@ public class Utils {
 
     /**
      * Convert an integer value to its byte array representation
+     *
      * @param value int
      * @return byte[]
      */
@@ -193,45 +187,49 @@ public class Utils {
 
     /**
      * Convert a byte array integer (4 bytes) to its int value
+     *
      * @param b byte[]
      * @return int
      */
     public static int byteArrayToInt(byte[] b) {
-        if(b.length == 4)
+        if (b.length == 4)
             return b[0] << 24 | (b[1] & 0xff) << 16 | (b[2] & 0xff) << 8 |
                     (b[3] & 0xff);
-        else if(b.length == 2)
+        else if (b.length == 2)
             return 0x00 << 24 | 0x00 << 16 | (b[0] & 0xff) << 8 | (b[1] & 0xff);
 
         return 0;
     }
 
-    public static int byteToUnsignedInt(byte b){
+    public static int byteToUnsignedInt(byte b) {
         return 0x00 << 24 | b & 0xff;
     }
 
     public static byte[] intToByteArray4(int i) {
-        return new byte[] {(byte) (i >> 24), (byte) (i >> 16), (byte) (i >> 8),
+        return new byte[]{(byte) (i >> 24), (byte) (i >> 16), (byte) (i >> 8),
                 (byte) i};
     }
 
     /**
      * Compute the SHA-1 hash of the bytes in the given buffer
+     *
      * @param hashThis ByteBuffer
      * @return byte[]
      */
-    public static byte[] hash(ByteBuffer hashThis){
-        try{
+    public static byte[] hash(ByteBuffer hashThis) {
+        try {
             byte[] hash = new byte[20];
             MessageDigest md = MessageDigest.getInstance("SHA-1");
             md.update(hashThis);
             return md.digest();
-        }catch(NoSuchAlgorithmException nsae){}
+        } catch (NoSuchAlgorithmException nsae) {
+        }
         return null;
     }
 
     /**
      * Compute the SHA-1 hash of the given byte array
+     *
      * @param hashThis byte[]
      * @return byte[]
      */
@@ -251,6 +249,7 @@ public class Utils {
 
     /**
      * Generate the client id, which is a fixed string of length 8 concatenated with 12 random bytes
+     *
      * @return byte[]
      */
     public static byte[] generateID() {
@@ -258,11 +257,12 @@ public class Utils {
 
         Random r = new Random(System.currentTimeMillis());
         r.nextBytes(id);
-        return Utils.concat("-BE0001-".getBytes(),id);
+        return Utils.concat("-BE0001-".getBytes(), id);
     }
 
     /**
      * Concatenate the 2 byte arrays
+     *
      * @param a byte[]
      * @param b byte[]
      * @return byte[]
@@ -273,8 +273,10 @@ public class Utils {
         bb.put(b);
         return bb.array();
     }
+
     /**
      * Concatenate the 2 byte arrays
+     *
      * @param b1 byte[]
      * @param b2 byte[]
      * @return byte[]
@@ -288,13 +290,14 @@ public class Utils {
 
     /**
      * Concatenate the byte array and the byte
+     *
      * @param b1 byte[]
      * @param b2 byte
      * @return byte[]
      */
     public static byte[] concat(byte[] b1, byte b2) {
         byte[] b3 = new byte[b1.length + 1];
-        byte[] temp = new byte[] {b2};
+        byte[] temp = new byte[]{b2};
         System.arraycopy(b1, 0, b3, 0, b1.length);
         System.arraycopy(temp, 0, b3, b1.length, 1);
         return b3;
@@ -302,6 +305,7 @@ public class Utils {
 
     /**
      * Convert a byte array representing an unsigned integer (4bytes) to its long value
+     *
      * @param b byte[]
      * @return long
      */
@@ -319,13 +323,14 @@ public class Utils {
 
     /**
      * Convert a byte array to a boolean array. Bit 0 is represented with false, Bit 1 is represented with 1
+     *
      * @param bytes byte[]
      * @return boolean[]
      */
     public static boolean[] byteArray2BitArray(byte[] bytes) {
-        boolean[] bits = new boolean[bytes.length*8];
+        boolean[] bits = new boolean[bytes.length * 8];
         for (int i = 0; i < bytes.length * 8; i++) {
-            if ((bytes[i / 8] & (1 << (7 -(i % 8)))) > 0)
+            if ((bytes[i / 8] & (1 << (7 - (i % 8)))) > 0)
                 bits[i] = true;
         }
         return bits;
@@ -333,39 +338,43 @@ public class Utils {
 
     /**
      * Return a subarray of the byte array in parameter.
-     * @param b The original array
+     *
+     * @param b      The original array
      * @param offset Begin index of the subarray
      * @param length Length of the subarray
      * @return byte[]
      */
-    public static byte[] subArray(byte[] b, int offset, int length){
+    public static byte[] subArray(byte[] b, int offset, int length) {
         byte[] sub = new byte[length];
-        for(int i = offset; i < offset + length; i++)
-            sub[i-offset] = b[i];
+        for (int i = offset; i < offset + length; i++)
+            sub[i - offset] = b[i];
         return sub;
     }
+
     /**
      * Compare 2 byte arrays byte to byte
+     *
      * @param a byte[]
      * @param b byte[]
      * @return boolean
      */
-    public static boolean bytesCompare(byte[] a, byte[] b){
-        if(a.length != b.length)
+    public static boolean bytesCompare(byte[] a, byte[] b) {
+        if (a.length != b.length)
             return false;
-        for(int i = 0; i < a.length; i++)
-            if(a[i] != b[i])
+        for (int i = 0; i < a.length; i++)
+            if (a[i] != b[i])
                 return false;
         return true;
     }
 
     /**
      * Copy the input byte array to the output byte array
-     * @param in byte[]
+     *
+     * @param in  byte[]
      * @param out byte[]
      */
-    public static void copy(byte[] in, byte[] out){
-        for(int i = 0; i < out.length && i < in.length; i++)
+    public static void copy(byte[] in, byte[] out) {
+        for (int i = 0; i < out.length && i < in.length; i++)
             out[i] = in[i];
     }
 

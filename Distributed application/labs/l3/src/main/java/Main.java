@@ -32,7 +32,7 @@ public class Main {
 		Map decode = BDecoder.decode(bufferedInputStream);
 
 		System.out.println(decode);
-		LightPeerParser parser = new LightPeerParser((byte[]) decode.get("peers"));
+		LightPeerParser parser = new LightPeerParser(decode);
 		List<LightPeer> addresses = parser.getLightPeers();
 		System.out.println(addresses);
 		System.out.println(decode.get("interval").getClass());

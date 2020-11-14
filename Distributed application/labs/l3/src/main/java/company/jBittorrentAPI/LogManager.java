@@ -48,7 +48,7 @@ import java.util.Date;
  * @version 0.1
  */
 public class LogManager {
-    private String filename;
+    private final String filename;
     private OutputStream os;
     public FileWriter fw;
 

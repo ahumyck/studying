@@ -83,12 +83,12 @@ public class Piece {
     public Piece(int index, int length, int blockSize, byte[] sha1, TreeMap<Integer, Integer> m) {
         this.index = index;
         this.length = length;
-        this.pieceBlock = new TreeMap<Integer, byte[]>();
+        this.pieceBlock = new TreeMap<>();
         this.sha1 = sha1;
         if(m != null)
             this.filesAndoffset = m;
         else
-            this.filesAndoffset = new TreeMap<Integer, Integer>();
+            this.filesAndoffset = new TreeMap<>();
     }
 
     public void clearData(){

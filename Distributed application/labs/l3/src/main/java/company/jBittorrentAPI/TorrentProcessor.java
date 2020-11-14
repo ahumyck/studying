@@ -85,7 +85,7 @@ public class TorrentProcessor {
 		try {
 			return BDecoder.decode(IOManager.readBytesFromFile(file));
 		}
-		catch (IOException ioe) {
+		catch (IOException ignored) {
 		}
 		return null;
 	}

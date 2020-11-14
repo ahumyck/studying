@@ -38,7 +38,6 @@
 package company.jBittorrentAPI;
 
 import javax.swing.event.EventListenerList;
-import java.io.IOException;
 import java.io.OutputStream;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
@@ -66,8 +65,8 @@ public class MessageSender extends Thread {
     }
 
     public void removeOutgoingListener(OutgoingListener listener) {
-       listeners.remove(OutgoingListener.class, listener);
-   }
+        listeners.remove(OutgoingListener.class, listener);
+    }
 
     public OutgoingListener[] getOutgoingListeners() {
         return listeners.getListeners(OutgoingListener.class);
@@ -96,9 +95,10 @@ public class MessageSender extends Thread {
 
     /**
      * Puts the message in parameter in the queue, waiting to be sent
+     *
      * @param m Message
      */
-    public synchronized void addMessageToQueue(Message m){
+    public synchronized void addMessageToQueue(Message m) {
         this.outgoingMessage.add(m);
         this.lmst = System.currentTimeMillis();
         //this.notify();
@@ -114,32 +114,31 @@ public class MessageSender extends Thread {
         byte[] keep = new Message_PP(PeerProtocol.KEEP_ALIVE).generate();
         try {
             while (this.run) {
-                if(this.outgoingMessage != null && this.os != null)
-                out = outgoingMessage.poll(120000, TimeUnit.MILLISECONDS);
-                if(out != null){
+                if (this.outgoingMessage != null && this.os != null)
+                    out = outgoingMessage.poll(120000, TimeUnit.MILLISECONDS);
+                if (out != null) {
                     os.write(out.generate());
                     this.lmst = System.currentTimeMillis();
                     out = null;
-                }else if(this.run){
+                } else if (this.run) {
                     os.write(keep);
                     this.fireKeepAliveSent();
                 }
             }
-        } catch (InterruptedException ie) {
-        } catch(IOException ioe){
-            this.fireConnectionClosed();
-        } catch(Exception e){
+        } catch (InterruptedException ignored) {
+        } catch (Exception ioe) {
             this.fireConnectionClosed();
         }
 
-        if(this.outgoingMessage != null)
+        if (this.outgoingMessage != null)
             this.outgoingMessage.clear();
         this.outgoingMessage = null;
-        try{
+        try {
             this.os.close();
             this.os = null;
             this.notify();
-        }catch(Exception e){}
+        } catch (Exception ignored) {
+        }
 
     }
 
@@ -147,7 +146,7 @@ public class MessageSender extends Thread {
      * Sets the 'run' variable to false, causing the thread to stop on its next
      * loop.
      */
-    public void stopThread(){
+    public void stopThread() {
         this.run = false;
     }
 

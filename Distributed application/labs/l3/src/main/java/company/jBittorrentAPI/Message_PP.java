@@ -38,7 +38,6 @@
 package company.jBittorrentAPI;
 
 /**
- *
  * Represent a Peer Protocol message according to Bittorrent protocol specifications.
  * This message format depends on its identity, so refer to Bittorrent specifications for further information
  *
@@ -50,7 +49,7 @@ public class Message_PP extends Message {
     private byte[] id = new byte[1];
     private byte[] payload;
 
-    public Message_PP(){
+    public Message_PP() {
         super();
     }
 
@@ -59,7 +58,7 @@ public class Message_PP extends Message {
         this.setData(type);
     }
 
-    public Message_PP(int type){
+    public Message_PP(int type) {
         this(type, 0);
     }
 
@@ -68,7 +67,7 @@ public class Message_PP extends Message {
         this.setData(type, payload);
     }
 
-    public Message_PP(int type, byte[] payload){
+    public Message_PP(int type, byte[] payload) {
         this(type, payload, 0);
     }
 
@@ -100,74 +99,68 @@ public class Message_PP extends Message {
     public void setData(int type) {
         this.type = type;
         switch (type) {
-        case 0:
-            this.length = new byte[] {0, 0, 0, 0};
-            break;
-        case 1:
-            this.length = new byte[] {0, 0, 0, 1};
-            this.id[0] = 0;
-            break;
-        case 2:
-            this.length = new byte[] {0, 0, 0, 1};
-            this.id[0] = 1;
-            break;
-        case 3:
-            this.length = new byte[] {0, 0, 0, 1};
-            this.id[0] = 2;
-            break;
-        case 4:
-            this.length = new byte[] {0, 0, 0, 1};
-            this.id[0] = 3;
-            break;
+            case 0:
+                this.length = new byte[]{0, 0, 0, 0};
+                break;
+            case 1:
+                this.length = new byte[]{0, 0, 0, 1};
+                this.id[0] = 0;
+                break;
+            case 2:
+                this.length = new byte[]{0, 0, 0, 1};
+                this.id[0] = 1;
+                break;
+            case 3:
+                this.length = new byte[]{0, 0, 0, 1};
+                this.id[0] = 2;
+                break;
+            case 4:
+                this.length = new byte[]{0, 0, 0, 1};
+                this.id[0] = 3;
+                break;
         }
     }
 
     public void setData(int type, byte[] payload) {
         this.type = type;
         switch (type) {
-        case 5:
-            this.length = new byte[] {0, 0, 0, 5};
-            this.id[0] = 4;
-            this.payload = payload;
-            break;
-        case 6:
-            this.length = Utils.intToByteArray(1 + payload.length);
-            this.id[0] = 5;
-            this.payload = payload;
-            break;
-        case 7:
-            this.length = new byte[] {0, 0, 0, 13};
-            this.id[0] = 6;
-            this.payload = payload;
-            break;
-        case 8:
-            this.length = Utils.intToByteArray(1 + payload.length);
-            this.id[0] = 7;
-            this.payload = payload;
-            break;
-        case 9:
-            this.length = new byte[] {0, 0, 0, 13};
-            this.id[0] = 8;
-            this.payload = payload;
-            break;
-        case 10:
-            this.length = new byte[] {0, 0, 0, 3};
-            this.id[0] = 9;
-            this.payload = payload;
-            break;
+            case 5:
+                this.length = new byte[]{0, 0, 0, 5};
+                this.id[0] = 4;
+                this.payload = payload;
+                break;
+            case 6:
+                this.length = Utils.intToByteArray(1 + payload.length);
+                this.id[0] = 5;
+                this.payload = payload;
+                break;
+            case 7:
+                this.length = new byte[]{0, 0, 0, 13};
+                this.id[0] = 6;
+                this.payload = payload;
+                break;
+            case 8:
+                this.length = Utils.intToByteArray(1 + payload.length);
+                this.id[0] = 7;
+                this.payload = payload;
+                break;
+            case 9:
+                this.length = new byte[]{0, 0, 0, 13};
+                this.id[0] = 8;
+                this.payload = payload;
+                break;
+            case 10:
+                this.length = new byte[]{0, 0, 0, 3};
+                this.id[0] = 9;
+                this.payload = payload;
+                break;
         }
-    }
-
-    public void setData(byte[] length, byte id, byte[] payload) {
-        this.length = length;
-        this.id[0] = id;
-        this.payload = payload;
     }
 
     public byte[] generate() {
         if (this.type > 4)
             return Utils.concat(Utils.concat(this.length, this.id),
-                                this.payload);
+                    this.payload);
         else if (this.type > 0)
             return Utils.concat(this.length, this.id);
         else
@@ -180,35 +173,31 @@ public class Message_PP extends Message {
         int length = Utils.byteArrayToInt(this.length);
         toString += "<length=" + length + ">";
         if (length > 0) {
-            toString += "<id=" + (int)this.id[0] + ">";
+            toString += "<id=" + (int) this.id[0] + ">";
             if (length > 1) {
-                switch(this.id[0]+1){
-                case PeerProtocol.HAVE:
-                    toString += "<index=" + Utils.byteArrayToInt(this.payload) +
-                            ">";
-                    break;
-                case PeerProtocol.BITFIELD:
-                    toString += "<bitfield="+(new Bits(this.payload))+">";
-                    break;
-                case PeerProtocol.REQUEST:
-                    toString += "<index=" + Utils.byteArrayToInt(Utils.subArray(this.payload,0,4)) +">";
-                    toString += "<begin=" + Utils.byteArrayToInt(Utils.subArray(this.payload,4,4)) +">";
-                    toString += "<length=" + Utils.byteArrayToInt(Utils.subArray(this.payload,8,4)) +">";
-                    break;
-                case PeerProtocol.PIECE:
-                    toString += "<index=" + Utils.byteArrayToInt(Utils.subArray(this.payload,0,4)) +">";
-                    toString += "<begin=" + Utils.byteArrayToInt(Utils.subArray(this.payload,4,4)) +">";
-                    toString += "<block= "+(this.payload.length-8)+"bytes>";
-                    break;
-                case PeerProtocol.CANCEL:
-                    toString += "<index=" + Utils.byteArrayToInt(Utils.subArray(this.payload,0,4)) +">";
-                    toString += "<begin=" + Utils.byteArrayToInt(Utils.subArray(this.payload,4,4)) +">";
-                    toString += "<length=" + Utils.byteArrayToInt(Utils.subArray(this.payload,8,4)) +">";
-                    break;
-                case PeerProtocol.PORT:
-                    break;
+                switch (this.id[0] + 1) {
+                    case PeerProtocol.HAVE:
+                        toString += "<index=" + Utils.byteArrayToInt(this.payload) +
+                                ">";
+                        break;
+                    case PeerProtocol.BITFIELD:
+                        toString += "<bitfield=" + (new Bits(this.payload)) + ">";
+                        break;
+                    case PeerProtocol.REQUEST:
+                    case PeerProtocol.CANCEL:
+                        toString += "<index=" + Utils.byteArrayToInt(Utils.subArray(this.payload, 0, 4)) + ">";
+                        toString += "<begin=" + Utils.byteArrayToInt(Utils.subArray(this.payload, 4, 4)) + ">";
+                        toString += "<length=" + Utils.byteArrayToInt(Utils.subArray(this.payload, 8, 4)) + ">";
+                        break;
+                    case PeerProtocol.PIECE:
+                        toString += "<index=" + Utils.byteArrayToInt(Utils.subArray(this.payload, 0, 4)) + ">";
+                        toString += "<begin=" + Utils.byteArrayToInt(Utils.subArray(this.payload, 4, 4)) + ">";
+                        toString += "<block= " + (this.payload.length - 8) + "bytes>";
+                        break;
+                    case PeerProtocol.PORT:
+                        break;
                 }
-                        // + ">";
+                // + ">";
             }
         }
         return toString;
