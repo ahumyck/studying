@@ -2,9 +2,8 @@ package com.application.chord;
 
 import com.application.comparators.Interval;
 import com.application.exceptions.ChordNodeIsNotActiveException;
-import com.application.table.FingerPositionCalculator;
-import com.application.table.impls.FingerTable;
-import com.application.table.impls.FingerTableRecord;
+import com.application.table.FingerTable;
+import com.application.table.FingerTableRecord;
 
 import java.util.List;
 import java.util.Objects;

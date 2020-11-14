@@ -8,7 +8,7 @@ public class Main {
 		//http://www.cs.uoi.gr/~pitoura/courses/p2p/chord.pdf
 		//http://www.inf.ed.ac.uk/teaching/courses/ip/chord-desc.html
 		int n = 8;
-		Chord chord = new Chord(n);
+		Chord chord = Chord.createChord(n);
 		chord.add(0);
 		chord.add(1);
 		chord.add(3);
