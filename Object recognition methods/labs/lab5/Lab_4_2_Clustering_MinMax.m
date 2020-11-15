@@ -3,20 +3,20 @@ clear;
 clc;
 K = 5;% number of clusters
 
-M1=[  -1.5  ;  -1.5 ];
-M2=[  -1.5  ;  1.5 ];
-M3=[ 0  ;  0 ];
-M4=[  1.5  ;  -1.5 ];
-M5=[  1.5  ; 1.5 ];
+M1 = [ 0; 0];
+M2 = [-1; 1];
+M3 = [-1;-1];
+M4 = [ 1;-1];
+M5 = [ 1; 1];
 
 R1=[0.1 0.0;0.0 0.075];
-R2=[0.1 0.0;0.0 0.075];
-R3=[0.05 0.0;0.0 0.05];
-R4=[0.1 0.0;0.0 0.075];
-R5=[0.05 0.0;0.0 0.05];
+R2=[0.1 0.0;0.0 0.1];
+R3=[0.05 0.0;0.1 0.05];
+R4=[0.1 0.05;0.0 0.075];
+R5=[0.05 0;0.05 0.05];
 
 n = 2;
-N = 200;
+N = 50;
 
 if K==3 
     X = cat(2, gennormvec(M1, R1, n,N), gennormvec(M2, R2, n,N), gennormvec(M3, R3, n,N));
@@ -30,10 +30,11 @@ X=X';
 clusters_num = K;
 X_initial = X;
 [m, n] = size(X);
+disp(size(X));
 MX = mean(X, 1);
 distToCent = zeros(m, clusters_num);
 idx = zeros(m, 1);
-centroids = zeros(clusters_num,2);
+centroids = zeros(clusters_num, 2);
 grMax=zeros(K-2,2);
 grTyp=zeros(K-2,2);
 
@@ -124,8 +125,8 @@ if K>2
     end
 end
 scatter(centroids(:, 1),centroids(:, 2), 25, 'm', 'o');
-xlim([-4 4]);
-ylim([-4 4]);
+xlim([-3 3]);
+ylim([-3 3]);
 hold off;
 
 figure;

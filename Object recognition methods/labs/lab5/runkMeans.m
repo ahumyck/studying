@@ -4,10 +4,10 @@ function [centroids, idx,graf] = runkMeans(X, initial_centroids)
 K = size(initial_centroids, 1);
 centroids = initial_centroids;
 idx = zeros(m, 1);
-lastCent=initial_centroids;
-lastIdx=idx;
-out=0;
-graf=zeros(0,2);
+lastCent = initial_centroids;
+lastIdx = idx;
+out = 0;
+graf = zeros(0, 2);
 i=1;
     while out==0    
         %Step 1

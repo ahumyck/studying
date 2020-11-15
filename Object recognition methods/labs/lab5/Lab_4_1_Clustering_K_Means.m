@@ -1,38 +1,40 @@
 %K-MEANS
+clear;
 close all;
 clc;
 K = 5;% number of clusters
 
-M1=[  -1.5  ;  -1.5 ];
-M2=[  -1.5  ;  1.5 ];
-M3=[ 0  ;  0 ];
-M4=[  1.5  ;  -1.5 ];
-M5=[  1.5  ; 1.5 ];
+M1 = [ 0; 0];
+M2 = [-1; 1];
+M3 = [-1;-1];
+M4 = [ 1;-1];
+M5 = [ 1; 1];
 
 R1=[0.1 0.0;0.0 0.075];
-R2=[0.1 0.0;0.0 0.075];
-R3=[0.05 0.0;0.0 0.05];
-R4=[0.1 0.0;0.0 0.075];
-R5=[0.05 0.0;0.0 0.05];
+R2=[0.1 0.0;0.0 0.1];
+R3=[0.05 0.0;0.1 0.05];
+R4=[0.1 0.05;0.0 0.075];
+R5=[0.05 0;0.05 0.05];
 
 n = 2;
-N = 200;
+N = 50;
+offset = 1;
 
 if K==3 
     X = cat(2, gennormvec(M1, R1, n,N), gennormvec(M2, R2, n,N), gennormvec(M3, R3, n,N));
     X = X';
     initial_centroids = [X(1,:); X(2,:); X(3,:)];
-    %initial_centroids = [X(1,:); X(201,:);X(401,:)];
+    %initial_centroids = [X(offset,:); X(offset + N,:);X(offset + 2*N,:)];
 elseif K==5
     X = cat(2, gennormvec(M1, R1, n,N), gennormvec(M2, R2, n,N), gennormvec(M3, R3, n,N), gennormvec(M4, R4, n,N), gennormvec(M5, R5, n,N));
     X = X';
-    %initial_centroids = [X(1,:);X(2,:);X(3,:);X(4,:);X(5,:)];
-    initial_centroids = [X(25,:);X(225,:);X(425,:);X(625,:);X(825,:)];
+    initial_centroids = [X(70,:);X(11,:);X(52,:);X(53,:);X(54,:)];
+    %initial_centroids = [X(offset,:);X(offset + N,:);X(offset + 2*N,:);X(offset + 3*N,:);X(offset + 4*N,:)];
 elseif K==2
     X = cat(2, gennormvec(M1, R1, n,N), gennormvec(M2, R2, n,N));
     X = X';
     %initial_centroids = [X(1,:);X(2,:)];  
-    initial_centroids = [X(1,:);X(201,:)]; 
+    initial_centroids = [X(offset,:);X(offset + N,:)]; 
 end
 
 [centroids, idx,graf] = runkMeans(X, initial_centroids);
