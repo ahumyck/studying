@@ -56,13 +56,15 @@ class BaseCamera(object):
     frame = None  # current frame is stored here by background thread
     last_access = 0  # time of last client access to the camera
     event = CameraEvent()
+    connection = 0
 
-    def __init__(self):
+    def __init__(self, connection):
         """Start the background camera thread if it isn't running yet."""
         if BaseCamera.thread is None:
             BaseCamera.last_access = time.time()
 
             # start background frame thread
+            BaseCamera.connection = connection
             BaseCamera.thread = threading.Thread(target=self._thread)
             BaseCamera.thread.start()
 

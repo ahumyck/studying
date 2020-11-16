@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 from importlib import import_module
 import os
+import json
+import socket
 from flask import Flask, render_template, Response
 
 # import camera driver
@@ -15,6 +17,16 @@ from server_camera import Camera
 # from camera_pi import Camera
 
 app = Flask(__name__)
+sock = 0
+connection = 0
+client_address = 0
+
+paramsPath = "params.json"
+
+def parseParameters(serverInformationFilepath):
+    with open(serverInformationFilepath) as serverAddress:
+        address = json.load(serverAddress)
+        return address['HOST'], address['PORT']
 
 @app.route('/')
 def index():
@@ -35,8 +47,17 @@ def gen(camera):
 @app.route('/video_feed')
 def video_feed():
     """Video streaming route. Put this in the src attribute of an img tag."""
-    return Response(gen(Camera()), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(gen(Camera(connection)), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
 if __name__ == '__main__':
+    print("getting frames")
+    host, port = parseParameters(paramsPath) #получаем адрес сервера
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #создаем сокет
+    print('Server started')
+    sock.bind((host, port)) #привязываем сокет к адресу
+    print('listening')
+    sock.listen(1) # "слушаем" подключения
+    connection, client_address = sock.accept() #принимаем подключение
+    print('client connected: {}'.format(client_address))
     app.run(host='0.0.0.0', threaded=True)

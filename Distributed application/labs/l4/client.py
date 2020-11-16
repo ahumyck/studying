@@ -10,7 +10,8 @@ import random
 import numpy as np
 
 paramsPath = "params.json"
-video_source = "video.mp4"
+#video_source = "video.mp4"
+video_source = 0
 
 chunkSize = 4096
 
@@ -38,9 +39,6 @@ def noiseImage(image,prob):
                 output[i][j] = image[i][j]
     return output
 
-
-def sendImageName(sock, imageName):
-    sock.sendall(str.encode(imageName)) #отправляем через сокет имя файла
 
 def sendImageSize(sock, size):
     sock.sendall(str.encode(str(size))) #отправляем размер файла через сокет, предварительно переведя информацию в байты
@@ -79,10 +77,13 @@ if __name__ == "__main__":
                 camera = cv2.VideoCapture(video_source)
                 continue
 
-            image = cv2.resize(image, (600, 800))
+            
+            # image = cv2.resize(image, (600, 800))
             # image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
             # image = noiseImage(image, 0.1)
+            image = cv2.flip(image, 1)
             image = cv2.imencode('.jpg', image)[1].tobytes()
+            
             
             print('Sending image size')
             sendImageSize(sock, len(image)) #отправляем размера файла
