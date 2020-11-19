@@ -40,5 +40,5 @@ class Camera(BaseCamera):
     def frames():
         while True:
             imageSize = getImageSize(BaseCamera.connection) #получаем размер зашумленного файла
-            print("got image size: {}".format(imageSize))
+            #print("got image size: {}".format(imageSize))
             yield getImage(BaseCamera.connection, imageSize) #получаем зашумленный файл

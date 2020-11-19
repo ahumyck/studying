@@ -38,7 +38,7 @@ def gen(camera):
     """Video streaming generator function."""
     print("I am here")
     while True:
-        print("Trying to get frame")
+        #print("Trying to get frame")
         frame = camera.get_frame()
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')

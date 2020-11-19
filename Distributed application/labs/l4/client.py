@@ -78,14 +78,14 @@ if __name__ == "__main__":
                 continue
 
             
-            # image = cv2.resize(image, (600, 800))
+            image = cv2.resize(image, (600, 800))
             # image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
             # image = noiseImage(image, 0.1)
             image = cv2.flip(image, 1)
             image = cv2.imencode('.jpg', image)[1].tobytes()
             
             
-            print('Sending image size')
+            #print('Sending image size')
             sendImageSize(sock, len(image)) #отправляем размера файла
-            print('Sending image')
+            #print('Sending image')
             sendImage(sock, image) #отправляем файл
