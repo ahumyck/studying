@@ -13,12 +13,7 @@ def tf(word, document) -> int:
     return document.count(word)
 
 def df(word, documents) -> int:
-    counter = 0
-    for document in documents:
-        counter += tf(word, document)
-    if counter == 0:
-        raise Exception("There is no such word in documents")
-    return counter
+    return sum([tf(word, document) for document in documents])
 
 def idf(word, documents) -> float:
     return math.log10(len(documents)/(df(word, documents) + 1))
