@@ -10,7 +10,6 @@ import tfidf
 import dict_file
 import learning
 import mapping
-from message import Message
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 
@@ -46,14 +45,30 @@ def remap_types(types):
     d = {'spam' : 1, 'ham' : 0}
     return types.map(d)
 
+def precision(cnf):
+    tp = cnf[0, 0]
+    fp = cnf[0, 1]
+    
+    return tp / (tp + fp)
+
+def recall(cnf):
+    tp = cnf[0, 0]
+    fn = cnf[1, 0]
+    
+    return tp / (tp + fn)
+    
+
 
 data = get_csv_data(spamFilename)
 types, messages = split_data(data)
 documents = split_messages_by_words(messages)
 tf_idf = load_tf_idf_map("tf_idf")
 info = mapping.replace(documents, tf_idf)
-report = learning.main(info, types)
+report, cnf_matrix = learning.main(info, types)
 print(report)
+print('---------')
+print('precision =', precision(cnf_matrix))
+print('recall =', recall(cnf_matrix))
 
 
 
