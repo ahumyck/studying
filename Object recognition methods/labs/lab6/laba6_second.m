@@ -25,5 +25,5 @@ r4 = mvnrnd(mu2, sigma2, NumberOfPoints);
 
 
 svm_classify(r3, r4, 'linear', NumberOfPoints);
-svm_classify(r3, r4, 'rbf', NumberOfPoints);
+%svm_classify(r3, r4, 'rbf', NumberOfPoints);
 
