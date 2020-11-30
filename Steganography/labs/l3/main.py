@@ -6,59 +6,102 @@ Created on Sun Nov 29 22:56:36 2020
 """
 
 import numpy as np
-from resources import watermark
-from PIL import Image
-
+import os
+import netpbmfile
 import distorsion
+
+from PIL import Image
+from watermark import Watermark
 from distorsion_manager import AreaDistorsionManager, BaseDistorsionManager
 
-area_dir = "/resources/area/"
-jpeg_dir = "/resources/jpeg/"
-median_dir = "/resources/median/"
-sharpering_dir = "/resources/sharpering/"
+original_image = "peppers.pgm"
+embedded_image = "embedded.pgm"
 
-original_image = "resources/pepper.pgm"
-embedded_image = "resources/embed.pgm"
+class Manager():
+    
+    AREA_DIR = "area"
+    JPEG_DIR = "jpeg"
+    MEDIAN_DIR = "median"
+    SHARPERING_DIR = "sharpering"
+    RESOURCES_DIR = "resources"
+    MANAGER_DIR = "current"
+        
+    def __init__(self, watermark):
+        self.paths = dict()
+        self.paths[Manager.MANAGER_DIR] = os.path.abspath(os.getcwd())        
+        self.paths.update(self.__get_directories__())
+        self.templates = self.__init_templates__()
+        self.wm = watermark
+    
+    def __fast_scandir__(self, dirname):
+        subfolders= [f.path for f in os.scandir(dirname) if f.is_dir()]
+        for dirname in list(subfolders):
+            subfolders.extend(self.__fast_scandir__(dirname))
+        return subfolders
+    
+    def __get_directories__(self):
+        endings = [Manager.AREA_DIR, Manager.JPEG_DIR, Manager.MEDIAN_DIR, Manager.SHARPERING_DIR, 
+                   Manager.RESOURCES_DIR]
+        paths = dict()
+        subfolders = self.__fast_scandir__(self.paths[Manager.MANAGER_DIR])
+        for subfolder in subfolders:
+            for ending in endings:
+                if subfolder.endswith(ending):
+                    paths[ending] = subfolder
+        return paths
+    
+    def __init_templates__(self):
+        templates = dict()
+        templates[Manager.AREA_DIR] = "area_image{}.pgm"
+        templates[Manager.JPEG_DIR] = "jpeg_image{}.pgm"
+        templates[Manager.MEDIAN_DIR] = "median_image{}.pgm"
+        templates[Manager.SHARPERING_DIR] = "sharpering_image{}.pgm"
+        return templates
+    
+    def watermark_image(self, input_filename, output_filename):
+        self.wm.embed(input_filename, output_filename)
+        
+    
+    def area_distorsion(self, original_image_filename, embedded_image_filename):
+        embedded_image = netpbmfile.imread(os.path.join(self.paths[Manager.RESOURCES_DIR], embedded_image_filename))
+        original_image = netpbmfile.imread(os.path.join(self.paths[Manager.RESOURCES_DIR], original_image_filename))
+        
+        dist = distorsion.AreaDistorsion()
+        dist_manager = AreaDistorsionManager(dist)
+        
+        wm_template = "area_wm{}.wm"
+        area_dir = self.paths[Manager.AREA_DIR]
+        for i, dist_image in enumerate(dist_manager.apply(original_image, embedded_image)):
+            image_name = self.templates[Manager.AREA_DIR].format(i)
+            
+            netpbmfile.imwrite(os.path.join(area_dir, image_name), dist_image)
+            self.wm.check_distorsion(area_dir, original_image_filename, image_name, wm_template.format(i))
+            
+    
+    def sharpering_distorsion(self, original_image_filename, embedded_image_filename):
+        self.__base_distorsion__(original_image_filename, embedded_image_filename, 
+                                 distorsion.SharperingDistorsion(), "sharpering_wm{}.wm", 
+                                 self.paths[Manager.SHARPERING_DIR], self.templates[Manager.SHARPERING_DIR])
+        
+    def median_distorsion(self, original_image_filename, embedded_image_filename):
+        self.__base_distorsion__(original_image_filename, embedded_image_filename, 
+                                 distorsion.MedianFilterDistorsion(), "median_wm{}.wm", 
+                                 self.paths[Manager.MEDIAN_DIR], self.templates[Manager.MEDIAN_DIR])
+    
+    def __base_distorsion__(self, original_image_filename, embedded_image_filename, dist, wm_template, working_dir, image_template):
+        embedded_image = netpbmfile.imread(os.path.join(self.paths[Manager.RESOURCES_DIR], embedded_image_filename))
+        
+        dist_manager = BaseDistorsionManager(dist)
+        
+        for i, dist_image in enumerate(dist_manager.apply(embedded_image)):
+            image_name = image_template.format(i)
+            
+            netpbmfile.imwrite(os.path.join(working_dir, image_name), dist_image)
+            self.wm.check_distorsion(working_dir, original_image_filename, image_name, wm_template.format(i))
 
-def area_test():
-    R = 5
-    N = R * R
-    dist = distorsion.AreaDistorsion()
-    manager = AreaDistorsionManager(dist)
-    original_image = np.arange(N).reshape(R, R)
-    image = np.power(original_image, 2)
-    
-    for it in manager.apply(original_image, image):
-        print(it)
-        
-def sharpering_test():
-    R = 5
-    N = R * R
-    dist = distorsion.SharperingDistorsion()
-    manager = BaseDistorsionManager(dist)
-    original_image = np.arange(N).reshape(R, R)
-    
-    for it in manager.apply(original_image):
-        print(it)
-        
-def median_test():
-    R = 5
-    N = R * R
-    dist = distorsion.MedianFilterDistorsion()
-    manager = BaseDistorsionManager(dist)
-    original_image = np.arange(N).reshape(R, R)
-    
-    for it in manager.apply(original_image):
-        print(it)
-    
-def jpeg_test():
-    dist = distorsion.JpegDistorsion()
-    manager = BaseDistorsionManager(dist)
-    original_image = Image.open('image.jpg')
-    
-    for it in manager.apply(original_image):
-        print(it)
-        
-        
-watermark.embed(original_image, embedded_image, 'wang')
 
+manager = Manager(Watermark(Watermark.WANG))
+manager.watermark_image(original_image, embedded_image)
+#manager.area_distorsion(original_image, embedded_image)
+#manager.sharpering_distorsion(original_image, embedded_image)
+#manager.median_distorsion(original_image, embedded_image)
