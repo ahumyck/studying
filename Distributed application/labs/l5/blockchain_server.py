@@ -49,10 +49,11 @@ class User():
             current_transaction_time = datetime.datetime.now() # берем текущее значение даты
             time_passed = current_transaction_time - last_time_updated # кол-во времени прошедшее с последней транзакции
             days_passed = divmod(time_passed.total_seconds() , 24*60*60)[0] # кол-во дней, прошедшее с последней транзакции
-            print(time_passed, divmod(time_passed.total_seconds() , 24*60*60)[0]) # печатаем эту инфу
+            print(time_passed) # печатаем эту инфу
             if days_passed > 30: # если кол-во прошедших дней с последней транзакции больше 30 
                 self.parametersTime = current_transaction_time # обновляем время транзакции
                 return self.__make_transaction__(tx_manager, value) # производим транзакцию
+            print("Falied on transaction because 30 days time passed less than 30 days") # сообщение об ошибке
             return False # если кол-во прошедшних дней меньше 30, то транзакцию не производим
         
     def __get_transaction_data__(self): #функция получения данных для произвдения транзакции
@@ -123,32 +124,30 @@ class TransactionManager():
         return newValue # возвращаем обновленное значение из контракта
 
 
+
 if __name__ == "__main__":
-    web3 = Web3(Web3.HTTPProvider(url))
-    user_container = UserContainer()
-    tx_manager = TransactionManager()
-    fake = Faker()
+    web3 = Web3(Web3.HTTPProvider(url)) # создаем сервис, который подключается к блокчейну
+    user_container = UserContainer() # создаем контейнер пользователей
+    tx_manager = TransactionManager() # создаем менеджер транзакций
+    fake = Faker() # фейкер для создания имен и адресов
     
-    for account in web3.eth.get_accounts():
-        full_name = fake.name()
+    for account in web3.eth.get_accounts(): # создаем фейковых пользователей блокчейна
         user_container.add_user(account, fake.name(), fake.address())
     
-    print(user_container)
-    
-    magicPrintValue = -987
-    
-    while True:
-        account = input("Account: ")
+    print(user_container) # печатаем всех пользователей
         
-        if account == "stop":
+    while True:
+        account = input("Account: ") # вводим аккаунт
+        
+        if account == "stop": #если имя аккаунта является стоп словом, прекращаем работу
             break
         
-        newValue = int(input("New value: "))
-        user = user_container.get_user(account)
-        if newValue == -987:
-            print(user)
+        newValue = int(input("New value: ")) # вводим новое значение атрибута
+        user = user_container.get_user(account) # получаем пользователя
+        if newValue == -987: #магическое значение -987
+            print(user) # печатаем пользователя
             continue
-        user.update_value_with_transaction(tx_manager, newValue)
+        user.update_value_with_transaction(tx_manager, newValue) #обновляем пользователя
 
 
 
