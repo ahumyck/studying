@@ -1,7 +1,9 @@
 clear;
+clc;
+
 containerName = "goldhill.tif"; 
 informationName = "mickey.tif"; 
-p = 3;
+p = 4;
 
 C = imread(containerName); 
 W = imread(informationName);
@@ -14,6 +16,8 @@ Cwp = not(xor(W, Cp));
 Cw = bitset(C, p, Cwp); 
 Ww = not(bitxor(Cw, C));
 
+disp(max(max(Cw - C)));
+
 subplot(1, 3, 1); imshow(C); impixelinfo; title('C');
 subplot(1, 3, 2); imshow(Cw); impixelinfo; title('Cw');
-subplot(1, 3, 3); imshow(Ww); impixelinfo; title('W');
+subplot(1, 3, 3); imshow(255 * Ww); impixelinfo; title('W');

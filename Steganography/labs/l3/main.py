@@ -102,6 +102,6 @@ class Manager():
 
 manager = Manager(Watermark(Watermark.WANG))
 manager.watermark_image(original_image, embedded_image)
-#manager.area_distorsion(original_image, embedded_image)
-#manager.sharpering_distorsion(original_image, embedded_image)
-#manager.median_distorsion(original_image, embedded_image)
+manager.area_distorsion(original_image, embedded_image)
+manager.sharpering_distorsion(original_image, embedded_image)
+manager.median_distorsion(original_image, embedded_image)

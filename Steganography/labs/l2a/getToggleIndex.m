@@ -6,7 +6,7 @@ sz = size(image);
 [x0, y0] = ind2sub(sz, index);
 
 [windowSize, ~] = size(weightMatrix);
-r = floor(windowSize / 2);
+r = floor(windowSize / 2); %radius of window
 
 toggleArea = image(x0 - r: x0 + r, y0 - r: y0 + r);
 candidatesIndecies = find(toggleArea == Cw_bit);
@@ -15,9 +15,10 @@ candidatesIndecies = find(toggleArea == Cw_bit);
 if s == 1
     index = -1;
 else
-    magicValue = ceil(power(windowSize, 2) / 2);
-    if ismember(magicValue, candidatesIndecies)
-        candidatesIndecies(candidatesIndecies == magicValue) = [];
+    %if center bit is canditate we need to exclude this bit from candidates
+    centerBit = ceil(power(windowSize, 2) / 2); 
+    if ismember(centerBit, candidatesIndecies)
+        candidatesIndecies(candidatesIndecies == centerBit) = [];
         s = s - 1;
     end
     

@@ -1,6 +1,8 @@
 clear;
 clc;
 
+feature('DefaultCharacterSet', 'UTF8');
+
 binaryImageName = "lena_bin.tif";
 dataFilename = "data.txt";
 
@@ -14,14 +16,20 @@ disp(s);
 windowSize = 5;
 w = weightMatrixGenerator(windowSize);
 
-indecies = indexSequenceGenerator(C, windowSize, s); %s = 140
+indecies = indexSequenceGenerator(C, windowSize);
+imageSize = size(C);
 
+[~, m] = size(indecies);
 
 for i = 1:s
     index = indecies(i);
     bit = bits(i);
     Cw(index) = bit;
     toggleIndex = getToggleIndex(index, Cw, w, bit);
+    [row, col] = ind2sub(imageSize, index); %ind2sub(size(toggleArea), candidatesIndecies)
+    fprintf("[%d; %d]\n", row, col);
+    [row, col] = ind2sub(imageSize, toggleIndex); %ind2sub(size(toggleArea), candidatesIndecies)
+    fprintf("[%d; %d]\n\n", row, col);
     if toggleIndex ~= -1
         Cw(toggleIndex) = not(Cw(toggleIndex));
     end

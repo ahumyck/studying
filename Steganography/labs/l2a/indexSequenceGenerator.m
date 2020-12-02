@@ -1,4 +1,4 @@
-function [indexSequence] = indexSequenceGenerator(image, windowSize, key)
+function [indexSequence] = indexSequenceGenerator(image, windowSize)
 %INDEXSEQUENCEGENERATOR Summary of this function goes here
 %   Detailed explanation goes here
 [rowsNumber, colsNumber] = size(image);
@@ -28,12 +28,10 @@ while 1
             break
         end
     end
-        
-    
     index = index + 1;
 end
-rows = rows(1:key);
-cols = cols(1:key);
+cols = cols(1: index - 1);
+rows = rows(1: index - 1);
 indexSequence = sub2ind(size(image), rows, cols);
 end
 
