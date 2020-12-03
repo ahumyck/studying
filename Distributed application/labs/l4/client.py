@@ -79,8 +79,8 @@ if __name__ == "__main__":
 
             
             image = cv2.resize(image, (600, 800))
-            # image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-            # image = noiseImage(image, 0.1)
+            image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+            image = noiseImage(image, 0.1)
             image = cv2.flip(image, 1)
             image = cv2.imencode('.jpg', image)[1].tobytes()
             

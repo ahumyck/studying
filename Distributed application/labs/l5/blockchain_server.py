@@ -8,12 +8,6 @@ from web3 import Web3
 import datetime
 from faker import Faker
 
-"""
-Created on Thu Dec  3 02:27:39 2020
-
-@author: ahumy
-"""
-
 bin_filename = "contract_sol_ValueKeeper.bin"
 abi_filename = "contract_sol_ValueKeeper.abi"
         
@@ -25,10 +19,6 @@ def get_content(filename):
 
 
 
-"""
-@author: lazzarus
-
-"""
 class User():
     def __init__(self, account, name, address):
         self.name = name # имя пользователя
@@ -78,10 +68,7 @@ class User():
         return self_information.format(self.account, self.get_balance(), self.name, self.address, self.parametersValue, self.parametersTime)
 
 
-"""
-@author: ahumy
 
-"""
 class UserContainer():
     def __init__(self):
         self.users = dict()
@@ -99,10 +86,8 @@ class UserContainer():
             user_info += user.__str__()
         return user_info
 
-"""
-@author: lazzarus
 
-"""
+
 class TransactionManager():
     def __init__(self):
         self.default_account = web3.eth.defaultAccount
