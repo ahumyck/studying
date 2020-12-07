@@ -7,7 +7,6 @@ Created on Sun Nov 29 22:20:06 2020
 
 import numpy as np        
 from scipy.ndimage import convolve, median_filter
-from io import BytesIO
 
 
 class AreaDistorsion(): 
@@ -52,20 +51,6 @@ class MedianFilterDistorsion():
     
     def get_parameters(self):
         return 3, 15, 2
-    
-
-
-class JpegDistorsion():
-    def __init__(self):
-        pass
-    
-    def apply(self, image, QF):
-        out = BytesIO()
-        image.save(out, format = 'jpeg', quality = QF)
-        return out
-    
-    def get_parameters(self):
-        return 30, 90, 10
     
     
     

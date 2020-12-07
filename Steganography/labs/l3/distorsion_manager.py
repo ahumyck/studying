@@ -17,6 +17,19 @@ class BaseDistorsionManager():
         while lower <= value and value <= upper:
             yield self.distorsion.apply(image, value)
             value += delta
+            
+
+class JpegDistorsionManager():
+    
+    def parameters(self):
+        lower, upper, delta = 30, 90, 10     
+        value = lower
+        
+        while lower <= value and value <= upper:
+            yield value
+            value += delta
+    
+    
 
 class AreaDistorsionManager():
     def __init__(self, distorsion):

@@ -87,26 +87,26 @@ hold on;
 scatter(Xgreen(:),Ygreen(:), 5, 'green', 'fill');
 hold on;
 
-r = r1+r2+r3
+r = r1+r2+r3;
 
 
 function res = countK(X, x, K)
-res = 500*ones(1,K);
-for i = 1:size(X,2)
-    dest = sqrt((X(1, i)-x(1))^2+(X(2, i)-x(2))^2);
-    res = writeToArr(res, dest);
-end
+    res = 500*ones(1,K);
+    for i = 1:size(X,2)
+        dest = sqrt((X(1, i)-x(1))^2+(X(2, i)-x(2))^2);
+        res = writeToArr(res, dest);
+    end
 end
 
 function arr = writeToArr(X, x)
-arr = X;
-if(X(1,size(X,2))>x)
-    for i = 1:size(X,2)
-        if(X(1,i)>x)
-            arr(1, i) = x;
-            arr(1, i+1:end) = X(1, i:end-1);
-            break;
+    arr = X;
+    if(X(1,size(X,2)) > x)
+        for i = 1:size(X,2)
+            if(X(1,i) > x)
+                arr(1, i) = x;
+                arr(1, i+1:end) = X(1, i:end-1);
+                break;
+            end
         end
     end
-end
 end

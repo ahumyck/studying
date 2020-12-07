@@ -46,8 +46,9 @@ class Watermark():
         execute = os.path.join(self.utils, "wm_" + self.embed_type + "_e -s " + esn + " -o " + ofn + " " + ifn)
         os.system(execute)
         os.chdir(self.path)
+        return esn
         
-    def check_distorsion(self, working_dir, original_filename, embedded_filename, output_filename):
+    def extract(self, working_dir, original_filename, embedded_filename, output_filename):
         os.chdir(self.utils)
         ifn = os.path.join(self.resources, original_filename)
         efn = os.path.join(working_dir, embedded_filename)

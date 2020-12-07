@@ -72,4 +72,4 @@ def main(x, y):
     plot_confusion_matrix(cnf_matrix, classes=['Spam', 'Ham'],
                           title='Confusion matrix')
     plt.show()
-    return classification_report(y_test, lr.predict(X_test), target_names = ['Spam', 'Ham']), cnf_matrix
+    return cnf_matrix
