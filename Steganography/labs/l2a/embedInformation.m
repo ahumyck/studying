@@ -1,15 +1,12 @@
 clear;
 clc;
 
-feature('DefaultCharacterSet', 'UTF8');
-
 binaryImageName = "lena_bin.tif";
-dataFilename = "data.txt";
 
 C = imread(binaryImageName);
 Cw = imread(binaryImageName) / 255;
 
-bits = file2bin(dataFilename);
+bits = file2bin("data.txt");
 [~, s] = size(bits);
 disp(s);
 
@@ -26,10 +23,10 @@ for i = 1:s
     bit = bits(i);
     Cw(index) = bit;
     toggleIndex = getToggleIndex(index, Cw, w, bit);
-    [row, col] = ind2sub(imageSize, index); %ind2sub(size(toggleArea), candidatesIndecies)
-    fprintf("[%d; %d]\n", row, col);
+    %[row, col] = ind2sub(imageSize, index); %ind2sub(size(toggleArea), candidatesIndecies)
+    %fprintf("[%d; %d]\n", row, col);
     [row, col] = ind2sub(imageSize, toggleIndex); %ind2sub(size(toggleArea), candidatesIndecies)
-    fprintf("[%d; %d]\n\n", row, col);
+    %fprintf("[%d; %d]\n\n", row, col);
     if toggleIndex ~= -1
         Cw(toggleIndex) = not(Cw(toggleIndex));
     end

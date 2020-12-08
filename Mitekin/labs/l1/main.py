@@ -36,49 +36,22 @@ def createBehaviorModel(actionSequence) -> dict:
     
     return behaviorModel
 
-def compareBehaviorModels(trainingModel: dict, actualModel: dict) -> str:
+def checkUserBehaviour(userBehaviourModel, userActionSequence):
     
-    def completeActualModel(trainingModel: dict, actualModel: dict):
-        for key in trainingModel:
-            if key not in actualModel:
-                actualModel[key] = 0
-        return actualModel
+    product = 1
     
-    def remapTrainingModel(trainingModel: dict, actualModel: dict) -> dict:
-        summ = 0
-        for key in actualModel:
-            if key in trainingModel:
-                summ += trainingModel[key]
-                
-        remappedModel = dict()
-        for key in actualModel:
-            if key in trainingModel:
-                remappedModel[key] = trainingModel[key] / summ
-        return remappedModel
+    for i in range(len(userActionSequence) - 1):
+        state = getState(userActionSequence, i)
         
-            
-    
-    def _in(value_a, value_b, delta = 0.1) -> bool:
-        return abs(value_a - value_b) < delta
-    
-    message = ""
-    template = "{}: action: {}, training {} vs actual {} vs remap {}\n"
-    #actualModel = completeActualModel(trainingModel, actualModel)
-    remappedModel = remapTrainingModel(trainingModel, actualModel)
-    for key in actualModel:
-        if key not in trainingModel:
-            message += "The user has never performed this sequence of actions before {}\n".format(key)
+        if state in userBehaviourModel:
+            product *= userBehaviourModel[state]
         else:
-            trainingValue = trainingModel[key]
-            actualValue = actualModel[key]
-            remappedValue = remappedModel[key]
-            
-            if _in(trainingValue, actualValue):
-                message += template.format("True", key, trainingValue, actualValue, remappedValue)
-            else:
-                message += template.format("False", key, trainingValue, actualValue, remappedValue)
+            product = -1
+            break
     
-    return message + "\n\n"
+    return product
+
+
             
             
 def main():
@@ -96,13 +69,13 @@ def main():
         _, fakeLearningSequence = getUserNameAndActionSequence(fakeData[i])
         
         trainingUserBehaviourModel = createBehaviorModel(userLearningSequence)
-        trueUserBehaviourModel = createBehaviorModel(trueLearningSequence)
-        fakeUserBehaivourModel = createBehaviorModel(fakeLearningSequence)
+        checkedTrueUserBehaviour = checkUserBehaviour(trainingUserBehaviourModel, trueLearningSequence)
+        output["true"] += "{} actions result = {}({})\n".format(userName, checkedTrueUserBehaviour > 0.1, checkedTrueUserBehaviour)
         
-        output["true"] += "Analyzing user = {}\n".format(userName)
-        output["fake"] += "Analyzing user = {}\n".format(userName)
-        output["true"] += compareBehaviorModels(trainingUserBehaviourModel, trueUserBehaviourModel)
-        output["fake"] += compareBehaviorModels(trainingUserBehaviourModel, fakeUserBehaivourModel)
+        checkedFalseUserBehaviour = checkUserBehaviour(trainingUserBehaviourModel, fakeLearningSequence)
+        output["fake"] += "{} actions result = {}({})\n".format(userName, checkedFalseUserBehaviour > 0.1, checkedFalseUserBehaviour)
+        
+        
 
 
     f = open(outputTrueFilename, 'w')
