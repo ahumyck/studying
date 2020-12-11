@@ -20,9 +20,11 @@ class BaseDistorsionManager():
             
 
 class JpegDistorsionManager():
+    def __init__(self, distorsion):
+        self.distorsion = distorsion
     
     def parameters(self):
-        lower, upper, delta = 30, 90, 10     
+        lower, upper, delta = self.distorsion.get_parameters()  
         value = lower
         
         while lower <= value and value <= upper:

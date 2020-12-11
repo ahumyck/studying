@@ -39,7 +39,12 @@ class SharperingDistorsion():
     
     def get_parameters(self):
         return 3, 15, 2
+
+
+class JpegDistorsion():
     
+    def get_parameters(self):
+        return 30, 90, 10
     
 
 class MedianFilterDistorsion():

@@ -6,6 +6,7 @@ Created on Mon Nov 30 16:50:02 2020
 """
 
 import os
+import subprocess
 
 class Watermark():
     
@@ -57,5 +58,14 @@ class Watermark():
         execute = os.path.join(self.utils, "wm_" + self.embed_type + "_d -s " + esn + " -i " + ifn + " -o " + ofn + " " + efn)
         os.system(execute)
         os.chdir(self.path)
+        
+    def compare(self, distorsioned_filename):
+        os.chdir(self.utils)
+        
+        execute = "cmp_{0}_sig -C -s {0}.sig {1}".format(self.embed_type, distorsioned_filename)
+        result = subprocess.check_output(execute, shell = True)
+        
+        os.chdir(self.path)
+        return result
         
     
