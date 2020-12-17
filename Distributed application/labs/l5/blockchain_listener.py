@@ -6,7 +6,7 @@ Created on Thu Dec  3 02:34:14 2020
 
 from web3 import Web3
 from faker import Faker
-import time
+import os
 
 bin_filename = "contract_sol_ValueKeeper.bin"
 abi_filename = "contract_sol_ValueKeeper.abi"
@@ -23,28 +23,29 @@ class User():
     def __init__(self, account, name, address):
         self.name = name # имя пользователя
         self.address = address # адрес
+        self.id = os.urandom(20) # уникальный айди 20 байт
         self.account = account # аккаунт пользователя
         self.contractAddresses = [] # контракты пользователя
         
     def get_balance(self):
         return web3.eth.getBalance(self.account) # функция для получения кол-во "денег" на счету пользователя
     
-    def create_contract(self, tx_manager):
+    def create_contract(self, tx_manager, value):
         abi, byte_code = self.__get_transaction_data__()
-        self.contractAddresses.append(tx_manager.create_contract(self.account, abi, byte_code))
+        self.contractAddresses.append(tx_manager.create_contract(self, abi, byte_code, value))
     
-    def update_contract_value(self, tx_manager, contract_address, key, value):  #функция для обновления параметра пользователя
+    def update_contract_value(self, tx_manager, contract_address, value):  #функция для обновления параметра пользователя
         balance_before_transaction = self.get_balance()
         abi, byte_code = self.__get_transaction_data__()
-        transaction_result = tx_manager.update_contract_value_with_transaction(self.account, contract_address, abi, key, value)
+        transaction_result = tx_manager.update_contract_value_with_transaction(self, contract_address, abi, value)
         if transaction_result:
             print("Transaction successfully completed")
             print("Balance before transaction:", balance_before_transaction)
             print("Balance after transaction:", self.get_balance())
             
-    def get_contract_value(self, tx_manager, contract_address, key):
+    def get_contract_value(self, tx_manager, contract_address):
         abi, byte_code = self.__get_transaction_data__()
-        contract_value = tx_manager.get_contract_value(contract_address, abi, key)
+        contract_value = tx_manager.get_contract_value(self, contract_address, abi)
         if contract_value is not None:
             return contract_value
         else: raise Exception("contract value is None")
@@ -64,19 +65,20 @@ class TransactionManager():
     def __init__(self):
         self.default_account = web3.eth.defaultAccount
         
-    def create_contract(self, user_account, contract_abi, contract_byte_code):
-        web3.eth.defaultAccount = user_account # с какого пользователя снять деньги за произведение транзакции
-        ValueKeeper = web3.eth.contract(abi=contract_abi, bytecode=contract_byte_code) # получаем модель контракта
-        tx_hash = ValueKeeper.constructor().transact() # получаем хеш транзакции
-        tx_receipt = web3.eth.waitForTransactionReceipt(tx_hash) # получаем данные о транзакции
+    def create_contract(self, user, contract_abi, contract_byte_code, value):
+        web3.eth.defaultAccount = user.account # с какого пользователя снять деньги за произведение транзакции
+        contract = web3.eth.contract(abi=contract_abi, bytecode=contract_byte_code) # получаем модель контракта
+        tx_hash = contract.constructor().transact() # получаем хеш транзакции
+        tx_receipt = web3.eth.waitForTransactionReceipt(tx_hash) # получаем данные о транзакции 
+        self.add_user_contract_with_transaction(user, tx_receipt["contractAddress"], contract_abi, value)
         web3.eth.defaultAccount = self.default_account
         return tx_receipt["contractAddress"]; #возвращаем адрес контракта
     
-    def update_contract_value_with_transaction(self, user_account, contract_address, contract_abi, key, value): # функиця обновления контракта
+    def add_user_contract_with_transaction(self, user, contract_address, contract_abi, value):
         try:
+            web3.eth.defaultAccount = user.account # с какого пользователя снять деньги за произведение транзакции
             contract = web3.eth.contract(address = contract_address, abi = contract_abi) # получаем контракт пользователя из блокчейна
-            web3.eth.defaultAccount = user_account # с какого пользователя снять деньги за произведение транзакции
-            tx_hash = contract.functions.tryUpdateValue(key, value).transact() # получаем хеш транзакции
+            tx_hash = contract.functions.addUser(user.id, user.name, user.address, value).transact() # получаем хеш транзакции
             # именно данная функция будет выбрасывать исключение в случае, если прошло
             # меньше 30 дней с момента предыдущей транзакции
             
@@ -87,11 +89,27 @@ class TransactionManager():
             print(e) # распечатываем сообщение 
             web3.eth.defaultAccount = self.default_account
             return False # transaction successfully failed
+    
+    def update_contract_value_with_transaction(self, user, contract_address, contract_abi, value): # функиця обновления контракта
+        try:
+            web3.eth.defaultAccount = user.account # с какого пользователя снять деньги за произведение транзакции
+            contract = web3.eth.contract(address = contract_address, abi = contract_abi) # получаем контракт пользователя из блокчейна
+            tx_hash = contract.functions.tryUpdateValue(user.id, value).transact() # получаем хеш транзакции
+            # именно данная функция будет выбрасывать исключение в случае, если прошло
+            # меньше 30 дней с момента предыдущей транзакции
+            
+            web3.eth.waitForTransactionReceipt(tx_hash) # дожидаемся конца транзакции
+            web3.eth.defaultAccount = self.default_account
+            return True # Transaction successfully completed
+        except Exception as e:
+            print(e) # распечатываем сообщение 
+            web3.eth.defaultAccount = self.default_account
+            return False # transaction successfully failed
         
-    def get_contract_value(self, contract_address, contract_abi, key):
+    def get_contract_value(self, user, contract_address, contract_abi):
         try:
             contract = web3.eth.contract(address = contract_address, abi = contract_abi) # получаем контракт пользователя из блокчейна
-            return contract.functions.getValue(key).call() # получаем данные о искомом параметре
+            return contract.functions.getValue(user.id).call() # получаем данные о искомом параметре
         except Exception as e:
             print(e)
             return None
@@ -138,27 +156,28 @@ if __name__ == "__main__":
         account = input("Provide user account: ")
         user = user_container.get_user(account)
         
+        if response != 3:
+            value = int(input("Provide value(integer): "))
+        
         if response == 1:
-            user.create_contract(tx_manager)
+            user.create_contract(tx_manager, value)
+            input();
             continue;
 
         
         contract_address = input("Provide user's contract address: ")
-        key = int(input("Provide key(integer): "))
         if response == 2:
-            value = int(input("Provide value(integer): "))
-            user.update_contract_value(tx_manager, contract_address, key, value)
-            time.sleep(1)
+            user.update_contract_value(tx_manager, contract_address, value)
+            input()
             continue
             
         if response == 3:
             try:
-                value = user.get_contract_value(tx_manager, contract_address, key)
-                print("Contract[{}] = {}".format(key, value))
+                value = user.get_contract_value(tx_manager, contract_address)
+                print("Contract[{}] = {}".format(contract_address, value))
+                input()
             except Exception:
                 print("No such key in contract")
-        
-        print()
                 
                 
             

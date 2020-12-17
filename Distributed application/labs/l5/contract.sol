@@ -2,20 +2,34 @@
 pragma solidity >= 0.4.21;
 contract ValueKeeper {
 
-    mapping (int => uint256) timestamps;
-    mapping (int => int) values;    
+    struct UserData {
+        address userId;
+        string name;
+        string homeAddress;
+    }
 
-    function getValue(int key) public view returns(int) {
-        return values[key];
+    mapping (address => UserData) data;
+    mapping (address => uint256) timestamps;
+    mapping (address => int) values;    
+
+    function getValue(address _id) public view returns(int) {
+        return values[_id];
     }
     
-    function tryUpdateValue(int key, int newValue) public {
+    function addUser(address _id, string memory _name, string memory _addr, int value) public {
+        UserData memory user = UserData(_id, _name, _addr);
+        timestamps[_id] = block.timestamp;
+        values[_id] = value;
+    }
+    
+    function tryUpdateValue(address _id, int newValue) public {
         uint256 transactionTime = block.timestamp;
-        if (timestamps[key] > 0) {
-            require(transactionTime > timestamps[key] + 30 days , "More than 30 days has to pass by.");
+        if (timestamps[_id] > 0) {
+            require(transactionTime > timestamps[_id] + 5 seconds , "More than 30 days has to pass by.");
+            /* 30 days */
         }
-        timestamps[key] = transactionTime;
-        values[key] = newValue;
+        timestamps[_id] = transactionTime;
+        values[_id] = newValue;
     }
     
 }

@@ -1,3 +1,6 @@
+clear;
+clc;
+
 fileData = load('data_2-x1.mat');
 X1 = fileData.X1;
 fileData = load('data_2-x2.mat');
@@ -21,7 +24,6 @@ function parzenClassify(X1,X2,X3,X1tr,X2tr,X3tr)
     B1=A6*A6';
     B2=A7*A7';
     B3=A8*A8';
-    n = 2;
     Xred = [];
     Xgreen = [];
     Xblue = [];
@@ -92,7 +94,9 @@ function parzenClassify(X1,X2,X3,X1tr,X2tr,X3tr)
     hold on;
     scatter(Xgreen(:),Ygreen(:), 5, 'green', 'fill');
     hold on;
-    r = r1+r2+r3;
+    fprintf("r%d = %d\n", 1, r1);
+    fprintf("r%d = %d\n", 2, r2);
+    fprintf("r%d = %d\n", 3, r3);
 end
 
 
