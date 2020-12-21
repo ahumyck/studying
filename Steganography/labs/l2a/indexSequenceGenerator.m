@@ -1,4 +1,4 @@
-function [indexSequence] = coordinatesSequenceGenerator(image, windowSize)
+function [indexSequence] = indexSequenceGenerator(image, windowSize)
 %INDEXSEQUENCEGENERATOR Summary of this function goes here
 %   Detailed explanation goes here
 [rowsNumber, colsNumber] = size(image);
