@@ -1,4 +1,4 @@
-function [indexSequence] = coordinatesGenerator(image, windowSize)
+function [coordinatesSequence] = coordinatesGenerator(image, windowSize)
 %INDEXSEQUENCEGENERATOR Summary of this function goes here
 %   Detailed explanation goes here
 [rowsNumber, colsNumber] = size(image);
@@ -26,6 +26,6 @@ while 1
     end
     index = index + 1;
 end
-indexSequence = sub2ind(size(image), rows, cols);
+coordinatesSequence = sub2ind(size(image), rows, cols);
 end
 
