@@ -9,7 +9,7 @@ for i = s
     [x0, y0] = ind2sub(imageSize, indecies(i));
     for j = s
         [x, y] = ind2sub(imageSize, indecies(i));
-        if abs(x - x0) < r || abs(y - y0) < r
+        if ~(abs(x - x0) > r && abs(y - y0) > r)
             result = -1;
             break;
         end

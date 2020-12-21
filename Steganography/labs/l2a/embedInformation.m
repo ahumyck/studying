@@ -15,18 +15,18 @@ bits = file2bin("data.txt");
 windowSize = 5;
 w = weightMatrixGenerator(windowSize);
 
-indecies = indexSequenceGenerator(C, windowSize);
-indecies = indecies(randperm(numel(indecies)));
+coordinates = coordinatesGenerator(C, windowSize);
+coordinates = coordinates(randperm(numel(coordinates)));
 imageSize = size(C);
 r = floor(windowSize / 2); %radius of window
 
-if validation(indecies(1: s), imageSize, r)
+if validation(coordinates(1: s), imageSize, r)
     fprintf("validation suc\n");
     
-    [~, m] = size(indecies);
+    [~, m] = size(coordinates);
 
     for i = 1:s
-        index = indecies(i);
+        index = coordinates(i);
         bit = bits(i);
         Cw(index) = bit;
         toggleIndex = getToggleIndex(index, Cw, w, bit);

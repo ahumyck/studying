@@ -1,14 +1,10 @@
-function [indexSequence] = indexSequenceGenerator(image, windowSize)
+function [indexSequence] = coordinatesGenerator(image, windowSize)
 %INDEXSEQUENCEGENERATOR Summary of this function goes here
 %   Detailed explanation goes here
 [rowsNumber, colsNumber] = size(image);
-dy = floor(rowsNumber/windowSize);
-dx = floor(colsNumber/windowSize);
 
-lenght = dy * dx;
-
-cols = zeros(1, lenght);
-rows = zeros(1, lenght);
+cols = zeros(1, 2);
+rows = zeros(1, 2);
 
 cols(1) = windowSize;
 rows(1) = windowSize;
@@ -30,8 +26,6 @@ while 1
     end
     index = index + 1;
 end
-cols = cols(1: index - 1);
-rows = rows(1: index - 1);
 indexSequence = sub2ind(size(image), rows, cols);
 end
 

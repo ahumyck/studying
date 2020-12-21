@@ -9,17 +9,20 @@ outputTrueFilename = "outputTrue.txt"
 outputFakeFilename = "outputFake.txt"
 
 
-def getData(filename) -> np.array:
+def getData(filename):
+    #функция для чтения данных из файла и получение его в виде массива
     return pd.read_csv(filename, header = None)[0].values
 
-def getUserNameAndActionSequence(user) -> (str, np.array):
-    userName, array = user.split(':')
+def getUserNameAndActionSequence(user):
+    #на вход поступает строка
+    userName, array = user.split(':') # разделяем исходную строку на имя пользователя и массив действий
     return userName, np.array(array.split(';'), dtype = np.uintc)
 
-def getState(sequence, index) -> tuple:
+def getState(sequence, index):
+    #получения состояния текущего индекса
     return sequence[index], sequence[index + 1]
 
-def createBehaviorModel(actionSequence) -> dict:
+def createBehaviorModel(actionSequence):
     behaviorModel = dict()
     N = len(actionSequence)
     
@@ -31,8 +34,8 @@ def createBehaviorModel(actionSequence) -> dict:
         else:
             behaviorModel[state] = 1
     
-    for key in behaviorModel:
-        behaviorModel[key] /= (N - 1)
+    for state in behaviorModel:
+        behaviorModel[state] /= (N - 1)
     
     return behaviorModel
 

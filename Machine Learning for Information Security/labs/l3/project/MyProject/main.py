@@ -1,32 +1,27 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Dec 15 01:19:10 2020
-
-@author: ahumy
-"""
 
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.colors as mcolors
-import cv2
 from base_object import BaseObject
 
 
-def parse_df(df):
-    def create_objects(ids):
-        objects = dict()
+def create_objects(ids):
+    objects = dict()
+    
+    for Id in ids:
+        objects[Id] = BaseObject(Id)
         
-        for Id in ids:
-            objects[Id] = BaseObject(Id)
-            
-        return objects
+    return objects
+
+def parse_df(df):
     
     objects = create_objects(df['ID'].unique())
 
     for index, row in df.iterrows():
-        x_right, y_bottom, x_left, y_top = row['x_right'], row['y_bottom'], row['x_left'], row['y_top'] 
-        objects[row['ID']].add_coordinate(x_right, y_bottom, x_left, y_top)
+        x_right, y_bottom, x_left, y_top = row['x_right'], row['y_bottom'], row['x_left'], row['y_top']
+        obj_id = row['ID']
+        obj = objects[obj_id]
+        obj.add_coordinate(x_right, y_bottom, x_left, y_top)
         
     return objects
 
@@ -114,7 +109,9 @@ def task6(df):
     indecies = np.where(diff_frames > 1)   
     
     mf = []
-    missing_frames = dict(zip(frames[indecies], diff_frames[indecies] - 1))
+    number_of_missing_frames = diff_frames[indecies] - 1
+    missing_frames = dict(zip(frames[indecies], number_of_missing_frames))
+    
     for key in missing_frames:
         start = key + 1
         count = missing_frames[key]
@@ -128,28 +125,13 @@ def task6(df):
     return "{}".format(mf)
         
 def task7(objects):
-    lifecycle = np.array([len(objects[ID].get_coordinates()) for ID in objects])
-    return "Avg lifecycle = {}\n".format(np.mean(lifecycle))
-
-
-def task8(objects, scene):
-    coord = []
-    w, h, _ = scene.shape
+    lifecycle = np.array([])
+    
     for ID in objects:
         obj = objects[ID]
-        coord.extend(obj.get_coordinates())
+        lifecycle = np.append(lifecycle, len(obj.get_coordinates()))
         
-    heatmap = np.zeros((w, h))
-    for x_right, y_bottom, x_left, y_top in coord:
-        heatmap[x_left: x_right, y_top: y_bottom] += 1
-        
-    
-    
-    #heatmapshow = None
-    #heatmap = cv2.cvtColor(heatmap, cv2.COLOR_RGB2BGR)
-   
-    #cv2.imshow("Heatmap", heatmap)
-    #cv2.waitKey(0)
+    return "Avg lifecycle = {}\n".format(np.mean(lifecycle))
     
     
     
@@ -157,17 +139,16 @@ def task8(objects, scene):
     
     
 if __name__ == "__main__":
-    trajectories_filename = "refactor.csv"
+    trajectories_filename = "trajectories.csv"
     df = pd.read_csv(trajectories_filename)
     objects = parse_df(df)
-    #task_template(task1, (objects, 5000), "task1.txt")
-    #task_template(task2, (objects, 5), "task2.txt")
-    #task_template(task3, (objects, (500, 500, 0, 0)), "task3.txt")
-    #task_template(task4, (objects, 3), "task4.txt")
-    #task_template(task5, (df, 5), "task5.txt")
-    #task_template(task6, df, "task6.txt")
-    #task_template(task7, objects, "task7.txt")
-    task8(objects, cv2.imread("scene.jpg"))
+    task_template(task1, (objects, 5000), "task1.txt")
+    task_template(task2, (objects, 5), "task2.txt")
+    task_template(task3, (objects, (500, 500, 0, 0)), "task3.txt")
+    task_template(task4, (objects, 3), "task4.txt")
+    task_template(task5, (df, 5), "task5.txt")
+    task_template(task6, df, "task6.txt")
+    task_template(task7, objects, "task7.txt")
     
     
 
