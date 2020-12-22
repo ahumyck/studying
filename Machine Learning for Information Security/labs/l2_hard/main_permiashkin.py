@@ -20,7 +20,7 @@ def get_csv_data(filename):
     return pd.read_csv(filename, encoding = 'cp1251')
 
 def split_data(data):
-    return remap_types(data['v1']).values, data['v2'].values
+    return remap_types(data['v1']).values, data['v2']
 
 def split_messages_by_words(messages):
     vectorizer = TfidfVectorizer()
@@ -65,9 +65,37 @@ def recall(cnf):
     return tp / (tp + fn)
     
 
+# <----- Убираем стоп слова, делаем нормализацию, нормализацию ----->
+import nltk
+import string
+import pymorphy2
+from sklearn.preprocessing import LabelEncoder
+
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+
+#nltk.download('punkt')
+#nltk.download('stopwords')
+
+def spacy_tokenizer(sentence):     
+    punctuations = string.punctuation 
+    morph = pymorphy2.MorphAnalyzer()
+    tokens = word_tokenize(sentence)
+    tokens = [token.lower() for token in tokens]
+    tokens = [morph.parse(token)[0].normal_form for token in tokens] 
+    tokens = [word for word in tokens if (word not in punctuations) and (word not in stopwords.words('english'))] 
+    return ' '.join(tokens)
+
+data_source = "spam.csv"
+
+df = pd.read_csv(data_source, encoding = 'cp1252')
+messages = df['v2'].values
+
+# <----------------------------------------------------------------->
 
 data = get_csv_data(spamFilename)
 types, messages = split_data(data)
+messages = messages.apply(spacy_tokenizer)
 documents = split_messages_by_words(messages)
 paired = join_to_pairs(documents)
 #tf_idf = get_data_and_build_tf_idf_map_then_save_it_to_file(paired, "tf_idf")
