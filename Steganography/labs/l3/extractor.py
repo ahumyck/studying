@@ -115,7 +115,8 @@ class WatermarkDistorsionedImageExtractor():
         for i, dist_image in enumerate(dist_manager.apply(embedded_image)):
             image_name = image_template.format(i)
             
-            netpbmfile.imwrite(os.path.join(working_dir, image_name), dist_image)
+            cv2.imwrite(os.path.join(working_dir, image_name), dist_image)
+            #netpbmfile.imwrite(os.path.join(working_dir, image_name), dist_image)
             self.wm.extract(working_dir, original_image_filename, image_name, wm_template.format(i))
             
     

@@ -49,7 +49,7 @@ def checkUserBehaviour(userBehaviourModel, userActionSequence):
         if state in userBehaviourModel:
             product *= userBehaviourModel[state]
         else:
-            product = -1
+            product = 0
             break
     
     return product

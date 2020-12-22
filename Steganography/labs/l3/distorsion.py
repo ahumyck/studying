@@ -5,6 +5,7 @@ Created on Sun Nov 29 22:20:06 2020
 @author: ahumy
 """
 
+import cv2
 import numpy as np        
 from scipy.ndimage import convolve, median_filter
 
@@ -25,6 +26,13 @@ class AreaDistorsion():
     
     def get_parameters(self):
         return 0.2, 0.9, 0.1
+
+
+
+class JpegDistorsion():
+    
+    def get_parameters(self):
+        return 30, 90, 10
     
     
 class SharperingDistorsion():
@@ -32,19 +40,18 @@ class SharperingDistorsion():
         self.A = 5
     
     def apply(self, image, N):
-        smooth = convolve(image, np.ones(N*N).reshape(N, N) / N)
-        dist = image + self.A * (image - smooth)
-        dist[np.where(dist < 0)] = 0
+        smooth = np.array(cv2.blur(image, (N, N)), dtype=float)
+        diff = np.array(image, dtype = float)  - smooth;
+        dist = np.array(image, dtype=float) + self.A * diff
+        dist.astype(np.uint8)
+        #smooth = convolve(image, np.ones(N*N).reshape(N, N) / (N * N))
+        #dist = image + self.A * (image - smooth)
+        #dist[np.where(dist < 0)] = 0
         return dist
     
     def get_parameters(self):
         return 3, 15, 2
 
-
-class JpegDistorsion():
-    
-    def get_parameters(self):
-        return 30, 90, 10
     
 
 class MedianFilterDistorsion():

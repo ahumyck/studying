@@ -87,9 +87,7 @@ def task4(args):
     return result
                 
             
-        
-    
-    
+           
 def task5(args):
     df = args[0]
     N = args[1]
